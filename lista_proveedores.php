@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF8">
+  <title>Lista de Empleados</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link href="css/index_style.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+     <header>
+      <div>
+    	<img  class="logo img-responsive" src="img/titulo4.png" align="center" width="500px" height="100px" hspace="450px">
+      </div> 
+      <div class="container"> 
+    	<div class="navbar-header"> 
+      		<button aria-controls="bs-navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-navbar" data-toggle="collapse" type="button"> 
+        		<img src="img/icono-menu.png" style="width: 25px; height: 25px">
+      		</button> 
+      		<a href="lista_proveedores.php" class="navbar-brand"><label style="color: white; font-family: 'Trebuchet MS'">Inicio</label></a> 
+    	</div> 
+    	<nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
+      		<ul class="nav navbar-nav"> 
+        		<li class="texto-contenedor-1">
+	            	<a href="#" data-toggle="modal" data-target="#myModal">Salir</a>
+					<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+				  		<div class="modal-dialog" role="document">
+				    		<div class="modal-content">
+				      			<div class="modal-header">
+				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        			<h4 class="modal-title">Desea salir al menu?</h4>
+				      			</div>
+					      			<div class="modal-body">
+								        <p>Esta a punto de salir de la Lista de Proveedores, para confirmar precione Aceptar, sino presione cancelar</p>
+				    	  			</div>
+				      				<div class="modal-footer">
+				        			<form method="link" action="menu_administrador.php"><input type="submit" name="btn-confirmar" value="Confirmar" class="btn btn-default"></form>
+				        			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				      				</div>
+				    		</div><!-- /.modal-content -->
+				  		</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+	          	</li>
+      		</ul> 
+    	</nav> 
+  	  </div> 
+    </header> 
+	      <!--Barra de busqueda-->
+	      <div>
+	      		<form action="">
+					<input id="buscador" type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
+				</form>
+	      </div>
+	      <br>
+	      <!--Tabla-->
+	      <div>
+	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
+ 				<tr>
+ 					<td width="90px">
+ 						Codigo Proveedor
+ 					</td>
+ 					<td width="140px">
+ 						Nombre Proveedor
+ 					</td>
+ 					<td width="140px">
+ 						RTN
+ 					</td>
+ 					<td width="70px">
+ 						Direccion
+ 					</td>
+ 					<td width="70px">
+ 						Correo Electronico
+ 					</td>
+ 					<td width="70px">
+ 						Telefono
+ 					</td>
+ 					<td width="70px">
+ 						Producto
+ 					</td>
+ 					<td width="70px">
+ 						Registro Sanitario
+ 					</td>
+ 					<td width="70px">
+ 						Fecha de Entrega
+ 					</td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+			</table>
+	      <div id="div-botones-lista-empleados" class="btn-group">
+				<button id="btn-agregar-empleado" class="btn btn-default">Agregar Proveedor</button>
+		  </div>
+		  <div id="div-botones-lista-empleados" class="btn-group">
+		  		<button id="btn-editar-empleado" class="btn btn-primary">Editar Proveedor</button>
+		  </div>
+		  <div id="div-botones-lista-empleados" class="btn-group">
+				<button id="btn-eliminar-empleado" class="btn btn-info">Eliminar Proveedor</button>
+		  </div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
