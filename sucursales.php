@@ -12,7 +12,6 @@
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
-
     <header>
       <div>
     	<img  class="logo img-responsive" src="img/titulo4.png" align="center" width="500px" height="100px" hspace="450px">
@@ -39,7 +38,7 @@
 								        <p>Esta a punto de salir de la Lista de Sucursales, para confirmar precione Aceptar, sino presione cancelar</p>
 				    	  			</div>
 				      				<div class="modal-footer">
-				        			<form method="link" action="menu_administrador.php"><input type="submit" name="btn-confirmar" value="Confirmar" class="btn btn-default"></form>
+				        			<form method="link" action="menu_administrador.php"><button name="btn-confirmar" class="btn btn-default elemento_izquierda">Confirmar</button></form>
 				        			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
 				    		</div><!-- /.modal-content -->
@@ -53,11 +52,11 @@
 	
 	      <!--Barra de busqueda-->
 	      <div>
-	      		<form action="">
-					<input type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
-				</form>
+				<input type="search" id="buscar" placeholder="Buscar" class="form-control input-lg input-search ">
 	      </div>
 	      <br>
+
+
 	      <div>
 	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
  				<tr>
@@ -165,10 +164,10 @@
 						<input id="input-telefono" type="text" placeholder="Telefono"><br><br>
 	      </div>
 	      <div id="div-botones" class="btn-group">
-						<button id="btn-nuevo" class="btn btn-default">Nuevo</button>
-						<button id="btn-guardar" class="btn btn-primary">Guardar</button>
-						<button id="btn-actualizar" class="btn btn-info">Actualizar</button>
-						<button id="btn-eliminar" class="btn btn-warning">Eliminar</button>
+			   <button id="btn-nuevo" class="btn btn-default">Nuevo</button>
+			   <button id="btn-guardar" class="btn btn-primary">Guardar</button>
+			   <button id="btn-actualizar" class="btn btn-info">Actualizar</button>
+			   <button id="btn-eliminar" class="btn btn-warning">Eliminar</button>
 		  </div>
 
 

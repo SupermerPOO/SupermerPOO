@@ -51,11 +51,10 @@
     </header> 
 	      <!--Barra de busqueda-->
 	      <div>
-	      		<form action="">
-					<input id="buscador" type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
-				</form>
+				<input id="buscador" type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
 	      </div>
 	      <br>
+
 	      <!--Tabla-->
 	      <div>
 	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
@@ -199,17 +198,15 @@
  					<td></td>
  				</tr>
 			</table>
-	      <div id="div-botones-lista-empleados" class="btn-group">
-				<button id="btn-agregar-empleado" class="btn btn-default">Agregar Proveedor</button>
-		  </div>
+
 		  <div id="div-botones-lista-empleados" class="btn-group">
-		  		<button id="btn-editar-empleado" class="btn btn-primary">Editar Proveedor</button>
-		  </div>
-		  <div id="div-botones-lista-empleados" class="btn-group">
-				<button id="btn-eliminar-empleado" class="btn btn-info">Eliminar Proveedor</button>
+		  		<button id="btn-agregar-empleado" class="btn btn-default">Agregar Proveedor</button>
+		  		<button id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</button>
+		  		<button id="btn-eliminar-empleado" class="btn btn-info" style="margin-left: 5px">Eliminar Proveedor</button>
 		  </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
