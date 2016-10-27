@@ -41,23 +41,23 @@
 				        			<form method="link" action="menu_administrador.php"><button name="btn-confirmar" class="btn btn-default elemento_izquierda">Confirmar</button></form>
 				        			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
-				    		</div><!-- /.modal-content -->
-				  		</div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
+				    		</div>
+				  		</div>
+					</div>
 	          	</li>
       		</ul> 
     	</nav> 
   	  </div> 
     </header>   
 	
-	      <!--Barra de busqueda-->
+
 	      <div>
 				<input type="search" id="buscar" placeholder="Buscar" class="form-control input-lg input-search ">
 	      </div>
 	      <br>
 
 
-	      <div>
+	      <div class="container table-responsive">
 	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
  				<tr>
  					<td width="100px">
@@ -149,7 +149,7 @@
  				</tr>
 			</table>
 	      </div>
-	      <div id="div-registro-sucursal">
+	      <div id="div-registro-sucursal" class="container table-responsive">
 	      		<label id="label-numero-sucursal"><b>Numero de Tienda:</label>
 						<input id="input-casilla" type="text" name="casilla" placeholder="Numero">
 						<input id="input-plus" type="button" value="-" onClick="add(-1);">
