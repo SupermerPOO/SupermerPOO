@@ -94,35 +94,22 @@ label#label-numero-sucursal{
 	margin-left: 2%; 
 }
 
-input#input-casilla{
-	margin-left: 2%;
-	width: 20%;
-}
 
 label#label-nombre-sucursal{
 	margin-left: 4%;
-}
-
-input#input-nombre{
-	margin-left: 2%;
 }
 
 label#label-direccion-sucursal{
 	margin-left: 4%;
 }
 
-input#input-direccion{
-	margin-left: 2%;
-}
+
 
 label#label-telefono-sucursal{
 	margin-left:6%;
 
 }
 
-input#input-telefono{
-	margin-left: 22px;
-}
 
 /*Ubicacion de botones*/
 
