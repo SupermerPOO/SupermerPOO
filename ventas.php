@@ -38,7 +38,7 @@
 </header>
 
 <h3 align="center" style="color: green">Ventas</h3>
-<div>
+<div class="table-responsive">
 	<table class="table table-hover table-bordered">
 		<tr>
 			<td width="80px"># Factura</td>
@@ -51,7 +51,7 @@
 	</table>
 </div>
 
-<div>
+<div class="table-responsive">
 	<table class="table table-striped table-bordered">
 		<tr>
 			<td width="150px" align="center">Codigo Producto</td>
@@ -122,7 +122,7 @@
 	</table>
 </div>
 
-<div>
+<div class="table-responsive">
 	<table class="table table-hover table-hover">
 		<tr>
 			<td width="50px"><input type="text" id="txt-codigo-producto" class="form-control" style="width: 200px" placeholder="Codigo Producto"></td>
@@ -135,18 +135,15 @@
 			<td width="120px">Total Productos:</td>
 			<td><label># Productos</label></td>
 		</tr>
-	</table>
-</div>
-
-<div>
-	<table class="table table-condensed table-striped">
+		</table>
+		<table class="table table-responsive">
 		<tr>
-			<td style="padding-left: 1000px" width="50px">Descuentos(%):</td>
+			<td style="padding-left: 1000px; width="50px">Descuentos(%):</td>
 			<td><input type="text" id="txt-descuento" class="form-control" style="width: 250px"></td>
 		</tr>
 		<tr>
 			<td style="padding-left: 1000px;">ISV:</td>
-			<td><input type="text" id="txt-isv" style="width: 250px" class="form-control"></td>
+			<td><input type="text" id="txt-isv" style="width: 250px; " class="form-control"></td>
 		</tr>
 		<tr>
 			<td style="padding-left: 1000px;">Total:</td>
@@ -154,7 +151,7 @@
 		</tr>
 		<tr>
 			<td style="padding-left: 1000px;"><button class="btn btn-success">Efectuar Pago</button></td>
-		</tr>
+		</tr>	
 	</table>
 </div>
 

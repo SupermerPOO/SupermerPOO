@@ -150,8 +150,8 @@
 			</table>
 	      </div>
 	      <div id="div-registro-sucursal">
-						<label id="label-numero-sucursal"><b>Numero de Tienda:</label>
-						<input id="input-casilla" type="text" name="casilla" value="Numero">
+	      		<label id="label-numero-sucursal"><b>Numero de Tienda:</label>
+						<input id="input-casilla" type="text" name="casilla" placeholder="Numero">
 						<input id="input-plus" type="button" value="-" onClick="add(-1);">
 						<input id="input-menos" type="button" value="+" onClick="add(1);">
 
@@ -161,13 +161,13 @@
 						<input id="input-direccion" type="text" placeholder="Direccion"><br><br>
 	      			
 	      				<label id="label-telefono-sucursal"><b>Telefono:</label>
-						<input id="input-telefono" type="text" placeholder="Telefono"><br><br>
+						<input id="input-telefono" type="text" size="" placeholder="Telefono"><br><br>	
 	      </div>
-	      <div id="div-botones" class="btn-group">
-			   <button id="btn-nuevo" class="btn btn-default">Nuevo</button>
-			   <button id="btn-guardar" class="btn btn-primary">Guardar</button>
-			   <button id="btn-actualizar" class="btn btn-info">Actualizar</button>
-			   <button id="btn-eliminar" class="btn btn-warning">Eliminar</button>
+	      <div id="div-botones">
+			   <button id="btn-nuevo" class="btn btn-default" >Nuevo</button>
+			   <button id="btn-guardar" class="btn btn-primary elemento_izquierda">Guardar</button>
+			   <button id="btn-actualizar" class="btn btn-info elemento_izquierda">Actualizar</button>
+			   <button id="btn-eliminar" class="btn btn-warning elemento_izquierda">Eliminar</button>
 		  </div>
 
 

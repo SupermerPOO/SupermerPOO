@@ -9,30 +9,6 @@ body{
 
 }
 
-/*menu lateral*/
-
-div#barra-lateral{
-	position:absolute;
-	width:55px;
-	height:100%;
-	overflow:hidden;
-	-webkit-transition:width 0.5s cubic-bezier(.61,.01,.37,1);
-}
-
-div#barra-lateral:hover{
-	width:170px;
-}
-
-div#logo-menu{
-	width:40px;
-	height:40px;
-	margin:10px;
-	background-image:url(img/menu.png);
-}
-
-div#contenedor-logos-primero{
-	margin-top:70px;
-}
 
 div.contenedor-logos{
 	margin-top:20px;
@@ -112,13 +88,6 @@ input[type="search"]:focus{
 	background-color: #FFF;
 }
 
-/*Para la tabla*/
-
-table{
-	margin-left: 6%;
-	margin-right: 100%;
-}
-
 /*Para registro*/
 
 label#label-numero-sucursal{
@@ -127,7 +96,7 @@ label#label-numero-sucursal{
 
 input#input-casilla{
 	margin-left: 2%;
-	width: 60px;
+	width: 20%;
 }
 
 label#label-nombre-sucursal{
@@ -158,7 +127,7 @@ input#input-telefono{
 /*Ubicacion de botones*/
 
 div#div-botones{
-	margin-left: 50%;
+	margin-left: 40%;
 	margin-top: 1%;
 }
 

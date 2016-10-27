@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
+
 <body>
      <header>
       <div>
@@ -38,25 +39,24 @@
 								        <p>Esta a punto de salir de la Lista de Proveedores, para confirmar precione Aceptar, sino presione cancelar</p>
 				    	  			</div>
 				      				<div class="modal-footer">
-				        			<form method="link" action="menu_administrador.php"><input type="submit" name="btn-confirmar" value="Confirmar" class="btn btn-default"></form>
+				        			<form method="link" action="menu_administrador.php"><input type="submit" name="btn-confirmar" value="Confirmar" class="btn btn-default elemento_izquierda"></form>
 				        			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
-				    		</div><!-- /.modal-content -->
-				  		</div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
+				    		</div>
+				  		</div>
+					</div>
 	          	</li>
       		</ul> 
     	</nav> 
   	  </div> 
     </header> 
-	      <!--Barra de busqueda-->
+
 	      <div>
 				<input id="buscador" type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
 	      </div>
 	      <br>
 
-	      <!--Tabla-->
-	      <div>
+	      <div class="container table-responsive">
 	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
  				<tr>
  					<td width="90px">
@@ -198,8 +198,9 @@
  					<td></td>
  				</tr>
 			</table>
+			</div>
 
-		  <div id="div-botones-lista-empleados" class="btn-group">
+		  <div id="div-botones-lista-empleados" class="btn btn-group">
 		  		<button id="btn-agregar-empleado" class="btn btn-default">Agregar Proveedor</button>
 		  		<button id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</button>
 		  		<button id="btn-eliminar-empleado" class="btn btn-info" style="margin-left: 5px">Eliminar Proveedor</button>

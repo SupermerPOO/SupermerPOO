@@ -35,8 +35,8 @@
 <div>
 	<input type="search" id="buscar_personal" placeholder="Buscar" class="form-control input-lg input-search">
 </div><br>
-
-	<table class="table table-hover table-bordered table-striped" style="width: 150%">
+	<div class="container table-responsive">
+	<table class="table table-responsive table-hover table-bordered table-striped" style="width: 150%">
 				<tr>
  					<td>
  						Codigo Empleado
@@ -72,41 +72,6 @@
  						Sueldo
  					</td>
  				</tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
  				<tr>
  					<td></td>
  					<td></td>
@@ -237,21 +202,62 @@
  					<td></td>
  					<td></td>
  				</tr>
- 				</tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
  				<tr>
-	</table>
-	<table class="table table-condensed">
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+ 				<tr>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>
+		</table>
+	</div>
+	<div class="container table-responsive">
+	<table class="table tabl-responsive table-condensed">
 		<tr>
 			<td colspan="4" align="right" style="padding-right: 50px">
 				<button class="btn btn-warning"><a href="#" data-toggle="modal" data-target="#myModal">Nuevo Registro</a></button>
@@ -267,51 +273,52 @@
 				      	<img src="img/perfil.png" style="width: 150px; height: 150px"><br><br>
 				      	<button class="btn btn-warning btn-sm">Capturar Foto</button>
 				      </div><br><br>
-				        <div>
-				        	<table class="table table-hover" cellpadding="1px" cellspacing="1px">
+				        
+				        <div class="table-responsive">
+				        	<table class="table table-responsive table-hover" cellpadding="1px" cellspacing="1px" style="width: 500px">
 				        		<tr>
 				        			<td style="width: 30px">Nombre:</td>
-				        			<td><input type="text" id="txt-nombre" class="form-control" style="width: 250px"></td>
+				        			<td><input type="text" id="txt-nombre" class="form-control" style="width: 180px"></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Apellido:</td>
-				        			<td><input type="text" id="txt-apellido" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-apellido" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Identidad:</td>
-				        			<td><input type="text" id="txt-identidad" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-identidad" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Area:</td>
-				        			<td><select id="slc-area" class="form-control" style="width: 200px" required></select></td>
+				        			<td><select id="slc-area" class="form-control" style="width: 180px" required></select></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Cargo:</td>
-				        			<td><select id="slc-cargo" class="form-control" style="width: 200px" required></select></td>
+				        			<td><select id="slc-cargo" class="form-control" style="width: 180px" required></select></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Sucursal:</td>
-				        			<td><select id="slc-sucursal" class="form-control" style="width: 200px" required></select></td>
+				        			<td><select id="slc-sucursal" class="form-control" style="width: 180px" required></select></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Domicilio:</td>
-				        			<td><input type="text" id="txt-domicilio" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-domicilio" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Telefono:</td>
-				        			<td><input type="text" id="txt-telefono" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-telefono" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Correo:</td>
-				        			<td><input type="text" id="txt-correo" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-correo" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Fecha Ingreso:</td>
-				        			<td><input type="text" id="txt-fecha-ingreso" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-fecha-ingreso" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Sueldo:</td>
-				        			<td><input type="text" id="txt-sueldo" class="form-control" style="width: 250px" required></td>
+				        			<td><input type="text" id="txt-sueldo" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        	</table>
 				        </div>
@@ -320,14 +327,15 @@
 				        <button id="btn-agregar-empleado" type="button" class="btn btn-success">Guardar</button>
 				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				      </div>
-				    </div><!-- /.modal-content -->
-				  </div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-				<button id="btn-actualizar-empleado" class="btn btn-success" style="width: 120px">Actualizar</button>
-				<button id="btn-eliminar-empleado" class="btn btn-danger" style="width: 120px">Eliminar</button>
+				    </div>
+				  </div>
+				</div>
+				<button id="btn-actualizar-empleado" class="btn btn-success" style="width: 100px">Actualizar</button>
+				<button id="btn-eliminar-empleado" class="btn btn-danger" style="width: 100px">Eliminar</button>
 			</td>
 		</tr>
 	</table>
+	</div>
 
 	<script type="text/javascript">
 	$(document).ready(function(){
