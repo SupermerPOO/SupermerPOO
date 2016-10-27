@@ -149,23 +149,63 @@
  				</tr>
 			</table>
 	      </div>
-	      <div id="div-registro-sucursal" class="container table-responsive">
-	      		<label id="label-numero-sucursal"><b>Numero de Tienda:</label>
-						<input id="input-casilla" type="text" name="casilla" placeholder="Numero">
-						<input id="input-plus" type="button" value="-" onClick="add(-1);">
-						<input id="input-menos" type="button" value="+" onClick="add(1);">
-
-						<label id="label-nombre-sucursal"><b>Nombre:</label>
-						<input id="input-nombre" type="text" placeholder="Nombre de Sucursal">
-						<label id="label-direccion-sucursal"><b>Direccion:</label>
-						<input id="input-direccion" type="text" placeholder="Direccion"><br><br>
-	      			
-	      				<label id="label-telefono-sucursal"><b>Telefono:</label>
-						<input id="input-telefono" type="text" size="" placeholder="Telefono"><br><br>	
-	      </div>
+	     
 	      <div id="div-botones">
-			   <button id="btn-nuevo" class="btn btn-default" >Nuevo</button>
-			   <button id="btn-guardar" class="btn btn-primary elemento_izquierda">Guardar</button>
+			   <button id="btn-nuevo" class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal2">Nuevo</button>
+					<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
+				  		<div class="modal-dialog" role="document">
+				    		<div class="modal-content">
+				      			<div class="modal-header">
+				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        			<h4 class="modal-title">Nueva Sucursal</h4>
+				      			</div>
+					      			<div class="modal-body">
+								        <div id="div-registro-sucursal" class="container table-responsive">
+	      								<table>
+	      									<tr>
+	      										<td colspan="2">
+	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
+	      		       							 </td>
+													<td>
+													<input id="input-casilla" type="text" name="casilla" placeholder="Numero">
+													<input id="input-plus" type="button" value="-" onClick="add(-1);">
+													<input id="input-menos" type="button" value="+" onClick="add(1);">
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
+													<td>
+													<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" style="margin-left: 5px">
+													</td>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
+													<td>
+													<input id="input-direccion" type="text" placeholder="Direccion" style="margin-left: 5px"> 
+													</td>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
+													<td>
+													<input id="input-telefono" type="text" size="" placeholder="Telefono" style="margin-left: 5px">
+													</td>
+												</td>
+	      									</tr>
+	      								</table>			
+	      							</div>
+				    	  		</div>
+				      				<div class="modal-footer">
+				        			<button id="btn-guardar" name="btn-guardar" class="btn btn-default elemento_izquierda">Guardar</button>
+				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				      				</div>
+				    		</div>
+				  		</div>
+					</div>
 			   <button id="btn-actualizar" class="btn btn-info elemento_izquierda">Actualizar</button>
 			   <button id="btn-eliminar" class="btn btn-warning elemento_izquierda">Eliminar</button>
 		  </div>
