@@ -167,9 +167,9 @@
 	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
 	      		       							 </td>
 												 <td>
-													 <input class="form-control" id="input-plus" type="button" value="-" onClick="add(-1);" style="width: 40px">
+													 <input class="form-control" id="input-plus" type="button" value="+" onClick="add(-1);" style="width: 40px">
 													<input id="input-casilla" type="text" name="casilla" placeholder="Numero" class="form-control" style="width:200px"> 
-													<input class="form-control" id="input-menos" type="button" value="+" onClick="add(1);" style="width: 40px">
+													<input class="form-control" id="input-menos" type="button" value="-" onClick="add(1);" style="width: 40px">
 												</td>
 											</tr>
 											<tr>

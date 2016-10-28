@@ -66,7 +66,6 @@
       <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="img/animacion1.jpg" alt="Flower" style="width: 900px; height: 550px">
