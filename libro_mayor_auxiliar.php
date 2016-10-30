@@ -63,22 +63,13 @@
 </header>
 <hr>
 <body>
-
-
-<table class="contenedor">
-<div >
-
-<tr style="margin: 50px 50px 50px 50px">
-    <td >
-    <div style="margin: 50px 50px 50px 50px">
-
-
-    <strong>LISTA DE CUENTAS</strong><br>
-    <table>
+<div  class="col-xs-6 col-sm-6 col-md-6 col-lg-2" style="margin: 50px 50px 50px 50px; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
+    <span style="color: #177EE5;"><strong>LISTA DE CUENTAS</strong></span><br>
+    <table class="table table-responsive">
         <tr>
         <td> Banco:</td>
         <td>
-              <select name="" id="slc-subcuenta1" >
+              <select name="" id="slc-subcuenta1" class="form-control" >
                
                  <option id="op-op11">FICOHSA S.A.</option>
 
@@ -88,7 +79,7 @@
         <tr>
         <td>   Proveedores:</td>
         <td>
-               <select name="" id="slc-subcuenta2">
+               <select name="" id="slc-subcuenta2" class="form-control">
          <option id="op-op21">FERRETERIA EL TITO S. de R. L.</option>
          <option id="op-op22">UTILES DE HONDURAS S.A.</option>
          <option id="op-op23">DISTRIBUIDORA DINAN S. de. R. L.</option>
@@ -96,6 +87,23 @@
         </td>
         </tr>
     </table>
+</div>
+
+<div id='tablas' class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
+</div>
+
+
+
+<!--<table class="contenedor">
+<div >
+
+<tr style="margin: 50px 50px 50px 50px">
+    <td >
+    <div style="margin: 50px 50px 50px 50px">
+
+
+    <strong>LISTA DE CUENTAS</strong><br>
+
       
      
     
@@ -115,7 +123,7 @@
 </tr>
 </div>
 
-</table>
+</table>-->
 
 <script type="text/javascript">
 $(document).ready(function(){

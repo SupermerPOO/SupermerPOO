@@ -1,48 +1,58 @@
+$(document).ready(function(){
+$('#e-modal').click(function(){
 
-$("#btn-gumodal").click(function(){
-			$("#td-natu").html("Estoy aqui");
+	$.ajax({
+			url:"ajax/validacion_contador.php?accion=2",
+			method: "POST",
+			success:function(resultado){
 
-		if($("#txt-nombre").val()!=null && $("#slc-naturaleza").val()!=null){
+				$("#myModal").html(resultado);
+	
+				
+			},
+			error:function(){
+
+			}
+		});
+});
+
+
+$("#guardarModal").click(function(){
+	alert("Que paso aqui");
+			
+		if($("#txt-nombre").val()!=""){
 				var parametros=
 			"txt-nombre="+$("#txt-nombre").val()+
 			"&slc-naturaleza="+$("#slc-naturaleza").val();
-			//$.post $.get
-		$.ajax({
-			url:"../ajax/validacion_contador.php?accion=1",
-			method: "POST",
-			data: parametros,
-			success:function(resultado){
-				$("#myModal").html(resultado);
-				
-			},
-			error:function(){
+		alert(parametros);
+				$.ajax({
+					url:"ajax/validacion_contador.php?accion=1",
+					method: "POST",
+					data: parametros,
+					success:function(resultado){
 
-			}
-		});
+						$("#myModal").html(resultado);
+
+				
+
+						
+					},
+					error:function(){
+
+					}
+				});
 		}else{
-			//$.post $.get
-		$.ajax({
-			url:"../ajax/validacion_contador.php?accion=2",
-			method: "POST",
-			
-			success:function(resultado){
-				alert(resultado);
-				
-			},
-			error:function(){
-
-			}
-		});
-
-		}
+			$("#td-natu").html("El nombre esta vacio");
 		
+		}
 
-		//alert(parametros);
-		//$.post $.get
+
+
 		
 	});
+	
 
-function clickAqui(){
+/*function clickAqui(){
 	alert("Ejecutando funcion"); 
 	$(".texto-cool").html("Texto cambiado desde jquery");
 }
@@ -72,4 +82,5 @@ mostrarImagen = function(){
 ocultarImagen = function(){
 	$("#vegeta").fadeOut(3000);
 	$(".texto-cool").fadeOut(3000);
-}
+}*/
+});

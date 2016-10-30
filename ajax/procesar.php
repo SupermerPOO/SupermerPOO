@@ -1724,8 +1724,8 @@ switch ($_GET['accion']) {
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Banco-FICOHSA S.A.</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-"<tr> <td colspan='3'>  Direccion: Col. Miramontes</td></tr>".
+
+"<tr  style='color: #E46B25;'> <td colspan='3'>  Direccion: Col. Miramontes</td></tr>"."<tr class='active' style='color: #D6A80C;'>".
 					"<td align='center'>"."Fecha."."</td>".
 					"<td align='center'> "."Concepto"."</td>".
 					"<td align='center'> "."Pda."."</td>".
@@ -1838,8 +1838,9 @@ switch ($_GET['accion']) {
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores-FERRETERIA EL TITO S. de R. L. .</td></strong></tr>".
+
+"<tr  style='color:#E46B25;'> <td colspan='3'>  Direccion: Col. Centro America Oeste</td></tr>".
 "<tr class='active' style='color: #D6A80C;'>".
-"<tr> <td colspan='3'>  Direccion: Col. Miramontes</td></tr>".
 					"<td align='center'>"."Fecha."."</td>".
 					"<td align='center'> "."Concepto"."</td>".
 					"<td align='center'> "."Pda."."</td>".
@@ -1951,8 +1952,9 @@ switch ($_GET['accion']) {
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores-UTILES DE HONDURAS S. A.</td></strong></tr>".
+
+"<tr style='color: #E46B25;'> <td colspan='3'>  Direccion: Col. Arturo Quezada</td></tr>".
 "<tr class='active' style='color: #D6A80C;'>".
-"<tr> <td colspan='3'>  Direccion: Col. Miramontes</td></tr>".
 					"<td align='center'>"."Fecha."."</td>".
 					"<td align='center'> "."Concepto"."</td>".
 					"<td align='center'> "."Pda."."</td>".
@@ -2064,8 +2066,9 @@ switch ($_GET['accion']) {
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
 		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores-DISTRIBUIDORA DINAN S. de R. L.</td></strong></tr>".
+
+"<tr  style='color: #E46B25;'> <td colspan='3'>  Direccion: Col. Los Higos</td></tr>".
 "<tr class='active' style='color: #D6A80C;'>".
-"<tr> <td colspan='3'>  Direccion: Col. Miramontes</td></tr>".
 					"<td align='center'>"."Fecha."."</td>".
 					"<td align='center'> "."Concepto"."</td>".
 					"<td align='center'> "."Pda."."</td>".

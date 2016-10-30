@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/funciones.js"></script>
+    <link href="css/estilos.css" rel="stylesheet">
 </head>
 <body >
 
@@ -64,11 +65,7 @@
 <hr>
 <body>
 
-<div id="tablas">
-
-
-
-</div>
+<div id="tablas" >
 <script type="text/javascript">
 $(document).ready(function(){
   //INICIO DEL FORMULARIO
@@ -133,26 +130,16 @@ $(document).ready(function(){
         }); 
       });
 
-     /* $("#slc-cuenta").click(function(){
-         if ($('#slc-cuenta').val()=='Bancos') {
-
-          <?php /*echo"<br><td>SubCuenta: <select name='slc-subcuenta1' id='slc-subcuenta1'>
-          <option>FICOHSA</option>
-          <option>BANCATLAN</option>
-          <option>BANCO DE OCCIDENTE</option>
-          <select></td>";*/
-          ?>
-        }
-    }
-
-         }
-      });*/
-      
+     
 
       }); 
 
 
 </script>
+
+
+</div>
+
    
 
 </body>

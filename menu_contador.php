@@ -1,4 +1,4 @@
-<?php  ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +10,6 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-     <script type="text/javascript" src="js/funciones.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
 <body>
@@ -45,7 +41,7 @@
           <a href="libro_mayor_auxiliar.php">Libro Mayor Auxiliar</a> 
         </li>
         <li> 
-          <a href="#" data-toggle='modal' data-target='#myModal'>Crear cuenta</a> 
+          <a href="#" data-toggle='modal' id='e-modal' data-target='#myModal'>Crear cuenta</a> 
 
         </li>  
         <li> 
@@ -67,17 +63,18 @@
                       <div class="modal-body" style="padding: 50px 300px 50px 180px;">
                       <table class="table table-hover" align="center"> 
                       <tr>
-                        <td id='td-natu'>
+                        <td >
                         Naturaleza:
                           
                         </td>
                         <td>
-                        <select name="slc-naturaleza" id="slc-naturaleza" required="" autofocus="" >
+                        <select name="slc-naturaleza" id="slc-naturaleza" style="width: 150px" class="form-control" required="" autofocus="" >
                           <option>Deudora</option>
                           <option>Acreedora</option>
                         </select>
                           
                         </td>
+
 
                       </tr>
                           <tr>
@@ -86,18 +83,20 @@
                           
                         </td>
                         <td>
-                       <input type="text" name="txt-nombre" class='form' id="txt-nombre" required="" autofocus="">
+                       <input type="text" name="txt-nombre" class='form-control' id="txt-nombre" required="" autofocus="">
                           
                         </td>
 
+
                       </tr>
+                      <tr style="width: 150px" > <td id="td-natu" colspan="2"></td> <td></td></tr>
 
                       </table>
                        
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" id='btn-cemodal' data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" id='btn-gumodal'>Guardar</button>
+                        <button type="button" class="btn btn-primary" name="guardarModal" id="guardarModal">Guardar</button>
                       </div>
                     </div><!-- /.modal-content -->
                   </div><!-- /.modal-dialog -->
@@ -159,6 +158,11 @@
           </footer>
         </div>
     </section>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="js/funciones.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
 </body>
 </html>

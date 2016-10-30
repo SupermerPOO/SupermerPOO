@@ -65,13 +65,8 @@
 <body>
 
 
-<table class="contenedor">
-<div >
-
-<tr style="margin: 50px 50px 50px 50px">
-    <td >
-    <div style="margin: 50px 50px 50px 50px">
-    <strong>LISTA DE CUENTAS</strong><br>
+ <div  class="col-xs-6 col-sm-6 col-md-6 col-lg-2" style="margin: 50px 50px 50px 50px; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
+    <span style="color: #177EE5;"><strong>LISTA DE CUENTAS</strong></span><br>
 
       <input type='checkbox' name='op1' id="op1"> Banco</input><br>
        <input type='checkbox' name='op2' id="op2"> Caja</input><br>
@@ -82,16 +77,10 @@
        <input type='checkbox' name='op7' id="op7"> Documentos por pagar</input><br>
 </div>
 
-    </td>
-      <td>
-        <div style="margin: 50px 50px 50px 50px">
-        <table class="table table-responsive" id='tablas'></table>
-        </div>
-      </td>
-</tr>
+<div id='tablas' class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 </div>
 
-</table>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
