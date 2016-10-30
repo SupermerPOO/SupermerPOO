@@ -10,24 +10,44 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-   <header class="bs-docs-nav navbar navbar-static-top" id="top">
-    <div>
-      <img  class="logo img-responsive" src="img/titulo4.png" align="center" width="500px" height="150px" hspace="450px">
-    </div> 
-	  <div class="container"> 
-	    <div class="navbar-header"> 
-	      <button aria-controls="bs-navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-navbar" data-toggle="collapse" type="button"> 
-	        <img src="img/icono-menu.png" style="width: 25px; height: 25px">
-	      </button> 
+   <header>
+      <div>
+    	<img  class="logo img-responsive" src="img/titulo4.png" align="center" width="500px" height="100px" hspace="450px">
+      </div> 
+      <div class="container"> 
+    	<div class="navbar-header"> 
+      		<button aria-controls="bs-navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-navbar" data-toggle="collapse" type="button"> 
+        		<img src="img/icono-menu.png" style="width: 25px; height: 25px">
+      		</button> 
+      		<a href="lista_proveedores.php" class="navbar-brand"><label style="color: white; font-family: 'Trebuchet MS'">Inicio</label></a> 
     	</div> 
-		    <nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
-			 	<ul class="nav nav-tabs">
-				  <li><a href="personal.php">Inicio</a></li>
-				  <li><a href="menu_administrador.php">Salir</a></li>
-				</ul>
-    		</nav> 
-  	   </div> 
-	</header>
+    	<nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
+      		<ul class="nav navbar-nav"> 
+        		<li class="texto-contenedor-1">
+	            	<a href="#" data-toggle="modal" data-target="#myModal">Salir</a>
+					<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+				  		<div class="modal-dialog" role="document">
+				    		<div class="modal-content">
+				      			<div class="modal-header">
+				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        			<h4 class="modal-title">Desea salir al menu?</h4>
+				      			</div>
+					      			<div class="modal-body">
+								        <p>Esta a punto de salir de Personal, para confirmar precione Confirmar, sino presione cancelar</p>
+				    	  			</div>
+				      				<div class="modal-footer">
+				        			<form method="link" action="menu_administrador.php"><input type="submit" name="btn-confirmar" value="Confirmar" class="btn btn-default elemento_izquierda"></form>
+				        			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				      				</div>
+				    		</div>
+				  		</div>
+					</div>
+	          	</li>
+      		</ul> 
+    	</nav> 
+  	  </div> 
+    </header> 
+
 
 <h2 style="color: green" align="center">Lista de empleados</h2>
 
