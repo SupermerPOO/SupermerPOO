@@ -1,4 +1,4 @@
-<?php  ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -38,16 +38,7 @@
       <ul class="nav navbar-nav" id=lista> 
 
  
-        <!--<li id="pes1"> 
-          <a href="" id="Ag-partida">Agregar Partida</a>
-    
-        </li> 
-        <li id="pes2"> 
-          <a href="" id="vistal">Vista de Registro</a> 
-        </li> 
-        <li>
-          <a href="index.php">Cerrar Sesión</a> 
-        </li>-->
+
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 

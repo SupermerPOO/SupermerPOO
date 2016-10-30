@@ -1,10 +1,10 @@
-<?php  ?>
+
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF8">
-  <title>Contador</title>
+  <title>Menu Contador</title>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
       <ul class="nav navbar-nav"> 
         <li> 
-          <a href="balance.php">Balance General</a> 
+          <a href="balance.php">Inventario y Balance</a> 
         </li> 
         <li> 
           <a href="libro_diario.php">Libro Diario</a> 
