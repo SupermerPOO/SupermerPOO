@@ -43,7 +43,7 @@
 		<tr>
 			<td width="80px"># Factura</td>
 			<td width="150px"><input type="text" id="txt-codigo" class="form-control" style="width: 50px"></td>
-			<td width="250px" align="center"><input type="text" id="txt-fecha" class="form-control" placeholder="Fecha" style="width: 200px"></td>
+			<td width="250px" align="center"><input type="date" id="txt-fecha" class="form-control" placeholder="Fecha" style="width: 200px"></td>
 			<td width="250px" align="center"><select class="form-control" style="width: 200px"><option>Sucursal</option></select></td>
 			<td width="250px" align="center"><select class="form-control" style="width: 100px"><option># Caja</option></select></td>
 			<td align="center"><label>Nombre cajero</label></td>
@@ -138,7 +138,7 @@
 		</table>
 		<table class="table table-responsive">
 		<tr>
-			<td style="padding-left: 1000px; width="50px">Descuentos(%):</td>
+			<td style="padding-left: 1000px; width: 50px">Descuentos(%):</td>
 			<td><input type="text" id="txt-descuento" class="form-control" style="width: 250px"></td>
 		</tr>
 		<tr>
@@ -150,10 +150,56 @@
 			<td><input type="text" id="txt-total" style="width: 250px" class="form-control"></td>
 		</tr>
 		<tr>
-			<td style="padding-left: 1000px;"><button class="btn btn-success">Efectuar Pago</button></td>
+			<td style="padding-left: 1000px;">
+				<button class="btn btn-warning" id="btn-pago"><a href="#" data-toggle="modal" data-target="#myModal">Efectuar Pago</a></button>
+				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" align="center">Campos Vacios</h4>
+				      </div>
+				      <div class="modal-body">
+				      <div align="center" id="div-respuesta">
+
+				      </div><br><br>
+				        
+				        <div class="table-responsive">
+				        	
+				        </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</td>
 		</tr>	
 	</table>
 </div>
+
+
+<script>
+	$(document).ready(function(){
+			$("#btn-pago").click(function(){
+				var parametros = "txt-codigo=" + $("#txt-codigo").val() + "&" + "txt-fecha=" + $("#txt-fecha").val() + "&" + "txt-codigo-producto=" + $("#txt-codigo-producto").val() + "&" + "txt-unidades=" + $("#txt-unidades").val() + "&" + "txt-cliente=" + $("#txt-cliente").val() + "&" + "txt-identidad=" + $("#txt-identidad").val() + "&" + "txt-descuento=" + $("#txt-descuento").val() + "&" + "txt-isv=" + $("#txt-isv").val();
+
+				$.ajax({
+					url:"ajax/validaciones_ventas.php",
+					method:"POST",
+					data: parametros,
+					success:function(respuesta){
+						$("#btn-pago").button("reset");
+						$("#div-respuesta").html(respuesta)
+					},
+					error:function(){
+						alert("Ocurrio un error.");
+					}
+				});	
+			});	
+		});
+</script>
 
 </body>
 </html>
