@@ -1,5 +1,5 @@
 <?php
-	switch (accion) {
+	switch ($_GET['accion']) {
 		case '1':
 			sleep(10);
 			//Aqui se realizara la funcion del boton agregar empleado

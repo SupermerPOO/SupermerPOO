@@ -12,6 +12,9 @@
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="js/funciones.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -40,6 +43,10 @@
         </li> 
         <li> 
           <a href="libro_mayor_auxiliar.php">Libro Mayor Auxiliar</a> 
+        </li>
+        <li> 
+          <a href="#" data-toggle='modal' data-target='#myModal'>Crear cuenta</a> 
+
         </li>  
         <li> 
           <a href="index.php">Cerrar Sesión</a> 
@@ -50,6 +57,52 @@
     </nav> 
   </div> 
 </header>
+ <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-center">Crear Cuenta</h4>
+                      </div>
+                      <div class="modal-body" style="padding: 50px 300px 50px 180px;">
+                      <table class="table table-hover" align="center"> 
+                      <tr>
+                        <td id='td-natu'>
+                        Naturaleza:
+                          
+                        </td>
+                        <td>
+                        <select name="slc-naturaleza" id="slc-naturaleza" required="" autofocus="" >
+                          <option>Deudora</option>
+                          <option>Acreedora</option>
+                        </select>
+                          
+                        </td>
+
+                      </tr>
+                          <tr>
+                        <td>
+                        Nombre:
+                          
+                        </td>
+                        <td>
+                       <input type="text" name="txt-nombre" class='form' id="txt-nombre" required="" autofocus="">
+                          
+                        </td>
+
+                      </tr>
+
+                      </table>
+                       
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id='btn-cemodal' data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id='btn-gumodal'>Guardar</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
 
   <div align="center" id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

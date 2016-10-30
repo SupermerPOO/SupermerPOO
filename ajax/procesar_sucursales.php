@@ -1,9 +1,9 @@
 <?php
-	switch (accion) {
+	switch ($_GET['accion']) {
 		case '1':
 			sleep(2);
-				if (isset($_POST["input_casilla"])=="" && ) {
-					echo "<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+				if (isset($_POST["input_casilla"])==null ) {
+					echo '"<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 				  			<div class="modal-dialog" role="document">
 				    		<div class="modal-content">
 				      			<div class="modal-header">
@@ -18,10 +18,10 @@
 				      				</div>
 				    		</div>
 				  		</div>
-					</div>";
+					</div>"';
 				}
-				elseif (isset($_POST["input_nombre"])=="") {
-					echo "<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+				else if (isset($_POST["input_nombre"])==null) {
+					echo '"<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 				  			<div class="modal-dialog" role="document">
 				    		<div class="modal-content">
 				      			<div class="modal-header">
@@ -36,10 +36,10 @@
 				      				</div>
 				    		</div>
 				  		</div>
-					</div>";
+					</div>"';
 				}
-				elseif (isset($_POST["input_direccion"])=="") {
-					echo "<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+				else if (isset($_POST["input_direccion"])==null) {
+					echo '"<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 				  			<div class="modal-dialog" role="document">
 				    		<div class="modal-content">
 				      			<div class="modal-header">
@@ -54,10 +54,10 @@
 				      				</div>
 				    		</div>
 				  		</div>
-					</div>"; 
+					</div>"'; 
 				}
-				elseif (isset($_POST["input_telefono"])=="") {
-					echo "<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+				else if (isset($_POST["input_telefono"])==null) {
+					echo '"<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 				  			<div class="modal-dialog" role="document">
 				    		<div class="modal-content">
 				      			<div class="modal-header">
@@ -72,7 +72,7 @@
 				      				</div>
 				    		</div>
 				  		</div>
-					</div>"; 
+					</div>"'; 
 				}
 			break;
 

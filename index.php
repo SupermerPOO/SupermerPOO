@@ -26,14 +26,14 @@
     <div align="right" class="container">
     <img src="img/titulo.png" class="img-responsive" alt="Responsive image" width="550px" height="200px">
 
-      <form method="POST">
+
 
         <h2 class="form-signin-heading" align="right" style="color: #5cb85c">Inicie Sesión</h2>
         <input type="text" name="txt-usuario" id="txt-usuario" class="form-control" placeholder="Usuario" required autofocus style="width: 250px"><br>
         <input type="password" name="txt-password" id="txt-password" class="form-control" placeholder="Contraseña" required style="width: 250px"><br>
         <button class="btn btn-lg btn-success" type="submit" style="width: 120px">Ingresar</button>
       
-      </form>
+   
 
     </div> <!-- /container -->
 
