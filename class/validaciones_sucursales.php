@@ -1,5 +1,5 @@
 <?php
-	if (isset($_POST["input_casilla"])=="") {
+	/*if (isset($_POST["input_casilla"])=="") {
 		echo "Ingrese el numero de Sucursal";
 	}
 	elseif (isset($_POST["input_nombre"])=="") {
@@ -10,5 +10,5 @@
 	}
 	elseif (isset($_POST["input_telefono"])=="") {
 		echo "Ingrese numero de telefono";
-	}
+	}*/
 ?>

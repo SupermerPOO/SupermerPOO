@@ -29,7 +29,7 @@
 </header>
 
 <h2 style="color: green" align="center">Lista de usuarios registrados</h2>
-<form>
+
 	<table class="table table-hover table-bordered" style="width: 100%">
 		<tr>
 			<td>Codigo Usuario</td>
@@ -106,6 +106,6 @@
 			</td>
 		</tr>
 	</table>
-</form>
+
 </body>
 </html>

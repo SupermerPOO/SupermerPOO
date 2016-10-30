@@ -1,7 +1,7 @@
 <?php
 	switch ($_GET['accion']) {
 		case '1':
-			sleep(2);
+
 				if (isset($_POST["input_casilla"])==null ) {
 					echo '"<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 				  			<div class="modal-dialog" role="document">
@@ -74,6 +74,7 @@
 				  		</div>
 					</div>"'; 
 				}
+
 			break;
 
 		case '2':
