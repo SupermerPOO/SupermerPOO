@@ -1,8 +1,4 @@
 
-var mensaje = "Hola Mundo";
-document.write(mensaje); //Imprimir html en la pagina
-//alert(mensaje); //Cuadro de dialogo
-console.log(mensaje); //Imprimir en la consola (F12)
 
 function clickAqui(){
 	alert("Ejecutando funcion"); 
