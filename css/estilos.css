@@ -1,0 +1,316 @@
+/*Eliminamos los margenes y paddings que agrega el navegador por defecto*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/*Agregamos margenes inferiores a los parrafos*/
+p {
+  margin-bottom: 20px;
+}
+.logo{
+  display: block;
+  padding-top: 10px;
+  margin: auto;
+  height: 150px;
+}
+
+header{
+  background: #22B14C;
+  box-shadow: 0px 0px 10px black;
+}
+.menu-fixed {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  box-shadow: 0px 0px 10px black;
+  width: 100%;
+  margin: auto;
+}
+
+
+button{
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+nav {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  float: none; /* Desplazamos el nav hacia la izquierda */
+  width: 100%;
+  background: #22B14C;
+  margin: auto;
+}
+ 
+nav ul {
+  list-style: none;
+  overflow: hidden; /* Limpiamos errores de float */
+  padding-left: 70px;
+  padding-right: 70px;
+}
+ 
+nav ul li {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+}
+nav ul li a {
+  display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+  padding: 15px;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+h2 {
+  color: #ff1bff;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+ 
+nav ul li:hover a{
+  background-color: white;
+
+  color: #22B14C;
+}
+nav ul li.active a{
+  background-color: white;
+
+  color: #22B14C;
+}
+
+nav li ul{
+  display:none;
+  position:absolute;
+  min-width: 100px; 
+}
+
+nav li:hover > ul{
+  display: block;
+}
+
+.slider{
+  width: 100%;
+  height: 250px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.slider ul{
+  display: flex;
+  padding: 0;
+  width: 200%;
+  animation: cambio 4s infinite alternate;
+}
+.slider li{
+  list-style: none;
+  width: 100%;
+}
+.slider div{
+  width: 80%;
+  margin: auto;
+}
+.slider div{
+  border: 3px solid black;
+}
+.slider .imagen{
+  float: center;
+}
+
+@keyframes cambio {
+  0%{margin-left: 0;}
+  45%{margin-left: 0;}
+
+  55%{margin-left: -100%;}
+  100%{margin-left: -100%;}
+
+}
+
+.elemento_derecha{
+	float: right;
+  display: inline-block;
+}
+
+.elemento_izquierda{
+	float: left;
+  display: inline-block;
+}
+.elememento_centrado{
+  float: center;
+  display: inline-block;
+}
+
+.barra_busqueda{
+  margin-top: 50px;
+  margin-bottom: 50px;
+	width: 100%;
+	max-width: 600px;
+	height: 38px;
+	border-radius: 10px 0px 0px 10px;
+	border-style: none;
+	box-shadow: inset 0px 0px 5px black;
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color:#22B14C;
+}
+
+.btn_buscar{
+  height: 38px;
+  border-radius: 0px 10px 10px 0px;
+  margin-left: -6px;
+  font-size: 17px;
+  padding: 6px;
+  border-style: none;
+  color: white;
+  background: #22B14C;
+  border:3px solid #22B14C;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+.Panel{
+  margin-top: 30px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+.Panel .Titulo{
+  background: #22B14C;
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  padding: 5px;
+  text-align: center; 
+}
+
+.Panel .Lista{
+  text-align: center;
+  background: transparent;
+  overflow: hidden;
+  border:1px solid gray;
+}
+.Panel .Lista a{
+  text-decoration: none;
+  color: white;
+}
+
+.Item{
+  padding: 10px;
+}
+
+.Panel.Articulos{
+  text-align: center;
+  width: 70%;
+  float: right;
+}
+
+.Item.Articulo{
+  display: inline-block;
+  border-radius: 10px 10px 10px 10px;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+}
+.Item.Articulo .imgProducto img{
+  width: 100px;
+  height: 100px;
+}
+.Panel.Categorias{
+  width: 25%;
+  float: left;
+}
+.Item.categoria{
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #22B14C;
+}
+.Item.Categoria:hover{
+  background: #179596;
+  color: white;
+}
+.Enumerador{
+  background: #22B14C;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+}
+.Enumerador div{
+  margin: 10px;
+}
+.cuerpo1{
+  /*background-image: url("../img/tapiz.png");*/
+  padding-bottom: 30px;
+}
+.PanelContenido{
+  margin-top: 30px;
+  overflow: hidden;
+}
+.PanelContenido div{
+  border: 3px solid black;
+  width: 40%;
+  height: 200px;
+  display: inline-block;
+}
+button:hover {
+
+  border:3px solid #22B14C;
+  background: white;
+  color: #22B14C;
+  
+}
+section {
+    box-shadow: 0px 0px 10px black;
+}
+
+
+body {
+    background: #EAEAEA;
+    background-size: 400px;
+}
+
+.contenido {
+  background-image: url(../img/fondoverde.jpg);
+  background-size: 100%;
+}
+
+.wrapper {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  overflow:hidden;
+}
+
+.separador{
+  height: 1px;
+  background: gray;
+}
+
+.fondo_verde{
+  background:#22B14C; 
+}
+
+.fondo_azul{
+  background: blue;
+}
+
+.fondo_rojo{
+  background: red;
+}
+
+.fondo_amarillo{
+  background: yellow;
+}
+
+.piePagina{
+  overflow: hidden;
+  box-shadow: 0px 0px 10px white;
+  text-align: center;
+  background: #22B14C;
+  font-family: "Helvetica", sans-serif;
+  color:#ffffff;
+  margin-top: 20px; 
+}

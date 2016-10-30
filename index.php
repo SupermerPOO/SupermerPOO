@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-<?php
-echo 'Hola Mundo';
-?>
-=======
-<?php 
-  
- ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,4 +46,3 @@ echo 'Hola Mundo';
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
->>>>>>> origin/master
