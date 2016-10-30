@@ -173,7 +173,7 @@ include_once('class/validaciones_sucursales.php');
 												 <td>
 												 	<div style="align-items: left">
 												 		<input class="form-control" id="input-plus" type="button" value="+" onClick="add(-1);" style="width: 40px">
-														<input id="input-casilla" type="text" name="casilla" placeholder="Numero" class="form-control" style="width:200px" required> 
+														<input id="input-casilla" type="text" name="casilla" placeholder="Numero" class="form-control" style="width:200px" required/> 
 														<input class="form-control" id="input-menos" type="button" value="-" onClick="add(1);" style="width: 40px">
 												 	</div>
 													
@@ -183,7 +183,7 @@ include_once('class/validaciones_sucursales.php');
 												<td>
 													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
 													<td>
-														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required>
+														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
 													</div>
 													</td>
 												</td>
@@ -192,7 +192,7 @@ include_once('class/validaciones_sucursales.php');
 												<td>
 													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
 													<td>
-													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required> 
+													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
 													</td>
 												</td>
 											</tr>
@@ -200,7 +200,7 @@ include_once('class/validaciones_sucursales.php');
 												<td>
 													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
 													<td>
-													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required> 
+													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
 													</td>
 												</td>
 	      									</tr>
@@ -211,7 +211,7 @@ include_once('class/validaciones_sucursales.php');
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<button id="btn-guardar" name="btn-guardar" class="btn btn-default elemento_izquierda">Guardar</button>
+				        			<input id="btn-guardar"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Guardar">
 				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
 				    		</div>
