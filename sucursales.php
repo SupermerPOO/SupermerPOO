@@ -1,3 +1,6 @@
+<?php
+include_once('class/validaciones_sucursales.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -162,21 +165,26 @@
 					      			<div class="modal-body">
 								        <div id="div-registro-sucursal" class="container table-responsive">
 	      								<table>
+	      								<form method="POST">
 	      									<tr>
 	      										<td>
 	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
 	      		       							 </td>
 												 <td>
-													 <input class="form-control" id="input-plus" type="button" value="+" onClick="add(-1);" style="width: 40px">
-													<input id="input-casilla" type="text" name="casilla" placeholder="Numero" class="form-control" style="width:200px"> 
-													<input class="form-control" id="input-menos" type="button" value="-" onClick="add(1);" style="width: 40px">
-												</td>
+												 	<div style="align-items: left">
+												 		<input class="form-control" id="input-plus" type="button" value="+" onClick="add(-1);" style="width: 40px">
+														<input id="input-casilla" type="text" name="casilla" placeholder="Numero" class="form-control" style="width:200px" required/> 
+														<input class="form-control" id="input-menos" type="button" value="-" onClick="add(1);" style="width: 40px">
+												 	</div>
+													
+												</td>	
 											</tr>
 											<tr>
 												<td>
 													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
 													<td>
-													<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" style="margin-left: 5px" class="form-control" style="width:200px">
+														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
+													</div>
 													</td>
 												</td>
 											</tr>
@@ -184,7 +192,7 @@
 												<td>
 													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
 													<td>
-													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control"> 
+													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
 													</td>
 												</td>
 											</tr>
@@ -192,15 +200,18 @@
 												<td>
 													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
 													<td>
-													<input id="input-telefono" type="text" placeholder="Telefono" style="margin-left: 5px" style="width: 200px" class="form-control">
+													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
 													</td>
 												</td>
 	      									</tr>
+
+	      								</form>
+	      									
 	      								</table>			
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<button id="btn-guardar" name="btn-guardar" class="btn btn-default elemento_izquierda">Guardar</button>
+				        			<input id="btn-guardar"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Guardar">
 				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
 				    		</div>
@@ -213,6 +224,24 @@
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" >
+	$("#btn-guardar").click(function(){
+				$("#btn-guardar").button("loading");
+				var parametros = "input-casilla="+$("#input-casilla").val()+"&"+"input-nombre="+$("#input-nombre").val()+"&"+"input-direccion="+$("#input-direccion").val()+"&"+"input-telefono="+$("#input-telefono").val();
+				$.ajax({
+					url:"ajax/procesar_sucursales.php?accion=1",
+					method:"POST",
+					data: parametros,
+					success:function(respuesta){
+						$("#btn-guardar").button("reset");
+						<?php echo "Registro exitoso" ?>
+					},
+					error:function(){
+						alert("Ocurrio un error.");
+					}
+				});	
+			});	
+</script>
 </body>
 </html>
 
