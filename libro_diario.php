@@ -13,10 +13,8 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/funciones.js"></script>
-    <link href="css/estilos.css" rel="stylesheet">
 </head>
 <body >
-
 
 <header class=""  id="">
 
@@ -40,8 +38,34 @@
 
  
         <li id="pes1"> 
-          <a href="" id="Ag-partida">Agregar Partida</a>
-    
+          <a href="#" data-toggle="modal" data-target="#myModal">Agregar Partida</a>
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Agregando registro</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p><div type="text" id="txt-fecha">Fecha:<input type="text" name="txt-fecha" placeholder="15/15/15" class="form-control"></div></p>
+                    <p><div type="text" id="txt-partida">Nº PDA: <?php /* El numero de partida es autoincremental, ese no lo puede tocar uno solo, hay que dejarlo que se pueda extraer de la base de daos pero que la persona no pueda modificarlo*/?><input disabled="disabled" type="text" name="txt-partida" placeholder="" class="form-control"></div></p>
+                    <p><div type="text" id="txt-descripcion">Descripcion:<input type="text" name="txt-descripcion" placeholder="" class="form-control"></div></p>
+                    <p><div>Subcuenta:<br><label><input type="checkbox" name="chk-subcuentas" value="FICOHSA S.A.">FICOHSA S.A.</label></div>
+                    <label><input type="checkbox" name="chk-subcuentas" value="FERRETERIA EL TITO S.A">FERRETERIA EL TITO S.A</label><br>
+                    <label><input type="checkbox" name="chk-subcuentas" value="UTILES DE HONDURAS S.A">UTILES DE HONDURAS S.A</label>
+                    <label><input type="checkbox" name="chk-subcuentas" value="DISTRIBUIDORA DINAN S. de R. L.">DISTRIBUIDORA DINAN S. de R. L.</label>
+                    <p><div type="text" id="txt-cuenta-cargada">Cuenta Cargada:<select name="" id="slc-cuenta-cargada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
+                    <p><div type="text" id="txt-debe">Debe:<input type="text" name="txt-debe"></div></p>
+                    <p><div type="text" id="txt-cuenta-cargada">Cuenta Acreditada:<select name="" id="slc-cuenta-acreditada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
+                    <p><div type="text" id="txt-haber">Haber:<input type="text" name="txt-haber"></div></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </li> 
         <li id="pes2"> 
           <a href="" id="vistal">Vista de Registro</a> 
@@ -55,6 +79,49 @@
       </div>
     </nav> 
 
+<div class="alert alert-success" role="alert">
+    <?php
+      if(isset($_GET["btn-guardar"])){
+        
+        if (isset($_GET["txt-fecha"]))
+          echo "Fecha: ". $_GET["txt-fecha"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        if (isset($_GET["txt-partida"]))
+          echo "Partida: ". $_GET["txt-partida"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        
+        if (isset($_GET["txt-descripcion"]))
+          echo "Descripcion: ". $_GET["txt-descripcion"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        
+        if (isset($_GET["chk-subcuentas"]))
+          echo "Subcuenta: ". $_GET["chk-subcuentas"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        
+        if (isset($_GET["txt-cuenta-cargada"]))
+          echo "Cuenta Cargada: ". $_GET["txt-cuenta-cargada"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        
+        if (isset($_GET["txt-debe"]))
+          echo "Debe: ". $_GET["txt-debe"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        if (isset($_GET["txt-cuenta-acreditada"]))
+          echo "Cuenta Acreditada: ". $_GET["txt-cuenta-acreditada"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+        if (isset($_GET["txt-haber"]))
+          echo "Haber: ". $_GET["txt-haber"]."<br>";
+        else 
+          echo "Campo vacio<br>";
+      }     
+    ?>
+  </div>
 
  
  
@@ -65,7 +132,10 @@
 <hr>
 <body>
 
-<div id="tablas" >
+
+
+
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
   //INICIO DEL FORMULARIO
@@ -130,16 +200,27 @@ $(document).ready(function(){
         }); 
       });
 
-     
+     /* $("#slc-cuenta").click(function(){
+         if ($('#slc-cuenta').val()=='Bancos') {
+
+          <?php /*echo"<br><td>SubCuenta: <select name='slc-subcuenta1' id='slc-subcuenta1'>
+          <option>FICOHSA</option>
+          <option>BANCATLAN</option>
+          <option>BANCO DE OCCIDENTE</option>
+          <select></td>";*/
+          ?>
+        }
+    }
+
+         }
+      });*/
+      
 
       }); 
 
 
+
 </script>
-
-
-</div>
-
    
 
 </body>
