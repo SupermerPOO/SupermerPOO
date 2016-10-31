@@ -1,10 +1,9 @@
-/*Eliminamos los margenes y paddings que agrega el navegador por defecto*/
+
 * {
   padding: 0;
   margin: 0;
 }
 
-/*Agregamos margenes inferiores a los parrafos*/
 p {
   margin-bottom: 20px;
 }
@@ -14,13 +13,13 @@ p {
   margin: auto;
   height: 150px;
 }
-
 #tablas{
   background: #FFFFFF;
   box-shadow: 10px 10px 10px black;
   padding: 50px 50px 50px 50px;
 
 }
+
 header{
   background: #22B14C;
   box-shadow: 0px 0px 10px black;
@@ -45,7 +44,7 @@ nav {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  float: none; /* Desplazamos el nav hacia la izquierda */
+  float: none; 
   width: 100%;
   background: #22B14C;
   margin: auto;
@@ -53,7 +52,7 @@ nav {
  
 nav ul {
   list-style: none;
-  overflow: hidden; /* Limpiamos errores de float */
+  overflow: hidden; 
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -66,7 +65,7 @@ nav ul li {
   font-size: 16px;
 }
 nav ul li a {
-  display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+  display: block; 
   padding: 15px;
   border-radius: 10px 10px 0px 0px;
   color: white;
@@ -76,6 +75,7 @@ nav ul li a {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+
 h2 {
   color: #ff1bff;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -316,7 +316,158 @@ body {
   box-shadow: 0px 0px 10px white;
   text-align: center;
   background: #22B14C;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Arial",Helvetica, sans-serif;
   color:#ffffff;
-  margin-top: 20px; 
+  margin-top: 550px; 
 }
+
+
+button#btn-agregar{
+ width: 150px;
+ height: 45px;
+ padding: 10px 40px;
+ overflow:hidden;
+}
+
+button#btn-agregar{
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
+
+button#btn-agregar:before {
+ font-family: FontAwesome;
+ content:"\f07a";
+ position: absolute;
+ top: 11px;
+ left: -30px;
+ transition: all 200ms ease;
+}
+
+
+button#btn-agregar:hover:before {
+ left: 7px;
+}
+
+button#btn-salir{
+ width: 150px;
+ height: 45px;
+ padding: 10px 40px;
+ overflow:hidden;
+}
+
+button#btn-salir{
+    border: none;
+    background: #22B14C;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
+
+button#btn-salir:before {
+ font-family: FontAwesome;
+ content:"\f07a";
+ position: absolute;
+ top: 11px;
+ left: -30px;
+ transition: all 200ms ease;
+}
+
+
+button#btn-salir:hover:before {
+ left: 7px;
+}
+
+
+button#btn-registrar{
+ width: 150px;
+ height: 45px;
+ padding: 10px 40px;
+ overflow:hidden;
+}
+
+button#btn-registrar{
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
+
+button#btn-registrar:before {
+ font-family: FontAwesome;
+ content:"\f07a";
+ position: absolute;
+ top: 11px;
+ left: -30px;
+ transition: all 200ms ease;
+}
+
+
+button#btn-registrar:hover:before {
+ left: 7px;
+}
+
+button#btn-anadir{
+    border: none;
+    background: #22B14C;
+    color: #f2f2f2;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
+
+.select{
+    -webkit-appearance: button;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 9px 8px;
+    border: 5;
+    border:1px solid  #7D7E7E; 
+    margin-left: 5%;
+   }
+
+
+  .select2{
+    -webkit-appearance: button;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 9px 8px;
+    border: 5;
+    border:1px solid  #7D7E7E; 
+   }
+
+.select3{
+    -webkit-appearance: button;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 9px 8px;
+    border: 5;
+    border:1px solid  #7D7E7E; 
+    margin-left: 6.3%;
+   }
+
+
+
+
+

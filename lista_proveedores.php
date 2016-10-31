@@ -201,13 +201,21 @@
 			</div>
 
 		  <div id="div-botones-lista-empleados" class="btn btn-group">
-		  		<button id="btn-agregar-empleado" class="btn btn-default">Agregar Proveedor</button>
-		  		<button id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</button>
-		  		<button id="btn-eliminar-empleado" class="btn btn-info" style="margin-left: 5px">Eliminar Proveedor</button>
+		  		<a href="registro_proveedor.php" class="btn btn-default">Agregar Proveedor</a>
+		  		<a href="registro_proveedor.php" id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</a>
+		  		<a href="menu_administrador.php" class="btn btn-warning">Salir</a>
 		  </div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		  <div id="my-Modal" class="modal fade" tabindex="-1" role="dialog">
+		    
+                </div><!-- /.modal -->
+
+
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+
 
 </body>
 </html>

@@ -52,7 +52,7 @@
 			</tr>
 			<tr>
 				<td>
-					<button class="btn btn-warning" id="btn-registrar"><a href="#" data-toggle="modal" data-target="#myModal">Registrar</a></button>
+					<button class="btn btn-warning" id="btn-registrar" ><a href="#" data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">Registrar</a></button>
 				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">

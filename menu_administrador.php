@@ -12,8 +12,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -44,7 +43,7 @@
           <a href="#">Estadisticas</a> 
         </li> 
         <li> 
-          <a href="#">Inventario</a> 
+          <a href="registro_productos.php">Inventario</a> 
         </li>
         <li> 
           <a href="usuarios.php">Usuarios</a> 
@@ -113,6 +112,9 @@
           </footer>
         </div>
     </section>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
 
 </body>
 </html>

@@ -68,7 +68,7 @@
             </div><!-- /.modal -->
         </li> 
         <li id="pes2"> 
-          <a href="" id="vistal">Vista de Registro</a> 
+          <a href="" id="vista1">Vista de Registro</a> 
         </li> 
         <li>
           <a href="index.php">Cerrar Sesión</a> 
@@ -94,13 +94,17 @@
 
 
 
+<div id="tablas">
+
+
 
 </div>
+
 <script type="text/javascript">
 $(document).ready(function(){
   //INICIO DEL FORMULARIO
   $.ajax({
-          url:"ajax/procesar.php?accion=6",
+          url:"ajax/procesar.php?accion=7",
           method:"POST",
   
           success:function(respuesta){
@@ -138,7 +142,7 @@ $(document).ready(function(){
           }
         });
         });
-      $("#vista").click(function(e){
+      $("#vista1").click(function(e){
         e.preventDefault();
         //$("#tablas").html("ESTOY AQUI");
         $.ajax({

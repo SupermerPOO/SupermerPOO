@@ -1,4 +1,5 @@
 <?php
+echo '<script type="text/javascript" src="../js/funciones.js"></script>';
 	switch ($_GET['accion']) {
 		case '1':
 		?>
@@ -12,11 +13,11 @@
                       <div class="modal-body" style="padding: 50px 300px 50px 180px;">
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" id='btn-cemodal' data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-default" id='btn-cemodal1' data-dismiss="modal">Cerrar</button>
                       </div>
                     </div><!-- /.modal-content -->
                   </div><!-- /.modal-dialog -->
-                </div><!-- /.modal -->
+        
                 <?php
 			break;
       case '2':
