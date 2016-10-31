@@ -1,75 +1,156 @@
+$(document).ready(function(){
+$('#e-modal').click(function(){
 
-$("#btn-gumodal").click(function(){
-			$("#td-natu").html("Estoy aqui");
+	/*$.ajax({
+			url:"ajax/validacion_contador.php?accion=2",
+			method: "POST",
+			success:function(resultado){
 
-		if($("#txt-nombre").val()!=null && $("#slc-naturaleza").val()!=null){
+				$("#myModal").html(resultado);
+	
+				
+			},
+			error:function(){
+
+			}
+		});*/
+});
+
+
+$("#guardarModal").click(function(){
+
+			
+		if($("#txt-nombre").val()!=""){
 				var parametros=
 			"txt-nombre="+$("#txt-nombre").val()+
 			"&slc-naturaleza="+$("#slc-naturaleza").val();
-			//$.post $.get
-		$.ajax({
-			url:"../ajax/validacion_contador.php?accion=1",
-			method: "POST",
-			data: parametros,
-			success:function(resultado){
-				$("#myModal").html(resultado);
-				
-			},
-			error:function(){
+						
+				$.ajax({
+					url:"ajax/validacion_contador.php?accion=1",
+					method: "POST",
+					data: parametros,
+					success:function(resultado){
 
-			}
-		});
+						$("#myModal").html(resultado);
+
+				
+
+						
+					},
+					error:function(){
+
+					}
+				});
 		}else{
-			//$.post $.get
-		$.ajax({
-			url:"../ajax/validacion_contador.php?accion=2",
-			method: "POST",
-			
-			success:function(resultado){
-				alert(resultado);
-				
-			},
-			error:function(){
-
-			}
-		});
-
-		}
+			$("#td-natu").html("El nombre esta vacio");
 		
+		}
 
-		//alert(parametros);
-		//$.post $.get
+
+
+		
+	});
+	
+$("#btn-cemodal1").click(function(){
+
+		
+						
+				$.ajax({
+					url:"ajax/validacion_contador.php?accion=2",
+					method: "POST",
+
+					success:function(resultado){
+
+						$("#myModal").html(resultado);
+
+				
+
+						
+					},
+					error:function(){
+
+					}
+				});
+
+
+
+
 		
 	});
 
-function clickAqui(){
-	alert("Ejecutando funcion"); 
-	$(".texto-cool").html("Texto cambiado desde jquery");
-}
+$("#btn-eliminar").click(function(evento){
 
-mostrarValor = function(){
-	//alert("Valor: "+document.getElementById("txt-texto").value); 
-	alert("Valor: "+ $("#txt-texto").val()); 
-}
+		evento.preventDefault();
+						
+				$.ajax({
+					url:"ajax/validacion_contador.php?accion=2",
+					method: "POST",
 
-asignarValor = function(){
-	//document.getElementById("txt-texto").value="Valor asignado desde javascript";
-	$("#txt-texto").val("Valor asignado utilizando jquery");
-}
+					success:function(resultado){
 
-llenarDiv = function(){
-	$("#div-contenido").html("<h1>Hola mundo, este contenido se asigno dinamicamente</h1>");
-}
+						$("#my-Modal").html(resultado);
 
-mostrarMensaje = function(){
-	alert($("#span-mensaje").html());
-}
+				
 
-mostrarImagen = function(){
-	$("#vegeta").fadeIn(3000);
-}
+						
+					},
+					error:function(){
+						
 
-ocultarImagen = function(){
-	$("#vegeta").fadeOut(3000);
-	$(".texto-cool").fadeOut(3000);
-}
+					}
+				});
+
+
+
+
+		
+	});
+	
+
+ $("#btn-agregar").click(function(){
+   $("#btn-agregar").button("loading");
+        $("#img-carga").fadeIn(200);
+
+  var parametros = "txt-proveedor="+$("#txt-proveedor").val()+"&"+"txt-rtn="+$("#txt-rtn").val()+"&"+"txt-empresa="+$("#txt-empresa").val()+"&"+"txt-direccion="+$("#txt-direccion").val()+"&"+"txt-telefono="+$("#txt-telefono").val()+"&"+"txt-correo="+$("#txt-correo").val()+"&"+"txt-producto="+$("#txt-producto").val()+"&"+"txt-registro="+$("#txt-registro").val()+"&"+"txt-fecha="+$("#txt-fecha").val();
+  
+
+  $.ajax({
+    url:"ajax/procesar.php",
+          method:"POST",
+          data: parametros,
+
+          success:function(respuesta){
+             $("#img-carga").fadeOut(200);
+            $("#btn-agregar").button("reset");
+            $("#div-respuesta").html(respuesta);
+          }
+
+     });
+
+  });
+
+
+
+
+  $("#btn-registrar").click(function(){
+    $("#btn-registrar").button("loading");
+        $("#img-carga").fadeIn(200);
+
+
+  var parametro = "txt-producto1="+$("#txt-producto1").val()+"&"+"txt-marca="+$("#txt-marca").val()+"&"+"txt-categoria="+$("#txt-categoria").val()+"&"+"txt-distribucion="+$("#txt-distribucion").val()+"&"+"txt-cantidad="+$("#txt-cantidad").val()+"&"+"txt-codigo="+$("#txt-codigo").val();
+
+  $.ajax({
+    url:"ajax/proceso.php",
+          method:"POST",
+          data: parametro,
+
+          success:function(respuesta1){
+            $("#img-carga").fadeOut(200);
+            $("#btn-registrar").button("reset");
+            $("#div-respuesta1").html(respuesta1);
+          }
+
+      });
+
+   });
+});
