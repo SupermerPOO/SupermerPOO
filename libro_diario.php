@@ -32,7 +32,7 @@
     </div>
      <a href="menu_contador.php" class="navbar-brand" ><span style="background-color: #22B14C; color:#FFFFFF" class="glyphicon glyphicon-arrow-left"></span></a>
     <nav class="navbar-collapse collapse " id="bsnavbar" aria-expanded="false" style="height: 1px;">
-    <div id="menus"> 
+   
 
       <ul class="nav navbar-nav" id=lista> 
 
@@ -76,7 +76,7 @@
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 
-      </div>
+ 
     </nav> 
 
 <div class="alert alert-success" role="alert">
@@ -94,7 +94,7 @@
 
 
 
-<div id="tablas">
+<div id="tablas" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 
 

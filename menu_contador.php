@@ -28,7 +28,7 @@
     <nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
       <ul class="nav navbar-nav"> 
         <li> 
-          <a href="balance.php">Balance General</a> 
+          <a href="balance.php">Inventario y Balance</a> 
         </li> 
         <li> 
           <a href="libro_diario.php">Libro Diario</a> 

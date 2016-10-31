@@ -40,7 +40,7 @@
           <a href="personal.php">Personal</a> 
         </li> 
         <li> 
-          <a href="#">Estadisticas</a> 
+          <a href="estadisticas.php">Estadisticas</a> 
         </li> 
         <li> 
           <a href="registro_productos.php">Inventario</a> 

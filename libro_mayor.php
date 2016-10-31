@@ -33,7 +33,7 @@
     </div>
      <a href="menu_contador.php" class="navbar-brand" ><span style="background-color: #22B14C; color:#FFFFFF" class="glyphicon glyphicon-arrow-left"></span></a>
     <nav class="navbar-collapse collapse " id="bsnavbar" aria-expanded="false" style="height: 1px;">
-    <div id="menus"> 
+   
 
       <ul class="nav navbar-nav" id=lista> 
 
@@ -51,7 +51,7 @@
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 
-      </div>
+ 
     </nav> 
 
 
@@ -65,7 +65,7 @@
 <body>
 
 
- <div  class="col-xs-6 col-sm-6 col-md-6 col-lg-2" style="margin: 50px 50px 50px 50px; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
+ <div  clclass="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="margin: 50px 50px 50px 50px; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
     <span style="color: #177EE5;"><strong>LISTA DE CUENTAS</strong></span><br>
 
       <input type='checkbox' name='op1' id="op1"> Banco</input><br>
@@ -77,7 +77,7 @@
        <input type='checkbox' name='op7' id="op7"> Documentos por pagar</input><br>
 </div>
 
-<div id='tablas' class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
+<div id='tablas' class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 </div>
 
 

@@ -17,10 +17,10 @@
 <body >
 
 
-<header class=""  id="">
+<header class="bs-docs-nav navbar navbar-static-top" id="top">
 
- <div style="color: #FFFFFF; padding-top: 30px" align="center" width="500px" height="100px" hspace="450px">
- <strong>INVENTARIO Y BALANCE</strong>
+ <div align="center" width="500px" height="100px" hspace="450px">
+ <strong style="color: #FFFFFF">INVENTARIO Y BALANCE</strong>
     </div>  
   <div class="container"  > 
     <div class="navbar-header">
@@ -32,8 +32,8 @@
      
     </div>
      <a href="menu_contador.php" class="navbar-brand" ><span style="background-color: #22B14C; color:#FFFFFF" class="glyphicon glyphicon-arrow-left"></span></a>
-    <nav class="navbar-collapse collapse " id="bsnavbar" aria-expanded="false" style="height: 1px;">
-    <div id="menus"> 
+    <nav class="navbar-collapse collapse " id="bs-navbar" aria-expanded="false" style="height: 1px;">
+    
 
       <ul class="nav navbar-nav" id=lista> 
 
@@ -60,7 +60,7 @@
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 
-      </div>
+  
     </nav> 
 
 
@@ -68,12 +68,11 @@
  
   </div> 
 </header>
-<header>
-</header>
-<hr>
-<body>
 
-<div id="tablas">
+<hr>
+
+
+<div id="tablas" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 
 

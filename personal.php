@@ -280,7 +280,7 @@
 	<table class="table tabl-responsive table-condensed">
 		<tr>
 			<td colspan="4" align="right" style="padding-right: 50px">
-				<button class="btn btn-warning"><a href="#" data-toggle="modal" data-target="#myModal">Nuevo Registro</a></button>
+				<a href="" data-toggle="modal" data-target="#myModal"><button class="btn btn-warning">Nuevo Registro</button></a>
 				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
