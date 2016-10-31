@@ -47,7 +47,7 @@
                       <h4 class="modal-title">Agregando registro</h4>
                   </div>
                   <div class="modal-body">
-                    <p><div type="text" id="txt-fecha">Fecha:<input type="text" name="txt-fecha" placeholder="15/15/15" class="form-control"></div></p>
+                    <p><div type="text" id="txt-fecha">Fecha:<input type="text" name="txt-fecha" placeholder="12/12/12" class="form-control"></div></p>
                     <p><div type="text" id="txt-partida">Nº PDA: <?php /* El numero de partida es autoincremental, ese no lo puede tocar uno solo, hay que dejarlo que se pueda extraer de la base de daos pero que la persona no pueda modificarlo*/?><input disabled="disabled" type="text" name="txt-partida" placeholder="" class="form-control"></div></p>
                     <p><div type="text" id="txt-descripcion">Descripcion:<input type="text" name="txt-descripcion" placeholder="" class="form-control"></div></p>
                     <p><div>Subcuenta:<br><label><input type="checkbox" name="chk-subcuentas" value="FICOHSA S.A.">FICOHSA S.A.</label></div>
@@ -56,12 +56,12 @@
                     <label><input type="checkbox" name="chk-subcuentas" value="DISTRIBUIDORA DINAN S. de R. L.">DISTRIBUIDORA DINAN S. de R. L.</label>
                     <p><div type="text" id="txt-cuenta-cargada">Cuenta Cargada:<select name="" id="slc-cuenta-cargada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
                     <p><div type="text" id="txt-debe">Debe:<input type="text" name="txt-debe"></div></p>
-                    <p><div type="text" id="txt-cuenta-cargada">Cuenta Acreditada:<select name="" id="slc-cuenta-acreditada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
+                    <p><div type="text" id="txt-cuenta-acreditada">Cuenta Acreditada:<select name="" id="slc-cuenta-acreditada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
                     <p><div type="text" id="txt-haber">Haber:<input type="text" name="txt-haber"></div></p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" id="btn-guardar" class="btn btn-primary">Guardar</button>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
@@ -80,47 +80,7 @@
     </nav> 
 
 <div class="alert alert-success" role="alert">
-    <?php
-      if(isset($_GET["btn-guardar"])){
-        
-        if (isset($_GET["txt-fecha"]))
-          echo "Fecha: ". $_GET["txt-fecha"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        if (isset($_GET["txt-partida"]))
-          echo "Partida: ". $_GET["txt-partida"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        
-        if (isset($_GET["txt-descripcion"]))
-          echo "Descripcion: ". $_GET["txt-descripcion"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        
-        if (isset($_GET["chk-subcuentas"]))
-          echo "Subcuenta: ". $_GET["chk-subcuentas"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        
-        if (isset($_GET["txt-cuenta-cargada"]))
-          echo "Cuenta Cargada: ". $_GET["txt-cuenta-cargada"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        
-        if (isset($_GET["txt-debe"]))
-          echo "Debe: ". $_GET["txt-debe"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        if (isset($_GET["txt-cuenta-acreditada"]))
-          echo "Cuenta Acreditada: ". $_GET["txt-cuenta-acreditada"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-        if (isset($_GET["txt-haber"]))
-          echo "Haber: ". $_GET["txt-haber"]."<br>";
-        else 
-          echo "Campo vacio<br>";
-      }     
-    ?>
+  
   </div>
 
  
@@ -224,4 +184,23 @@ $(document).ready(function(){
    
 
 </body>
+<script>
+  $(document).ready(function(){
+    $("#btn-guardar").click(function(){
+      var parametros = "txt-fecha=" + $("#txt-fecha").val() + "&" + "txt-partida=" + $("#txt-partida").val() + "&" + "txt-descripcion=" + $("#txt-descripcion").val() + "&" + "chk-subcuentas=" + $("#chk-subcuentas").val() + "&" + "txt-cuenta-cargada=" + $("#txt-cuenta-cargada").val() + "&" + "txt-debe=" + $("#txt-debe").val() + "&" + "txt-cuenta-acreditada=" + $("#txt-cuenta-acreditada").val()+ "&" + "txt-haber=" + $("#txt-haber").val();
+      $.ajax({
+        url:"ajax/procesar_diario.php",
+        method:"POST",
+        data: parametros,
+        success:function(respuesta){
+          $("#btn-guardar").button("reset");
+          $("#div-respuesta").html(respuesta)
+        },
+        error:function(){
+          alert("Error");
+        }
+      });
+    });
+  });
+</script>
 </html>
