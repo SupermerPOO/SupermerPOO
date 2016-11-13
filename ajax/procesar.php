@@ -1,6 +1,8 @@
 
 
 <?php
+include_once('../class/class_conexion.php');
+$conexion = new Conexion();
 
 
 switch ($_GET['accion']) {
@@ -823,116 +825,149 @@ switch ($_GET['accion']) {
 				
 		break;
 	case '7':
-	echo 
-		"<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO DIARIO</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."No."."</td>".
-					"<td  align='center'> "."Parcial"."</td>".
-					"<td align='center'> "."Debe"."</td>".
-					"<td  align='center'> "."Haber"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	
+	?>
 
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	<table class='table table-bordered contenedor' align='center'>
+		<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO DIARIO</td></strong></tr><br>
+		<tr align='center' style='color:#000000'><strong>
+		<td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>
+				<tr class='active' style='color: #D6A80C;' align='center'>
+					<td >Fecha</td>
+					<td colspan="2"> Concepto</td>
+					
+					<td > No.</td>
+					<td > Parcial</td>
+					<td > Debe</td>
+					<td > Haber</td>
+				</tr>
+				
+				<?php
+				$libro = $conexion->ejecutarInstruccion(
+					'SELECT 
+					codigo_partida, 
+					fecha_partida, 
+					descripcion
+					FROM tbl_libro_diario'
+					);
 
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+		
+					while($fila = $conexion->obtenerFila($libro)){
 
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
+								echo "<tr align='center'>;
+										<td>".$fila['fecha_partida']."</td>";
+					
 
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+										$cargadas = $conexion->ejecutarInstruccion(sprintf(
+											'SELECT 
+													codigo_partida, 
+													codigo_cuenta,
+													monto, 
+													 facturaX
+												FROM tbl_libro_diario_x_tbl_cuenta_cargada
+
+												WHERE codigo_partida = "%s"',
+										stripslashes($fila['codigo_partida']))
+											);
+					
+
+										while ($filacargada=$conexion->obtenerFila($cargadas)){
+									
+													$cuentas = $conexion->ejecutarInstruccion(
+																	'SELECT codigo_cuenta , nombre
+																	FROM tbl_cuenta'
+																	);
+															
+												
+													while ($filaNombre = $conexion->obtenerFila($cuentas)) {
+
+																if($filacargada['codigo_cuenta']==$filaNombre['codigo_cuenta']){
+
+																		echo "<td>".$filaNombre['nombre']."</td><td></td>";
+
+																}
+													
+													}
+											
+													echo  "<td>".$fila['codigo_partida']."</td>
+													<td> </td>
+													<td>".$filacargada['monto']."</td>
+													<td> </td>";
+													echo "<tr>";
 
 
+										}
+						
+							
+										$acreditadas = $conexion->ejecutarInstruccion(sprintf(
+											'SELECT 
+													codigo_partida, 
+													codigo_cuenta,
+													monto, 
+													 facturaX
+												FROM tbl_libro_diario_x_tbl_cuenta_acreditada
+
+												WHERE codigo_partida = "%s"',
+										stripslashes($fila['codigo_partida']))
+											);
+					
+
+										while ($filaacreditada=$conexion->obtenerFila($acreditadas)){
+														echo "<tr align='center'>
+															<td></td>";
+													$cuentas = $conexion->ejecutarInstruccion(
+																	'SELECT codigo_cuenta , nombre
+																	FROM tbl_cuenta'
+																	);
+												
+													while ($filaNombre = $conexion->obtenerFila($cuentas)) {
+
+																if($filaacreditada['codigo_cuenta']==$filaNombre['codigo_cuenta']){
+
+																		echo "<td></td><td>".$filaNombre['nombre']."</td>";
+
+																}
+													
+													}
+											
+													echo  "<td >".$fila['codigo_partida']."</td>
+													<td> </td>
+													<td></td>
+													<td >".$filaacreditada['monto']."</td>";
+													echo "</tr>";
 
 
 
+										}
 
-			"</table>";
+						echo "<tr align='left'>
+						<td ></td>
+						<td colspan='2' style='color: #143882'>Descripcion: ".$fila['descripcion']."</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						</tr>";				
+
+				}
+
+				?>
+				
+					
+					
+					
+					
+				
+
+
+			</table>;
+
+	<?php
+		
+				
+
+
+
 		break;
 	case '8':
 

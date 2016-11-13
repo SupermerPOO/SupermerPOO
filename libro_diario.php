@@ -48,7 +48,7 @@
                   </div>
                   <div class="modal-body">
                     <p><div type="text" id="txt-fecha">Fecha:<input type="text" name="txt-fecha" placeholder="12/12/12" class="form-control"></div></p>
-                    <p><div type="text" id="txt-partida">Nº PDA: <?php /* El numero de partida es autoincremental, ese no lo puede tocar uno solo, hay que dejarlo que se pueda extraer de la base de daos pero que la persona no pueda modificarlo*/?><input disabled="disabled" type="text" name="txt-partida" placeholder="" class="form-control"></div></p>
+                    <p><div type="text" id="txt-partida">Nº PDA: <?php ?><input disabled="disabled" type="text" name="txt-partida" placeholder="" class="form-control"></div></p>
                     <p><div type="text" id="txt-descripcion">Descripcion:<input type="text" name="txt-descripcion" placeholder="" class="form-control"></div></p>
                     <p><div>Subcuenta:<br><label><input type="checkbox" name="chk-subcuentas" value="FICOHSA S.A.">FICOHSA S.A.</label></div>
                     <label><input type="checkbox" name="chk-subcuentas" value="FERRETERIA EL TITO S.A">FERRETERIA EL TITO S.A</label><br>
@@ -164,20 +164,7 @@ $(document).ready(function(){
         }); 
       });
 
-     /* $("#slc-cuenta").click(function(){
-         if ($('#slc-cuenta').val()=='Bancos') {
-
-          <?php /*echo"<br><td>SubCuenta: <select name='slc-subcuenta1' id='slc-subcuenta1'>
-          <option>FICOHSA</option>
-          <option>BANCATLAN</option>
-          <option>BANCO DE OCCIDENTE</option>
-          <select></td>";*/
-          ?>
-        }
-    }
-
-         }
-      });*/
+   
       
 
       }); 
