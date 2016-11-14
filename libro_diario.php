@@ -30,7 +30,7 @@
       </button> 
      
     </div>
-     <a href="menu_contador.php" class="navbar-brand" ><span style="background-color: #22B14C; color:#FFFFFF" class="glyphicon glyphicon-arrow-left"></span></a>
+  <a href="menu_contador.php" class="navbar-brand" ><span style="background-color: #22B14C; color:#FFFFFF" class="glyphicon glyphicon-arrow-left"></span></a>
     <nav class="navbar-collapse collapse " id="bsnavbar" aria-expanded="false" style="height: 1px;">
    
 
@@ -38,34 +38,68 @@
 
  
         <li id="pes1"> 
-          <a href="#" data-toggle="modal" data-target="#myModal">Agregar Partida</a>
-            <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+          <a href="#" data-toggle="modal" data-target="#myModal" id="a-Agregar">Agregar Partida</a>
+          <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title">Agregando registro</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p><div type="text" id="txt-fecha">Fecha:<input type="text" name="txt-fecha" placeholder="12/12/12" class="form-control"></div></p>
-                    <p><div type="text" id="txt-partida">Nº PDA: <?php ?><input disabled="disabled" type="text" name="txt-partida" placeholder="" class="form-control"></div></p>
-                    <p><div type="text" id="txt-descripcion">Descripcion:<input type="text" name="txt-descripcion" placeholder="" class="form-control"></div></p>
-                    <p><div>Subcuenta:<br><label><input type="checkbox" name="chk-subcuentas" value="FICOHSA S.A.">FICOHSA S.A.</label></div>
-                    <label><input type="checkbox" name="chk-subcuentas" value="FERRETERIA EL TITO S.A">FERRETERIA EL TITO S.A</label><br>
-                    <label><input type="checkbox" name="chk-subcuentas" value="UTILES DE HONDURAS S.A">UTILES DE HONDURAS S.A</label>
-                    <label><input type="checkbox" name="chk-subcuentas" value="DISTRIBUIDORA DINAN S. de R. L.">DISTRIBUIDORA DINAN S. de R. L.</label>
-                    <p><div type="text" id="txt-cuenta-cargada">Cuenta Cargada:<select name="" id="slc-cuenta-cargada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
-                    <p><div type="text" id="txt-debe">Debe:<input type="text" name="txt-debe"></div></p>
-                    <p><div type="text" id="txt-cuenta-acreditada">Cuenta Acreditada:<select name="" id="slc-cuenta-acreditada" class="form-control"><option value="Bancos">Bancos</option><option value="Proveedores">Proveedores</option></select></div></p>
-                    <p><div type="text" id="txt-haber">Haber:<input type="text" name="txt-haber"></div></p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="btn-guardar" class="btn btn-primary">Guardar</button>
-                  </div>
+                      <h4 class="modal-title">Cuantas clases acreditara y cargara</h4>
+                      </div>
+
+                          <div class="modal-body" id="cuerpo-modal">
+                          <div style="padding: 50px 50px 0px 50px;">
+                            <table class="table table-hover" align="center"> 
+                            <tr>
+                              <td >
+                                 Nº cuentas cargadas:
+                          
+                        </td>
+                        <td>
+                        <input type="text" name="txt-numero-deudor" id="txt-numero-deudor" placeholder="" class="form-control">
+                          
+                        </td>
+
+
+                      </tr>
+                          <tr>
+                        <td>
+                        Nº cuentas acreditada:
+                          
+                        </td>
+                        <td>
+                      <input type="text" name="txt-numero-acreditada" id="txt-numero-acreditada" placeholder="" class="form-control">
+                          
+                        </td>
+
+
+                      </tr>
+                      <tr style="width: 150px" > <td id="td-natu" colspan="2"></td> <td></td></tr>
+
+                      </table>
+                          </div>
+                          
+
+                          </div> 
+                          <div id='div-camposVacios' align='center' style="color: #D40A18; display: none;padding: 0px 0px 0px 200px"><strong></strong></div>
+                           <div class="modal-footer" > <!-- Div botones -->
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                           <button type="button" id="btn-siguiente" class="btn btn-primary">Siguiente</button>
+                           <button type="button" style="display: none" id="btn-guardar" class="btn btn-primary">Guardar</button>  
+
+                        </div> 
+                   
+   
+
+                       
+                                  
+
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
+
+           
+     
         </li> 
         <li id="pes2"> 
           <a href="" id="vista1">Vista de Registro</a> 
@@ -92,56 +126,102 @@
 <hr>
 <body>
 
+<div style="padding: 10px 80px 20px 80px">
+  
+      <div id="tablas" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
 
 
-<div id="tablas" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-
+      </div>
 
 </div>
+
+
 
 <script type="text/javascript">
 $(document).ready(function(){
   //INICIO DEL FORMULARIO
-  $.ajax({
-          url:"ajax/procesar.php?accion=7",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-            $("#menus").css('background','#FFFFFF');
-            $("#menus").css('color','#177EE5');
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        });
+                            $.ajax({
+                                    url:"ajax/procesar.php?accion=7",
+                                    method:"POST",
+                            
+                                    success:function(respuesta){
+                                    //  alert(respuesta);
+                                      $("#menus").css('background','#FFFFFF');
+                                      $("#menus").css('color','#177EE5');
+                                      $("#tablas").html(respuesta);
+                                    },
+                                    error:function(xhr, ajaxOptions, thrownError){
+                                      alert("Ocurrio un error.");
+                                      //alert(xhr.status);
+                                      alert(thrownError);
+                                      
+                                    }
+                                  });
+
+
+
+
+                                  for(var i=0; i< $('txt-numero-deudor').val();i++){
+                                    alert("llegue");
+                                      $('#slc-cargada-'+i).on('change',function(){
+                                        var parametros = "slc-cargada-"+i+$('#slc-cargada-'+i).val()+"&txt-numero-deudor="+$('txt-numero-deudor').val();
+                                        $.ajax({
+                                          url: "ajax/procesar.php?accion=21",
+                                          method: "POST",
+                                          data: parametros,
+                                          success: function(resultado){
+
+                                            $('#div-subCuentas-'+i).html(resultado);
+
+                                          }, error: function(){
+
+                                          } 
+
+                                        });
+                                      });
+                                  }
 //ACCIONES AL DAR CLICK
-      $("#Ag-Partida").click(function(e){
+      $("#btn-siguiente").click(function(e){
         e.preventDefault();
 
-        $.ajax({
-          url:"ajax/procesar.php?accion=6",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-            $("#menus").css('background','#FFFFFF');
-            $("#menus").css('color','#177EE5');
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
+              if($("#txt-numero-acreditada").val()!="" && $("#txt-numero-deudor").val()!=""){
+
+                              var parametros= "txt-numero-acreditada="+$("#txt-numero-acreditada").val()+"&txt-numero-deudor="+$("#txt-numero-deudor").val();
+
+                                  $.ajax({
+                                    url:"ajax/procesar.php?accion=19",
+                                    method:"POST",
+                                    data:parametros,
+                                    success:function(respuesta){
+                                      $('#btn-siguiente').css('display','none');
+                                      $('#btn-guardar').css('display','inline');
+
+                                     $("#div-camposVacios").css('display','none');
+                                      $("#cuerpo-modal").html(respuesta);
+
+                                    },
+                                    error:function(xhr, ajaxOptions, thrownError){
+                                      alert("Ocurrio un error.");
+                                      //alert(xhr.status);
+                                      alert(thrownError);
+                                      
+                                    }
+                                  });
+
+                      }else{
+                        $("#div-camposVacios").html("Hay Campos Vacios");
+                        $("#div-camposVacios").css('display','inline');
+
+                      }
+
+       
         });
-        });
+
+
+
+
+
       $("#vista1").click(function(e){
         e.preventDefault();
         //$("#tablas").html("ESTOY AQUI");
@@ -164,10 +244,39 @@ $(document).ready(function(){
         }); 
       });
 
+      $("#btn-guardar").click(function(e){
+        e.preventDefault();
+        //$("#tablas").html("ESTOY AQUI");
+        $.ajax({
+          url:"ajax/procesar.php?accion=20",
+          method:"POST",
+  
+          success:function(respuesta){
+          //  alert(respuesta);
+           // $("#menus").css('background','#FFFFFF');
+            // $("#menus").css('color','#177EE5');
+            $("#cuerpo-modal").html(respuesta);
+
+            $('#btn-guardar').css('display','none');
+            $('#btn-siguiente').css('display','inline');
+          },
+          error:function(xhr, ajaxOptions, thrownError){
+            alert("Ocurrio un error.");
+            //alert(xhr.status);
+            alert(thrownError);
+            
+          }
+        }); 
+      });
+
+
+
+
    
       
 
       }); 
+
 
 
 

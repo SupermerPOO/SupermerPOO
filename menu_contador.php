@@ -60,6 +60,7 @@
                         <h4 class="modal-title text-center">Crear Cuenta</h4>
                       </div>
                       <div class="modal-body" style="padding: 50px 300px 50px 180px;">
+                      
                       <table class="table table-hover" align="center"> 
                       <tr>
                         <td >
