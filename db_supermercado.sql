@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-11-2016 a las 02:45:26
+-- Tiempo de generación: 14-11-2016 a las 04:59:18
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `tbl_libro_diario` (
   `fecha_partida` date NOT NULL,
   `descripcion` varchar(200) NOT NULL,
   PRIMARY KEY (`codigo_partida`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `tbl_libro_diario`
@@ -297,7 +297,8 @@ CREATE TABLE IF NOT EXISTS `tbl_libro_diario` (
 INSERT INTO `tbl_libro_diario` (`codigo_partida`, `monto_cargado`, `monto_acreditado`, `fecha_partida`, `descripcion`) VALUES
 (1, '1000', '1000', '2016-11-01', 'Compra de sillas para administracion'),
 (2, '1000', '1000', '2016-11-01', 'Venta de productos'),
-(3, '30000', '30000', '2016-11-01', 'Acreditacion de capital');
+(3, '30000', '30000', '2016-11-01', 'Acreditacion de capital'),
+(4, '5000', '5000', '2016-11-13', 'Venta');
 
 -- --------------------------------------------------------
 
@@ -323,7 +324,9 @@ INSERT INTO `tbl_libro_diario_x_tbl_cuenta_acreditada` (`codigo_partida`, `codig
 (1, 2, 1000, '3549'),
 (2, 42, 850, '358'),
 (2, 43, 150, '358'),
-(3, 27, 30000, NULL);
+(3, 27, 30000, '400'),
+(4, 42, 4250, '1'),
+(4, 43, 750, '1');
 
 -- --------------------------------------------------------
 
@@ -335,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `tbl_libro_diario_x_tbl_cuenta_cargada` (
   `codigo_partida` int(11) NOT NULL,
   `codigo_cuenta` int(11) NOT NULL,
   `monto` double NOT NULL,
-  `FacturaX` varchar(45) DEFAULT NULL,
+  `facturaX` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`codigo_partida`,`codigo_cuenta`),
   KEY `fk_tbl_libro_diario_has_tbl_cuenta_tbl_cuenta1_idx` (`codigo_cuenta`),
   KEY `fk_tbl_libro_diario_has_tbl_cuenta_tbl_libro_diario1_idx` (`codigo_partida`)
@@ -345,23 +348,42 @@ CREATE TABLE IF NOT EXISTS `tbl_libro_diario_x_tbl_cuenta_cargada` (
 -- Volcado de datos para la tabla `tbl_libro_diario_x_tbl_cuenta_cargada`
 --
 
-INSERT INTO `tbl_libro_diario_x_tbl_cuenta_cargada` (`codigo_partida`, `codigo_cuenta`, `monto`, `FacturaX`) VALUES
+INSERT INTO `tbl_libro_diario_x_tbl_cuenta_cargada` (`codigo_partida`, `codigo_cuenta`, `monto`, `facturaX`) VALUES
 (1, 13, 1000, '3549'),
 (2, 1, 1000, '358'),
-(3, 2, 30000, NULL);
+(3, 2, 30000, '400'),
+(4, 1, 5000, '1');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_libro_diario_x_tbl_subcuenta`
+-- Estructura de tabla para la tabla `tbl_libro_diario_x_tbl_subcuenta_acreditada`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_libro_diario_x_tbl_subcuenta` (
+CREATE TABLE IF NOT EXISTS `tbl_libro_diario_x_tbl_subcuenta_acreditada` (
   `codigo_partida` int(11) NOT NULL,
   `codigo_subcuenta` int(11) NOT NULL,
+  `monto` double NOT NULL,
+  `facturaX` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`codigo_partida`,`codigo_subcuenta`),
-  KEY `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_subcuenta1_idx` (`codigo_subcuenta`),
-  KEY `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_libro_diario1_idx` (`codigo_partida`)
+  KEY `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_subcuenta3_idx` (`codigo_subcuenta`),
+  KEY `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_libro_diario3_idx` (`codigo_partida`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_libro_diario_x_tbl_subcuenta_cargada`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_libro_diario_x_tbl_subcuenta_cargada` (
+  `codigo_partida` int(11) NOT NULL,
+  `codigo_subcuenta` int(11) NOT NULL,
+  `monto` double NOT NULL,
+  `facturaX` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`codigo_partida`,`codigo_subcuenta`),
+  KEY `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_subcuenta2_idx` (`codigo_subcuenta`),
+  KEY `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_libro_diario2_idx` (`codigo_partida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -393,15 +415,13 @@ CREATE TABLE IF NOT EXISTS `tbl_libro_mayor` (
 CREATE TABLE IF NOT EXISTS `tbl_libro_mayor_auxiliar` (
   `codigo_mayor_auxiliar` int(11) NOT NULL AUTO_INCREMENT,
   `codigo_subcuenta` int(11) NOT NULL,
-  `codigo_partida` int(11) NOT NULL,
   `fecha_partida` varchar(45) NOT NULL,
   `concepto_auxiliar` varchar(45) NOT NULL,
   `monto_cargado` double NOT NULL,
   `monto_acreditado` double NOT NULL,
   `saldo_auxiliar` double NOT NULL,
-  PRIMARY KEY (`codigo_mayor_auxiliar`,`codigo_subcuenta`,`codigo_partida`),
-  KEY `fk_tbl_libro_mayor_auxiliar_tbl_subcuenta1_idx` (`codigo_subcuenta`),
-  KEY `fk_tbl_libro_mayor_auxiliar_tbl_libro_diario1_idx` (`codigo_partida`)
+  PRIMARY KEY (`codigo_mayor_auxiliar`,`codigo_subcuenta`),
+  KEY `fk_tbl_libro_mayor_auxiliar_tbl_subcuenta1_idx` (`codigo_subcuenta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -639,13 +659,25 @@ INSERT INTO `tbl_proveedor` (`codigo_proveedor`, `codigo_producto`, `nombre`, `R
 
 CREATE TABLE IF NOT EXISTS `tbl_subcuenta` (
   `codigo_subcuenta` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo_cuenta` int(11) NOT NULL,
   `codigo_naturaleza` int(11) NOT NULL,
+  `codigo_cuenta` int(11) NOT NULL,
   `nombre_subcuenta` varchar(45) NOT NULL,
   PRIMARY KEY (`codigo_subcuenta`),
-  KEY `fk_tbl_subcuenta_tbl_cuenta1_idx` (`codigo_cuenta`),
-  KEY `fk_tbl_subcuenta_tbl_naturaleza1_idx` (`codigo_naturaleza`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `fk_tbl_subcuenta_tbl_naturaleza1_idx` (`codigo_naturaleza`),
+  KEY `fk_tbl_subcuenta_tbl_cuenta1_idx` (`codigo_cuenta`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `tbl_subcuenta`
+--
+
+INSERT INTO `tbl_subcuenta` (`codigo_subcuenta`, `codigo_naturaleza`, `codigo_cuenta`, `nombre_subcuenta`) VALUES
+(1, 2, 2, 'FICOHSA S. A.'),
+(2, 2, 2, 'BANCATLAN S.A.'),
+(3, 1, 21, 'Distribuidora DINAN S. de R. L.'),
+(4, 1, 21, 'Cerveceria Hondurena S. de R. L.'),
+(5, 1, 24, 'ACOSA S. de R.L.'),
+(6, 2, 2, 'Banco de Occidente S.A.');
 
 -- --------------------------------------------------------
 
@@ -783,11 +815,18 @@ ALTER TABLE `tbl_libro_diario_x_tbl_cuenta_cargada`
   ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_cuenta_tbl_cuenta1` FOREIGN KEY (`codigo_cuenta`) REFERENCES `tbl_cuenta` (`codigo_cuenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `tbl_libro_diario_x_tbl_subcuenta`
+-- Filtros para la tabla `tbl_libro_diario_x_tbl_subcuenta_acreditada`
 --
-ALTER TABLE `tbl_libro_diario_x_tbl_subcuenta`
-  ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_libro_diario1` FOREIGN KEY (`codigo_partida`) REFERENCES `tbl_libro_diario` (`codigo_partida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_subcuenta1` FOREIGN KEY (`codigo_subcuenta`) REFERENCES `tbl_subcuenta` (`codigo_subcuenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `tbl_libro_diario_x_tbl_subcuenta_acreditada`
+  ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_libro_diario3` FOREIGN KEY (`codigo_partida`) REFERENCES `tbl_libro_diario` (`codigo_partida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_subcuenta3` FOREIGN KEY (`codigo_subcuenta`) REFERENCES `tbl_subcuenta` (`codigo_subcuenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `tbl_libro_diario_x_tbl_subcuenta_cargada`
+--
+ALTER TABLE `tbl_libro_diario_x_tbl_subcuenta_cargada`
+  ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_libro_diario2` FOREIGN KEY (`codigo_partida`) REFERENCES `tbl_libro_diario` (`codigo_partida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tbl_libro_diario_has_tbl_subcuenta_tbl_subcuenta2` FOREIGN KEY (`codigo_subcuenta`) REFERENCES `tbl_subcuenta` (`codigo_subcuenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tbl_libro_mayor`
@@ -800,7 +839,6 @@ ALTER TABLE `tbl_libro_mayor`
 -- Filtros para la tabla `tbl_libro_mayor_auxiliar`
 --
 ALTER TABLE `tbl_libro_mayor_auxiliar`
-  ADD CONSTRAINT `fk_tbl_libro_mayor_auxiliar_tbl_libro_diario1` FOREIGN KEY (`codigo_partida`) REFERENCES `tbl_libro_diario` (`codigo_partida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tbl_libro_mayor_auxiliar_tbl_subcuenta1` FOREIGN KEY (`codigo_subcuenta`) REFERENCES `tbl_subcuenta` (`codigo_subcuenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

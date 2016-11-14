@@ -166,6 +166,7 @@ $(document).ready(function(){
                                     alert("llegue");
                                       $('#slc-cargada-'+i).on('change',function(){
                                         var parametros = "slc-cargada-"+i+$('#slc-cargada-'+i).val()+"&txt-numero-deudor="+$('txt-numero-deudor').val();
+                                        alert(parametros);
                                         $.ajax({
                                           url: "ajax/procesar.php?accion=21",
                                           method: "POST",
