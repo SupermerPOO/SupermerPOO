@@ -139,14 +139,6 @@ include_once('class/validaciones_sucursales.php');
 												 		<input id="input-codigo" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
 												</td>	
 											</tr>
-	      									<tr>
-	      										<td>
-	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
-	      		       							 </td>
-												 <td>
-												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
-												</td>	
-											</tr>
 											<tr>
 												<td>
 													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
