@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	$.ajax({
-			url:"ajax/acciones_proveedor.php?accion=1",
+			url:"ajax/acciones_formularios_carlos.php?accion=1",
 			method: "POST",
-			success:function(resultado){
-				$("#div-tabla-proveedores").html(resultado);
+			success:function(resultado1){
+				$("#div-tabla-proveedores").html(resultado1);
 			},
 			error:function(){
 
