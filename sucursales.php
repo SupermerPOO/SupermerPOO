@@ -60,97 +60,9 @@ include_once('class/validaciones_sucursales.php');
 	      <br>
 
 
-	      <div class="container table-responsive">
-	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
- 				<tr>
- 					<td width="100px">
- 						Numero de Tienda
- 					</td>
- 					<td width="140px">
- 						Nombre
- 					</td>
- 					<td width="220px">
- 						Direccion
- 					</td>
- 					<td width="70px">
- 						Telefono
- 					</td>
- 				</tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
-			</table>
+	      <div class="container table-responsive" id="div-tabla-sucursal">
+	      	
+ 					
 	      </div>
 	     
 	      <div id="div-botones">
@@ -165,18 +77,12 @@ include_once('class/validaciones_sucursales.php');
 					      			<div class="modal-body">
 								        <div id="div-registro-sucursal" class="container table-responsive">
 	      								<table>
-	      								<form method="POST">
 	      									<tr>
 	      										<td>
 	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
 	      		       							 </td>
 												 <td>
-												 	<div style="align-items: left">
-												 		<input class="form-control" id="input-plus" type="button" value="+" onClick="add(-1);" style="width: 40px">
-														<input id="input-casilla" type="text" name="casilla" placeholder="Numero" class="form-control" style="width:200px" required/> 
-														<input class="form-control" id="input-menos" type="button" value="-" onClick="add(1);" style="width: 40px">
-												 	</div>
-													
+												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
 												</td>	
 											</tr>
 											<tr>
@@ -204,9 +110,6 @@ include_once('class/validaciones_sucursales.php');
 													</td>
 												</td>
 	      									</tr>
-
-	      								</form>
-	      									
 	      								</table>			
 	      							</div>
 				    	  		</div>
@@ -224,24 +127,8 @@ include_once('class/validaciones_sucursales.php');
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" >
-	$("#btn-guardar").click(function(){
-				$("#btn-guardar").button("loading");
-				var parametros = "input-casilla="+$("#input-casilla").val()+"&"+"input-nombre="+$("#input-nombre").val()+"&"+"input-direccion="+$("#input-direccion").val()+"&"+"input-telefono="+$("#input-telefono").val();
-				$.ajax({
-					url:"ajax/procesar_sucursales.php?accion=1",
-					method:"POST",
-					data: parametros,
-					success:function(respuesta){
-						$("#btn-guardar").button("reset");
-						<?php echo "Registro exitoso" ?>
-					},
-					error:function(){
-						alert("Ocurrio un error.");
-					}
-				});	
-			});	
-</script>
+<script type="text/javascript" src="js/controlador_sucursal.js"></script>
+
 </body>
 </html>
 
