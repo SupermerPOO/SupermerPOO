@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF8">
-  <title>Lista de Empleados</title>
+  <title>Lista de Proveedores</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,149 +56,9 @@
 	      </div>
 	      <br>
 
-	      <div class="container table-responsive">
-	      	<table id="tabla-sucursal" class="table table-striped table-bordered table-responsive">
- 				<tr>
- 					<td width="90px">
- 						Codigo Proveedor
- 					</td>
- 					<td width="140px">
- 						Nombre Proveedor
- 					</td>
- 					<td width="140px">
- 						RTN
- 					</td>
- 					<td width="70px">
- 						Direccion
- 					</td>
- 					<td width="70px">
- 						Correo Electronico
- 					</td>
- 					<td width="70px">
- 						Telefono
- 					</td>
- 					<td width="70px">
- 						Producto
- 					</td>
- 					<td width="70px">
- 						Registro Sanitario
- 					</td>
- 					<td width="70px">
- 						Fecha de Entrega
- 					</td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
-			</table>
-			</div>
+	      <div class="container table-responsive" id="div-tabla-proveedores">
+	      		
+		  </div>
 
 		  <div id="div-botones-lista-empleados" class="btn btn-group">
 		  		<a href="registro_proveedor.php" class="btn btn-default">Agregar Proveedor</a>
@@ -209,13 +69,13 @@
 
 		  <div id="my-Modal" class="modal fade" tabindex="-1" role="dialog">
 		    
-                </div><!-- /.modal -->
+         </div><!-- /.modal -->
 
 
- <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/funciones.js"></script>
-
+    <script type="text/javascript" src="js/controlador_proveedor.js"></script>
 
 </body>
 </html>
