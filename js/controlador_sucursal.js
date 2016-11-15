@@ -21,7 +21,26 @@ $(document).ready(function(){
 				});	
 	});
 
-	$("#buscar").keypress(function(e) {
+	
+	$("#btn-eliminarsucursal").click(function(){
+				$("#btn-eliminarsucursal").button("loading");
+				var parametros = "input-eliminar="+$("#input-eliminar").val();
+			
+				$.ajax({
+					url:"ajax/acciones_formularios_carlos.php?accion=6",
+					method:"POST",
+					data: parametros,
+					success:function(respuesta){
+						$("#btn-eliminarsucursal").button("reset");
+						cargarTabla();
+					},
+					error:function(){
+						alert("Ocurrio un error.");
+					}
+				});	
+	});
+
+	/*$("#buscar").keypress(function(e) {
        if(e.which == 13) {
           $.ajax({
 					url:"ajax/acciones_formularios_carlos.php?accion=4",
@@ -34,7 +53,7 @@ $(document).ready(function(){
 					}
 				});	
        }
-    });
+    });*/
 });
 
 

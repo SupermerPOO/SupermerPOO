@@ -120,8 +120,98 @@ include_once('class/validaciones_sucursales.php');
 				    		</div>
 				  		</div>
 					</div>
-			   <button id="btn-actualizar" class="btn btn-info elemento_izquierda">Actualizar</button>
-			   <button id="btn-eliminar" class="btn btn-warning elemento_izquierda">Eliminar</button>
+			   <button id="btn-actualizar" class="btn btn-info elemento_izquierda" href="#" data-toggle="modal" data-target="#myModal3">Actualizar</button>
+					<div id="myModal3" class="modal fade" tabindex="-1" role="dialog">
+				  		<div class="modal-dialog" role="document">
+				    		<div class="modal-content">
+				      			<div class="modal-header">
+				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        			<h4 class="modal-title">Actualizar Sucursal</h4>
+				      			</div>
+					      			<div class="modal-body">
+								        <div id="div-registro-sucursal" class="container table-responsive">
+	      								<table>
+	      									<tr>
+	      										<td>
+	      		       							 <label id="label-numero-sucursal"><b>Codigo Sucursal:</b></label>
+	      		       							 </td>
+												 <td>
+												 		<input id="input-codigo" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
+												</td>	
+											</tr>
+	      									<tr>
+	      										<td>
+	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
+	      		       							 </td>
+												 <td>
+												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
+												</td>	
+											</tr>
+											<tr>
+												<td>
+													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
+													<td>
+														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
+													</div>
+													</td>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
+													<td>
+													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
+													</td>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
+													<td>
+													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
+													</td>
+												</td>
+	      									</tr>
+	      								</table>			
+	      							</div>
+				    	  		</div>
+				      				<div class="modal-footer">
+				        			<input type="submit" id="btn-actualizar-sucursal" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Actualizar">
+				        			<button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+				      				</div>
+				    		</div>
+				  		</div>
+				  	</div>
+			   <button id="btn-eliminar-sucursal" class="btn btn-warning" href="#" data-toggle="modal" data-target="#myModal4">Eliminar</button>
+					<div id="myModal4" class="modal fade" tabindex="-1" role="dialog">
+				  		<div class="modal-dialog" role="document">
+				    		<div class="modal-content">
+				      			<div class="modal-header">
+				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        			<h4 class="modal-title">Eliminar</h4>
+				      			</div>
+					      			<div class="modal-body">
+								        <div id="div-registro-sucursal" class="container table-responsive">
+	      								<table>
+	      									<tr>
+	      										<td>
+	      		       							 <label id="label-numero-sucursal"><b>Codigo Sucursal:</b></label>
+	      		       							 </td>
+												 <td>
+												 		<input id="input-eliminar" type="text" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
+												</td>	
+											</tr>
+	      								</table>			
+	      							</div>
+				    	  		</div>
+				      				<div class="modal-footer">
+				        			<input id="btn-eliminarsucursal"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Eliminar">
+				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				      				</div>
+				    		</div>
+				  		</div>
+					</div>
+			  	
 		  </div>
 
 

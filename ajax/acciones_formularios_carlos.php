@@ -180,6 +180,30 @@
 		<?php
 		break;
 
+		case '5':
+			$resultado = $conexion->ejecutarInstruccion(sprintf("
+					UPDATE tbl_sucursales SET codigo_sucursal='%s' nombre_sucursal='%s',direccion='%s',telefono='%s' WHERE codigo_sucursal = '%s'
+				",
+				stripslashes($_POST['input-casilla']),
+				stripslashes($_POST['input-nombre']),
+				stripslashes($_POST['input-direccion']),
+				stripslashes($_POST['input-telefono']),
+				stripslashes($_POST['input-codigo'])
+				));
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
+		break;
+
+		case '6':
+			$resultado = $conexion->ejecutarInstruccion(sprintf("
+					DELETE FROM tbl_sucursales WHERE '%s'
+				",
+				stripcslashes($_POST['input-eliminar'])
+				));	
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
+		break;
+
 		default:
 			# code...
 		break;
