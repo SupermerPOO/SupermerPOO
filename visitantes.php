@@ -9,6 +9,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
+  <link rel="stylesheet" type="text/css" href="css/redes_sociales.css">
+  <link rel="stylesheet" type="text/css" href="css/fonts_social.css">
 </head>
 <body>
 
@@ -46,9 +48,19 @@
         </ul>
       </nav>
     </header>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    
-    <section>
+   
+    <div class="social">
+      <ul>
+        <li><a href="http://www.facebook.com/" target="_blank" class="icon-facebook"></a></li>
+        <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+        <li><a href="http://www.googleplus.com/" target="_blank" class="icon-google"></a></li>
+        <li><a href="http://www.pinterest.com/falconmasters" target="_blank" class="icon-pinterest"></a></li>
+        <li><a href="#" class="icon-mail"></a></li>
+    </ul>
+  </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <section> 
        <div id="pie" class="piePagina">  
          <footer class="wrapper">
            <div class="elemento_centrado">

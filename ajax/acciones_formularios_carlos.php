@@ -122,62 +122,7 @@
 		break;
 
 		case '4':
-		?>
-
-		<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
-				  		<div class="modal-dialog" role="document">
-				    		<div class="modal-content">
-				      			<div class="modal-header">
-				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        			<h4 class="modal-title">Nueva Sucursal</h4>
-				      			</div>
-					      			<div class="modal-body">
-								        <div id="div-registro-sucursal" class="container table-responsive">
-	      								<table>
-	      									<tr>
-	      										<td>
-	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
-	      		       							 </td>
-												 <td>
-												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
-												</td>	
-											</tr>
-											<tr>
-												<td>
-													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
-													<td>
-														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
-													</div>
-													</td>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
-													<td>
-													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
-													</td>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
-													<td>
-													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
-													</td>
-												</td>
-	      									</tr>
-	      								</table>			
-	      							</div>
-				    	  		</div>
-				      				<div class="modal-footer">
-				        			<input id="btn-guardar"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Guardar">
-				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-				      				</div>
-				    		</div>
-				  		</div>
-					</div>
-		<?php
+		
 		break;
 
 		case '5':
@@ -189,7 +134,7 @@
 				stripslashes($_POST['input-telefono']),
 				stripslashes($_POST['input-codigo'])
 				));
-			$conexion->liberarResultado($resultado);
+			$conexion->liberarResultado($resultado);  
 			$conexion->cerrarConexion();
 		break;
 
