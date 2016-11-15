@@ -1,82 +1,82 @@
 $(document).ready(function(){
-$('#e-modal').click(function(){
-
-	/*$.ajax({
-			url:"ajax/validacion_contador.php?accion=2",
-			method: "POST",
-			success:function(resultado){
-
-				$("#myModal").html(resultado);
-	
-				
-			},
-			error:function(){
-
-			}
-		});*/
-});
-
-
-$("#guardarModal").click(function(){
-
-			
-		if($("#txt-nombre").val()!=""){
-				var parametros=
-			"txt-nombre="+$("#txt-nombre").val()+
-			"&slc-naturaleza="+$("#slc-naturaleza").val();
-						
-				$.ajax({
-					url:"ajax/validacion_contador.php?accion=1",
-					method: "POST",
-					data: parametros,
-					success:function(resultado){
-
-						$("#myModal").html(resultado);
-
-				
-
-						
-					},
-					error:function(){
-
-					}
-				});
-		}else{
-			$("#td-natu").html("El nombre esta vacio");
-		
-		}
 
 
 
-		
-	});
-	
-$("#btn-cemodal1").click(function(){
-
-		
-						
-				$.ajax({
+	$.ajax({
 					url:"ajax/validacion_contador.php?accion=2",
 					method: "POST",
-
+				//	data: parametros,
 					success:function(resultado){
 
-						$("#myModal").html(resultado);
+						$("#cuerpo-modal").html(resultado);
 
 				
 
 						
 					},
-					error:function(){
+					error:function(xhr, ajaxOptions, thrownError){
 
 					}
 				});
+									$('#btn-cemodal').click(function(e){
+										e.preventDefault
+
+										$.ajax({
+														url:"ajax/validacion_contador.php?accion=2",
+														method: "POST",
+													//	data: parametros,
+														success:function(resultado){
+
+															$("#cuerpo-modal").html(resultado);
+															$("#guardarModal").css("display","inline");
+
+													
+
+															
+														},
+														error:function(xhr, ajaxOptions, thrownError){
+
+														}
+													});
+									});
+												
+
+
+							$("#guardarModal").click(function(e){
+								e.preventDefault();
+										
+									if($("#txt-nombre").val()!=""){
+											var parametros=
+										"txt-nombre="+$("#txt-nombre").val()+
+										"&slc-naturaleza="+$("#slc-naturaleza").val();
+													
+											$.ajax({
+												url:"ajax/validacion_contador.php?accion=1",
+												method: "POST",
+												data: parametros,
+												success:function(resultado){
+													$("#cuerpo-modal").html(resultado);
+													$("#Encabezado").html("Cuenta creada con exito");
+													$("#guardarModal").css("display","none");
+
+											
+
+													
+												},
+												error:function(xhr, ajaxOptions, thrownError){
+
+												}
+											});
+									}else{
+										$("#td-natu").html("El nombre esta vacio");
+									
+									}
 
 
 
+									
+								});
 
-		
-	});
 
 $("#btn-eliminar").click(function(evento){
 
@@ -94,7 +94,7 @@ $("#btn-eliminar").click(function(evento){
 
 						
 					},
-					error:function(){
+					error:function(xhr, ajaxOptions, thrownError){
 						
 
 					}

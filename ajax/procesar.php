@@ -2253,7 +2253,7 @@ switch ($_GET['accion']) {
                                  Fecha:
                         </td>
                         <td colspan="2">
-                        <input type="text" name="txt-fecha" placeholder="Año-mes-dia" class="form-control" >
+                        <input type="text" name="txt-fecha" id='txt-fecha' placeholder="Año-mes-dia" class="form-control" >
                           
                         </td>
                         <td></td>
@@ -2283,152 +2283,205 @@ switch ($_GET['accion']) {
                       		Descripcion:
                       	</td>
                       	<td colspan="2">
-                      		<input type="text" name="txt-descripcion" placeholder="" class="form-control">
+                      		<input type="text" name="txt-descripcion" id='txt-descripcion' placeholder="" class="form-control">
                       	</td>
                       	<td></td>
                       </tr>
 
                        <tr>
                       	<td>
-                      		Cuenta Cargada:
+                      		Cuenta Cargadas:
                       	</td>
                       	<td></td>
-                      	<?php
-                      		                      		
-
-
-                      		//"txt-numero-acreditada="+$("#txt-numero-acreditada").val()+"&txt-numero-deudor="+$("#txt-numero-deudor").val();
-
-                      		for($i=0;$i<$_POST['txt-numero-deudor'];$i++){
 
                       			
-                      			echo '<tr>
+                      				<tr>
                       					<td>
-                      						<select name="" id="slc-cargada-'.$i.'" class="form-control">';
+                      				<select name="slc-cargada-1" id="slc-cargada-1" class="form-control">
+                      						<?php
+                      		      
                       						$nombreCuentas= $conexion->ejecutarInstruccion(
                       										'SELECT codigo_cuenta , nombre
 																FROM tbl_cuenta'
                       										);
-
-                      						//$array[]= "slc-cargada-".$i;
-
-
 
 				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
 							                      		echo 	'
 														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
 														                      		
 														                 	';
-
-
-														    
-
 				                      			}
+				                      			?>
 
-                      			echo '		</select>
+                      			</select>
 					                     </td>
 					                      <td>
-		                      					<input type="text" name="txt" id="text-cargada-'.$i.'" placeholder="" class="form-control">
+		                      				<input type="text" name="txt-cargada-1" id="txt-cargada-1" placeholder="" class="form-control">
 		                      			</td>
-
-                      			</tr>';
-                      	?>
-                       <tr>
-                      	<td>
-                      		Subcuenta:
-                      	</td>
-                      	<td></td>
-
-                      	<?php echo "<td >".$i."";
+                      			</tr>
+                      			
 
 
 
-                      	?>
-                      	<div <?php echo 'id="div-subCuentas-"'.$i.''; ?>> </div>
-                     
-
-                
-                      	</td>
-				                      	<script type="text/javascript">
-				                      		
-				                      	$(document).ready(function(){
-
-
-				                      	});
-
-
-				                      	</script>
-
-                  
-
-			         </tr>
-                      <?php
-                      		
-                      
-                      	
-                      		}
-
-
-
-                      	?>
-
-                      	
-                      	<td></td>
-                      </tr>
-                      
-                      <tr>
-                      	<td>
-                      		Cuenta Acreditada:
-                      	</td>
-                      	<td></td>
-                      	<?php
-
-                      		
-
-
-                      		//"txt-numero-acreditada="+$("#txt-numero-acreditada").val()+"&txt-numero-deudor="+$("#txt-numero-deudor").val();
-
-                      	for($i=0;$i<$_POST['txt-numero-acreditada'];$i++){
-                      			echo '<tr>
+                      					<tr>
                       					<td>
-                      						<select name="" id="slc-acreditada-'.$i.'" class="form-control">';
+                      				<select name="slc-cargada-2" id="slc-cargada-2" class="form-control">
+                      						<?php
+                      		      
                       						$nombreCuentas= $conexion->ejecutarInstruccion(
                       										'SELECT codigo_cuenta , nombre
 																FROM tbl_cuenta'
                       										);
 
+				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
+							                      		echo 	'
+														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
+														                      		
+														                 	';
+				                      			}
+				                      			?>
 
-                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
-			                      		echo 	'
-										        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
-										                      		
-										                 	';
-
-                      			}
-
-                      			echo '		</select>
+                      			</select>
 					                     </td>
 					                      <td>
-		                      					<input type="text" name="txt" id="txt-cargada-'.$i.'" placeholder="" class="form-control">
+		                      				<input type="text" name="txt-cargada-2" id="txt-cargada-2" placeholder="" class="form-control">
 		                      			</td>
-
-                      			</tr>';
-                      		}
-
+                      			</tr>
+                      			
 
 
-                      	?>
+                      					<tr>
+                      					<td>
 
+                      				<select name="slc-cargada-3" id="slc-cargada-3" class="form-control">
+                      						<?php
+                      		      
+                      						$nombreCuentas= $conexion->ejecutarInstruccion(
+                      										'SELECT codigo_cuenta , nombre
+																FROM tbl_cuenta'
+                      										);
+
+				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
+							                      		echo 	'
+														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
+														                      		
+														                 	';
+				                      			}
+				                      			?>
+
+                      			</select>
+					                     </td>
+					                      <td>
+		                      				<input type="text" name="txt-cargada-3" id="txt-cargada-3" placeholder="" class="form-control">
+		                      			</td>
+                      			</tr>
+                      					<tr>
+                      					<td>
                       	
+       
+                      
+                    <tr>
+                      	<td>
+                      		Cuentas Acreditadas:
+                      	</td>
                       	<td></td>
-                      </tr>
+                      	
+                      			
+                      				<tr>
+                      					<td>
+                      				<select name="slc-acreditada-1" id="slc-acreditada-1" class="form-control">
+                      						<?php
+                      		      
+                      						$nombreCuentas= $conexion->ejecutarInstruccion(
+                      										'SELECT codigo_cuenta , nombre
+																FROM tbl_cuenta'
+                      										);
 
+				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
+							                      		echo 	'
+														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
+														                      		
+														                 	';
+				                      			}
+				                      			?>
+
+                      			</select>
+					                     </td>
+					                      <td>
+		                      				<input type="text" name="txt-acreditada-1" id="txt-acreditada-1" placeholder="" class="form-control">
+		                      			</td>
+                      			</tr>
+                      			
+
+
+
+                      					<tr>
+                      					<td>
+                      				<select name="slc-acreditada-2" id="slc-acreditada-2" class="form-control">
+                      						<?php
+                      		      
+                      						$nombreCuentas= $conexion->ejecutarInstruccion(
+                      										'SELECT codigo_cuenta , nombre
+																FROM tbl_cuenta'
+                      										);
+
+				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
+							                      		echo 	'
+														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
+														                      		
+														                 	';
+				                      			}
+				                      			?>
+
+                      			</select>
+					                     </td>
+					                      <td>
+		                      				<input type="text" name="txt-acreditada-2" id="txt-acreditada-2" placeholder="" class="form-control">
+		                      			</td>
+                      			</tr>
+                      			
+
+
+                      					<tr>
+                      					<td>
+
+                      				<select name="slc-acreditada-3" id="slc-acreditada-3" class="form-control">
+                      						<?php
+                      		      
+                      						$nombreCuentas= $conexion->ejecutarInstruccion(
+                      										'SELECT codigo_cuenta , nombre
+																FROM tbl_cuenta'
+                      										);
+
+				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
+							                      		echo 	'
+														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
+														                      		
+														                 	';
+				                      			}
+				                      			?>
+
+                      			</select>
+					                     </td>
+					                      <td>
+		                      				<input type="text" name="txt-acreditada-3" id="txt-acreditada-3" placeholder="" class="form-control">
+		                      			</td>
+                      			</tr>
+                      					<tr>
+                      					<td>
+
+                      					<tr>
+                      						<td>No. Factura:</td>
+                      						<td><input type="text" name="txt-factura"  id="txt-factura" class="form-control"></td>
+                      					</tr>
+                      	
 
                      
                       
                       <tr style="width: 150px" > <td id="td-natu" colspan="2"></td> <td></td></tr>
 
                       </table>
+                      <div id='Cantidades' style="color: #F3015B; display: none;"><strong>El total de las cuentas acreditadas no es igual a el de las cuentas cargadas</strong></div>
                           </div>
 							
 
@@ -2436,6 +2489,7 @@ switch ($_GET['accion']) {
 	break;
 
 	case '20':
+	
 	?>
 	   				 <div style="padding: 50px 50px 50px 50px;">
                          <table class="table table-hover" align="center"> 
@@ -2463,7 +2517,9 @@ switch ($_GET['accion']) {
 
 
                       </tr>
-                      <tr style="width: 150px" > <td id="td-natu" colspan="2"></td> <td></td></tr>
+                      <tr style="" > 
+                      <td ></td> <td></td></tr>
+                      <tr style="width: 150px" > <td ></td> <td></td></tr>
 
                       </table>
                           </div>
@@ -2471,53 +2527,136 @@ switch ($_GET['accion']) {
 	<?php
 	break;
 	case '21':
-	 ?>
-	 <?php
-	 	for($i = 0; $i < $_POST['txt-numero-deudor']; $i++){
-                    		
+	$libro = $conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario
+		(codigo_partida, monto_cargado, monto_acreditado, fecha_partida, descripcion)
+		 VALUES 
+		 (NULL,"%s","%s","%s","%s")',
+			 stripslashes($_POST['totalCargadas']),
+		 	stripslashes($_POST['totalAcreditadas']),
+		 	stripslashes($_POST['txt-fecha']),
+			stripslashes($_POST['txt-descripcion'])
+		 	));
 
-
-                    			$nombreCuentas1= $conexion->ejecutarInstruccion(
-                      										'SELECT codigo_cuenta , nombre
-																FROM tbl_cuenta'
-                      										);
-                    			while($filaCuenta1= $conexion->obtenerFila($nombreCuentas1)){
-
-			                    $subcuenta= $conexion->ejecutarInstruccion(sprintf(
-							                      								'SELECT 
-							                      									codigo_subcuenta,
-							                      									 codigo_cuenta,
-							                      									nombre_subcuenta
-							                      								FROM tbl_subcuenta
-							                      								WHERE codigo_cuenta="%s"',
-							                      								stripslashes($filaCuenta1['codigo_cuenta'])
-							                      								)
-							                      				);
-
-						                     while($filaSubcuenta =$conexion->obtenerFila($subcuenta)){
-						                      		echo'<tr>
-						                      				<td></td>
-								                      		<td>'.$filaSubcuenta['nombre_subcuenta'].'</td>
-								                      		<td><input type="text" name="'.$filaSubcuenta['nombre_subcuenta'].'" id="'.$filaSubcuenta['nombre_subcuenta'].'" value="" class="form-control"></td>
-						                      			</tr>';
-
-						                      	}
-
-						                      ?>
-						                      <?php
-						                      }
-
-
-                    			}
-                    			?>
-
-	 <?php
-
-
-                
+	$filaUltima = $conexion->ejecutarInstruccion("SELECT last_insert_id() as id;");
+		$ultima = $conexion->obtenerFila($filaUltima);
 	
+	if($_POST['txt-acreditada-1']!=''){
+	$cuentasAcreditadas =$conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
+		(codigo_partida, codigo_cuenta, monto, facturaX) 
+
+		VALUES 
+		("%s","%s","%s","%s")',
+		stripslashes($ultima['id']),
+		stripslashes($_POST['slc-acreditada-1']),
+		stripslashes($_POST['txt-acreditada-1']),
+		stripslashes($_POST['txt-factura'])
+		));
+
+
+		}
+
+		if($_POST['txt-acreditada-2']!=''){
+	$cuentasAcreditadas =$conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
+		(codigo_partida, codigo_cuenta, monto, facturaX) 
+
+		VALUES 
+		("%s","%s","%s","%s")',
+		stripslashes($ultima['id']),
+		stripslashes($_POST['slc-acreditada-2']),
+		stripslashes($_POST['txt-acreditada-2']),
+		stripslashes($_POST['txt-factura'])
+		));
+
+	
+		}
+
+			if($_POST['txt-acreditada-3']!=''){
+	$cuentaAcreditadass= $conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
+		(codigo_partida, codigo_cuenta, monto, facturaX) 
+
+		VALUES 
+		("%s","%s","%s","%s")',
+		stripslashes($ultima['id']),
+		stripslashes($_POST['slc-acreditada-3']),
+		stripslashes($_POST['txt-acreditada-3']),
+		stripslashes($_POST['txt-factura'])
+		));
+
+	
+			}
+
+				if($_POST['txt-cargada-1']!=''){
+	$cuentasCargadas =$conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_cargada
+		(codigo_partida, codigo_cuenta, monto, facturaX) 
+
+		VALUES 
+		("%s","%s","%s","%s")',
+		stripslashes($ultima['id']),
+		stripslashes($_POST['slc-cargada-1']),
+		stripslashes($_POST['txt-cargada-1']),
+		stripslashes($_POST['txt-factura'])
+		));
+
+	
+		}
+
+			if($_POST['txt-cargada-2']!=''){
+	$cuentasCargadas =$conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_cargada
+		(codigo_partida, codigo_cuenta, monto, facturaX) 
+
+		VALUES 
+		("%s","%s","%s","%s")',
+		stripslashes($ultima['id']),
+		stripslashes($_POST['slc-cargada-2']),
+		stripslashes($_POST['txt-cargada-2']),
+		stripslashes($_POST['txt-factura'])
+		));
+
+	
+}
+
+				if($_POST['txt-cargada-3']!=''){
+	$cuentasCargadas= $conexion->ejecutarInstruccion(sprintf(
+		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_cargada
+		(codigo_partida, codigo_cuenta, monto, facturaX) 
+
+		VALUES 
+		("%s","%s","%s","%s")',
+		stripslashes($ultima['id']),
+		stripslashes($_POST['slc-cargada-3']),
+		stripslashes($_POST['txt-cargada-3']),
+		stripslashes($_POST['txt-factura'])
+		));
+
+	
+}
+
+
+
+
+	 ?>
+
+     	          
+
+	 <?php
                       	
 	break;
+
+
+	case '22';
+
+	break;
+
+	case '23':
+
+	break;
+
 	default:
 		# code...
 		break;
