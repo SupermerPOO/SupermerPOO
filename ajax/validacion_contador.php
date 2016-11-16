@@ -4,17 +4,17 @@ $conexion = new Conexion();
 
 	switch ($_GET['accion']) {
 		case '1':
-echo "";
-$respuesta = $conexion->ejecutarInstruccion(sprintf(
-  '
-  INSERT INTO tbl_cuenta
-  (codigo_cuenta, codigo_naturaleza, nombre) 
-  VALUES 
-  (NULL,"%s","%s")',
-  stripslashes($_POST['slc-naturaleza']),
-  stripslashes($_POST['txt-nombre'])
+echo " ";
+            $respuesta = $conexion->ejecutarInstruccion(sprintf(
+              '
+              INSERT INTO tbl_cuenta
+              (codigo_cuenta, codigo_naturaleza, nombre) 
+              VALUES 
+              (NULL,"%s","%s")',
+              stripslashes($_POST['slc-naturaleza']),
+              stripslashes($_POST['txt-nombre'])
 
-  ));
+              ));
 
 
 		            ?>

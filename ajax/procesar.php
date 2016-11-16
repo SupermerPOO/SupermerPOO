@@ -1017,13 +1017,7 @@ switch ($_GET['accion']) {
 
 
 <?php
-function sumar($valor1,$valor2){
-	$total=0; 
-	$a=$valor1;
-	$b=(int)$valor2;
-	$total= $a+$b;
-	return $total;
-}								$valor1=0;
+							$valor1=0;
 						while($fila= $conexion->obtenerFila($libros)){
 							$cargadas = $conexion->ejecutarInstruccion(sprintf(
 												'SELECT 
@@ -1136,44 +1130,17 @@ function sumar($valor1,$valor2){
 												<td> </td>
 
 												<td><?php echo $valor1-$valor2;?></td>
-											</tr>;
+											</tr>
 					</table>
 			
 				
 
 <?php
+
 			
 	break;
 	case '9':
-	/*$libros=$conexion->ejecutarInstruccion(
-		'SELECT 
-		codigo_partida, 
-		monto_cargado, 
-		monto_acreditado, 
-		fecha_partida, 
-		descripcion 
-		FROM tbl_libro_diario'
-		);
 
-	$acreditadas = $conexion->ejecutarInstruccion(
-		'SELECT 
-		codigo_partida,
-		codigo_cuenta, 
-		monto, 
-		facturaX 
-		FROM tbl_libro_diario_x_tbl_cuenta_acreditada 
-		WHERE codigo_cuenta="%s"',
-		stripslashes($_POST['codigo_cuenta']));
-
-	$cargadas = $conexion->ejecutarInstruccion(
-		'SELECT 
-		codigo_partida, 
-		codigo_cuenta, 
-		monto, 
-		FacturaX 
-		FROM tbl_libro_diario_x_tbl_cuenta_cargada 
-		WHERE codigo_cuenta="%s"',
-		stripslashes($_POST['codigo_cuenta']));*/
 
 
 

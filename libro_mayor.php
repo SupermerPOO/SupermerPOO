@@ -41,16 +41,6 @@
       <ul class="nav navbar-nav" id=lista> 
 
  
-        <!--<li id="pes1"> 
-          <a href="" id="Ag-partida">Agregar Partida</a>
-    
-        </li> 
-        <li id="pes2"> 
-          <a href="" id="vistal">Vista de Registro</a> 
-        </li> 
-        <li>
-          <a href="index.php">Cerrar Sesión</a> 
-        </li>-->
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 
@@ -69,18 +59,12 @@
 
 
  <div  class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style=" margin: 50px 10px 50px 30px;padding: 10px 10px 10px 10px ; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
-    <!-- <span style="color: #177EE5;"><strong>LISTA DE CUENTAS</strong></span><br> -->
+
     <div id='div-mayor'>
       
     </div>
 
-      <!-- <input type='checkbox' name='op1' id="op1"> Banco</input><br> -->
-       <!-- <input type='checkbox' name='op2' id="op2"> Caja</input><br> -->
-       <!-- <input type='checkbox' name='op3' id="op3"> Acreedores Varios</input><br> -->
-       <!-- <input type='checkbox' name='op4' id="op4"> Proveedores</input><br> -->
-       <!-- <input type='checkbox' name='op5' id="op5"> Utilidad del Ejercicio</input><br> -->
-       <!-- <input type='checkbox' name='op6' id="op6"> Documentos por cobrar</input><br> -->
-       <!-- <input type='checkbox' name='op7' id="op7"> Documentos por pagar</input><br> -->
+  
 </div>
 
 <div id='tablas' class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
@@ -96,13 +80,13 @@ $(document).ready(function(){
           method:"POST",
   
           success:function(respuesta){
-          //  alert(respuesta);
+         
           
             $("#div-mayor").html(respuesta);
           },
           error:function(xhr, ajaxOptions, thrownError){
             alert("Ocurrio un error.");
-            //alert(xhr.status);
+       
             alert(thrownError);
             
           }
@@ -116,7 +100,7 @@ $(document).ready(function(){
           method:"POST",
           data:"codigo_cuenta="+1,
           success:function(respuesta){
-          //  alert(respuesta);
+         
             
             $("#tablas").html(respuesta);
 
@@ -124,19 +108,19 @@ $(document).ready(function(){
             $("select[name='slc-cuentas']").change(function(){
             
         var parametros = "codigo_cuenta="+$('select[name="slc-cuentas"]').val();
-        alert(parametros);
+    
                  $.ajax({
                       url:"ajax/procesar.php?accion=8",
                       method:"POST",
                       data:parametros,
                       success:function(respuesta){
-                      //  alert(respuesta);
+                  
                         
                         $("#tablas").html(respuesta);
                       },
                       error:function(xhr, ajaxOptions, thrownError){
                         alert("Ocurrio un error.");
-                        //alert(xhr.status);
+                     
                         alert(thrownError);
                         
                       }
@@ -147,151 +131,13 @@ $(document).ready(function(){
           },
           error:function(xhr, ajaxOptions, thrownError){
             alert("Ocurrio un error.");
-            //alert(xhr.status);
+           
             alert(thrownError);
             
           }
         });
      
-//ACCIONES AL DAR CLICK
-     /* $("#op1").click(function(e){
-        e.preventDefault();
 
-        $.ajax({
-          url:"ajax/procesar.php?accion=8",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-            
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        });
-        });
-      $("#op2").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=9",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-          
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-      $("#op3").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=10",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-          
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-      $("#op4").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=11",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-          
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-      $("#op5").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=12",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-          
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-      $("#op6").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=13",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-          
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-    
-        //$("#tablas").html("ESTOY AQUI");
- 
-
-     /* $("#slc-cuenta").click(function(){
-         if ($('#slc-cuenta').val()=='Bancos') {
-
-          <?php /*echo"<br><td>SubCuenta: <select name='slc-subcuenta1' id='slc-subcuenta1'>
-          <option>FICOHSA</option>
-          <option>BANCATLAN</option>
-          <option>BANCO DE OCCIDENTE</option>
-          <select></td>";*/
-          ?>
-        }
-    }
-
-         }
-      });*/
       
 
       }); 

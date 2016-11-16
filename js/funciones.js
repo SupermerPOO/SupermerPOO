@@ -2,10 +2,10 @@ $(document).ready(function(){
 
 
 
-	$.ajax({
+				$.ajax({
 					url:"ajax/validacion_contador.php?accion=2",
 					method: "POST",
-				//	data: parametros,
+			
 					success:function(resultado){
 
 						$("#cuerpo-modal").html(resultado);
@@ -24,7 +24,7 @@ $(document).ready(function(){
 										$.ajax({
 														url:"ajax/validacion_contador.php?accion=2",
 														method: "POST",
-													//	data: parametros,
+													
 														success:function(resultado){
 
 															$("#cuerpo-modal").html(resultado);
@@ -79,7 +79,7 @@ $(document).ready(function(){
 								});
 
 
-$("#btn-eliminar").click(function(evento){
+/*$("#btn-eliminar").click(function(evento){
 
 		evento.preventDefault();
 						
@@ -105,7 +105,7 @@ $("#btn-eliminar").click(function(evento){
 
 
 		
-	});
+	});*/
 	
 
  $("#btn-agregar").click(function(){

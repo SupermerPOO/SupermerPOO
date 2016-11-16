@@ -128,14 +128,14 @@ $(document).ready(function(){
                                     method:"POST",
                             
                                     success:function(respuesta){
-                                    //  alert(respuesta);
+                                  
                                       $("#menus").css('background','#FFFFFF');
                                       $("#menus").css('color','#177EE5');
                                       $("#tablas").html(respuesta);
                                     },
                                     error:function(xhr, ajaxOptions, thrownError){
                                       alert("Ocurrio un error.");
-                                      //alert(xhr.status);
+                                     
                                       alert(thrownError);
                                       
                                     }
@@ -317,7 +317,7 @@ $(document).ready(function(){
                                   "&slc-cargada-2="+$('select[name="slc-cargada-2"]').val()+"&txt-cargada-2="+$('input[name="txt-cargada-2"]').val()+
                                   "&slc-cargada-3="+$('select[name="slc-cargada-3"]').val()+"&txt-cargada-3="+$('input[name="txt-cargada-3"]').val()+
                                   "&txt-descripcion="+$('#txt-descripcion').val()+"&txt-fecha="+$('#txt-fecha').val()+"&totalCargadas="+totalCargadas+"&totalAcreditadas="+totalAcreditadas+"&txt-factura="+$("#txt-factura").val();
-                                                      alert(parametros);
+                                                     
                                                        $.ajax({
 
                                                                 url:"ajax/procesar.php?accion=21",
@@ -446,23 +446,5 @@ $(document).ready(function(){
    
 
 </body>
-<script>
- /* $(document).ready(function(){
-    $("#btn-guardar").click(function(){
-      var parametros = "txt-fecha=" + $("#txt-fecha").val() + "&" + "txt-partida=" + $("#txt-partida").val() + "&" + "txt-descripcion=" + $("#txt-descripcion").val() + "&" + "chk-subcuentas=" + $("#chk-subcuentas").val() + "&" + "txt-cuenta-cargada=" + $("#txt-cuenta-cargada").val() + "&" + "txt-debe=" + $("#txt-debe").val() + "&" + "txt-cuenta-acreditada=" + $("#txt-cuenta-acreditada").val()+ "&" + "txt-haber=" + $("#txt-haber").val();
-      $.ajax({
-        url:"ajax/procesar_diario.php",
-        method:"POST",
-        data: parametros,
-        success:function(respuesta){
-          $("#btn-guardar").button("reset");
-          $("#div-respuesta").html(respuesta)
-        },
-        error:function(){
-          alert("Error");
-        }
-      });
-    });
-  });*/
-</script>
+
 </html>

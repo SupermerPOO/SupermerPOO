@@ -69,8 +69,8 @@
                         </td>
                         <td>
                         <select name="slc-naturaleza" id="slc-naturaleza" style="width: 150px" class="form-control" required="" autofocus="" >
-                          <option>Deudora</option>
-                          <option>Acreedora</option>
+                          <option value="2">Deudora</option>
+                          <option value="1">Acreedora</option>
                         </select>
                           
                         </td>
@@ -161,7 +161,7 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
      <script type="text/javascript" src="js/funciones.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 
 
 </body>

@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Supermercado POO</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/controlador_login.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
     
 
   </head>
@@ -27,8 +31,6 @@
 
     <div id="resultado" style="visibility: hidden"></div>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/controlador_login.js"></script>
+
   </body>
 </html>
