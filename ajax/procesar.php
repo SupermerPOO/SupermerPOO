@@ -2541,37 +2541,37 @@ switch ($_GET['accion']) {
 	$filaUltima = $conexion->ejecutarInstruccion("SELECT last_insert_id() as id;");
 		$ultima = $conexion->obtenerFila($filaUltima);
 	
-	if($_POST['txt-acreditada-1']!=''){
-	$cuentasAcreditadas =$conexion->ejecutarInstruccion(sprintf(
-		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
-		(codigo_partida, codigo_cuenta, monto, facturaX) 
+			if($_POST['txt-acreditada-1']!=''){
+			$cuentasAcreditadas =$conexion->ejecutarInstruccion(sprintf(
+				'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
+				(codigo_partida, codigo_cuenta, monto, facturaX) 
 
-		VALUES 
-		("%s","%s","%s","%s")',
-		stripslashes($ultima['id']),
-		stripslashes($_POST['slc-acreditada-1']),
-		stripslashes($_POST['txt-acreditada-1']),
-		stripslashes($_POST['txt-factura'])
-		));
+				VALUES 
+				("%s","%s","%s","%s")',
+				stripslashes($ultima['id']),
+				stripslashes($_POST['slc-acreditada-1']),
+				stripslashes($_POST['txt-acreditada-1']),
+				stripslashes($_POST['txt-factura'])
+				));
 
 
-		}
+				}
 
-		if($_POST['txt-acreditada-2']!=''){
-	$cuentasAcreditadas =$conexion->ejecutarInstruccion(sprintf(
-		'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
-		(codigo_partida, codigo_cuenta, monto, facturaX) 
+				if($_POST['txt-acreditada-2']!=''){
+			$cuentasAcreditadas =$conexion->ejecutarInstruccion(sprintf(
+				'INSERT INTO tbl_libro_diario_x_tbl_cuenta_acreditada
+				(codigo_partida, codigo_cuenta, monto, facturaX) 
 
-		VALUES 
-		("%s","%s","%s","%s")',
-		stripslashes($ultima['id']),
-		stripslashes($_POST['slc-acreditada-2']),
-		stripslashes($_POST['txt-acreditada-2']),
-		stripslashes($_POST['txt-factura'])
-		));
+				VALUES 
+				("%s","%s","%s","%s")',
+				stripslashes($ultima['id']),
+				stripslashes($_POST['slc-acreditada-2']),
+				stripslashes($_POST['txt-acreditada-2']),
+				stripslashes($_POST['txt-factura'])
+				));
 
-	
-		}
+			
+				}
 
 			if($_POST['txt-acreditada-3']!=''){
 	$cuentaAcreditadass= $conexion->ejecutarInstruccion(sprintf(

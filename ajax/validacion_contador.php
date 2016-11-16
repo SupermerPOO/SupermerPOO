@@ -1,8 +1,21 @@
 <?php
-echo '<script type="text/javascript" src="../js/funciones.js"></script>';
+include_once('../class/class_conexion.php');
+$conexion = new Conexion();
+
 	switch ($_GET['accion']) {
 		case '1':
 echo "";
+$respuesta = $conexion->ejecutarInstruccion(sprintf(
+  '
+  INSERT INTO tbl_cuenta
+  (codigo_cuenta, codigo_naturaleza, nombre) 
+  VALUES 
+  (NULL,"%s","%s")',
+  stripslashes($_POST['slc-naturaleza']),
+  stripslashes($_POST['txt-nombre'])
+
+  ));
+
 
 		            ?>
 			

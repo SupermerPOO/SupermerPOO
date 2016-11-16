@@ -213,7 +213,7 @@ $(document).ready(function(){
 
 
 
- function validaFechaDDMMAAAA(fecha){
+ /*function validaFechaDDMMAAAA(fecha){
   var dtCh= "-";
   var minYear=2016;
   var maxYear=2100;
@@ -287,7 +287,7 @@ $(document).ready(function(){
   }
 }
 
-
+*/
                                   
 //ACCIONES AL DAR CLICK
       $("#btn-guardar").click(function(e){
@@ -304,8 +304,8 @@ $(document).ready(function(){
 
                                            if($('#txt-acreditada-1').val()!=''|| $('#txt-acreditada-2').val()!=''|| $('#txt-acreditada-3').val()!=''){
 
-                                          var totalCargadas=  sumar($('input[name="txt-cargada-1"]').val(),$('input[name="txt-cargada-2"]').val(),$('input[name="txt-cargada-3"]').val());
-                                           var totalAcreditadas= sumar($('input[name="txt-acreditada-1"]').val(),$('input[name="txt-acreditada-2"]').val(),$('input[name="txt-acreditada-3"]').val());
+                                    var totalCargadas=  sumar($('input[name="txt-cargada-1"]').val(),$('input[name="txt-cargada-2"]').val(),$('input[name="txt-cargada-3"]').val());
+                          var totalAcreditadas= sumar($('input[name="txt-acreditada-1"]').val(),$('input[name="txt-acreditada-2"]').val(),$('input[name="txt-acreditada-3"]').val());
               if(totalAcreditadas==totalCargadas){
 
 

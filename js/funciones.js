@@ -68,6 +68,7 @@ $(document).ready(function(){
 												}
 											});
 									}else{
+										$("#td-natu").css('color',"#EA3B28");
 										$("#td-natu").html("El nombre esta vacio");
 									
 									}
@@ -111,7 +112,11 @@ $("#btn-eliminar").click(function(evento){
    $("#btn-agregar").button("loading");
         $("#img-carga").fadeIn(200);
 
-  var parametros = "txt-proveedor="+$("#txt-proveedor").val()+"&"+"txt-rtn="+$("#txt-rtn").val()+"&"+"txt-empresa="+$("#txt-empresa").val()+"&"+"txt-direccion="+$("#txt-direccion").val()+"&"+"txt-telefono="+$("#txt-telefono").val()+"&"+"txt-correo="+$("#txt-correo").val()+"&"+"txt-producto="+$("#txt-producto").val()+"&"+"txt-registro="+$("#txt-registro").val()+"&"+"txt-fecha="+$("#txt-fecha").val();
+  var parametros =
+   "txt-proveedor="+$("#txt-proveedor").val()+"&"+"txt-rtn="+$("#txt-rtn").val()+
+   "&"+"txt-empresa="+$("#txt-empresa").val()+"&"+"txt-direccion="+$("#txt-direccion").val()
+   +"&"+"txt-telefono="+$("#txt-telefono").val()+"&"+"txt-correo="+$("#txt-correo").val()
+   +"&"+"txt-producto="+$("#txt-producto").val()+"&"+"txt-registro="+$("#txt-registro").val()+"&"+"txt-fecha="+$("#txt-fecha").val();
   
 
   $.ajax({
