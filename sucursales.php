@@ -81,14 +81,6 @@
 					      			<div class="modal-body">
 								        <div id="div-registro-sucursal" class="container table-responsive">
 	      								<table>
-	      									<tr>
-	      										<td>
-	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
-	      		       							 </td>
-												 <td>
-												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
-												</td>	
-											</tr>
 											<tr>
 												<td>
 													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
@@ -172,7 +164,7 @@
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<input type="submit" id="btn-actualizar-sucursal" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Actualizar">
+				        			<button id="btn-actualizar-sucursal" class="btn btn-default elemento_izquierda">Actualizar</button>
 				        			<button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 				      				</div>
 				    		</div>
@@ -201,7 +193,7 @@
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<input id="btn-eliminarsucursal"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Eliminar">
+				        			<button id="btn-eliminar" class="btn btn-default elemento_izquierda">Eliminar</button>
 				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
 				    		</div>
