@@ -58,9 +58,9 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title text-center">Crear Cuenta</h4>
+                        <div id='Encabezado' style="color: #2C0B19;padding: 100px"><h4 class="modal-title text-center">Crear Cuenta</h4></div>
                       </div>
-                      <div class="modal-body" style="padding: 50px 300px 50px 180px;">
+                      <div class="modal-body" style="padding: 50px 300px 50px 180px;" id="cuerpo-modal">
                       <table class="table table-hover" align="center"> 
                       <tr>
                         <td >

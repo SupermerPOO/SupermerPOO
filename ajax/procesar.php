@@ -7,824 +7,238 @@ $conexion = new Conexion();
 
 
 switch ($_GET['accion']) {
+
+
+
 	case '1':
+					
+											
 
-		echo 
+				
 
-		"<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='6'> BALANZA DE COMPROBACION</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='6'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-				"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."No."."</td>".
-					"<td align='center'> "."Cuentas"."</td>".
-					"<td colspan='2' align='center'> "."Movimientos"."</td>".
-					"<td  colspan='2' align='center'> "."Saldos"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> ".""."</td>".
-					"<td> "." "."</td>".
-					"<td> "."Deudor"."</td>".
-					"<td> "."Acreedor"."</td>".
-					"<td> "."Deudor"."</td>".
-					"<td> "."Acreedor"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+?>
 
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
 
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+		<table class='table table-bordered contenedor' align='center'>
+		<tr align='center' style='color:#000000'><strong><td colspan='6'> BALANZA DE COMPROBACION</td></strong></tr><br>
+		<tr align='center' style='color:#000000'><strong><td colspan='6'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>
+				<tr class='active' style='color: #D6A80C;' align='center'>
+					<td >No.</td>
+					<td > Cuentas</td>
+					<td colspan='2' > Movimientos</td>
+					<td  colspan='2' > Saldos</td>
+				</tr>
 
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
 
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+				<tr align='center'>
+					<td> </td>
+					<td> </td>
+					<td> Deudor</td>
+					<td> Acreedor</td>
+					<td> Deudor</td>
+					<td> Acreedor</td>
+				</tr>
+<?php
+				$cuentas = $conexion->ejecutarInstruccion(sprintf("
+											SELECT
+											codigo_cuenta, nombre
+											FROM tbl_cuenta" 
+											));
+							
+
+							
+						while($fila= $conexion->obtenerFila($cuentas)){
+					echo "<tr align='center'>
+							<td> ".$fila['codigo_cuenta']."</td>
+							<td>".$fila['nombre']."</td>";
+							
+					
+					
+							
+
+						
+												$valor1=0;
+												$suma = $conexion->ejecutarInstruccion(sprintf(
+													'SELECT SUM(monto) as Total
+													FROM tbl_libro_diario_x_tbl_cuenta_cargada
+													WHERE codigo_cuenta="%s"',
+													stripslashes($fila['codigo_cuenta']))
+													
+													);
+												$total = $conexion->obtenerFila($suma);
+
+									
+												echo "<td>".$total['Total']."</td>";
+
+												$valor1=(int)$total['Total'];
+							
+												$valor2=0;
+								
+												$suma1 = $conexion->ejecutarInstruccion(sprintf(
+													'SELECT SUM(monto) as Total
+													FROM tbl_libro_diario_x_tbl_cuenta_acreditada
+													WHERE codigo_cuenta="%s"',
+													stripslashes($fila['codigo_cuenta']))
+													
+													);
+												$total1 = $conexion->obtenerFila($suma1);
+
+												echo "<td>".$total1['Total']."</td>";
+									
+												$valor2=(int)$total1['Total'];
+
+												if($valor1-$valor2<0){
+												echo 	
+														"<td> </td>
+														<td> ".($valor1-$valor2)."</td>
+													</tr>";
+												}else{
+														echo 
+														"<td>".($valor1-$valor2)." </td>
+														<td> </td>
+													</tr>";
+
+												}
 
 
 
+											
 
-
-
-			"</table>";
+							}
+							
 				
 		break;
-	case '2':
-	echo 
-		"<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='6'> BALANCE GENERAL</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='6'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-				"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"." "."</td>".
-					"<td align='center'>"."Concepto"."</td>".
-					"<td align='center'> "." "."</td>".
-					"<td align='center'> "." "."</td>".
-					"<td  align='center'> "." "."</td>".
-					"<td  align='center'> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."0"."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."TOTAL:"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-		break;
-		case '3':
-		echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='6'> ESTADO DE RESULTADO</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='6'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-				"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"." "."</td>".
-					"<td align='center'>"."Concepto"."</td>".
-					"<td align='center'> "." "."</td>".
-					"<td align='center'> "." "."</td>".
-					"<td  align='center'> "." "."</td>".
-					"<td  align='center'> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."0"."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."TOTAL:"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-		break;
-		case '4':
-		echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td>Articulo: </td><td>X</td><td>Cantidad Maxima:</td><td>X</td><td colspan='7'> TARJETA DE ALMACEN</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td>Articulo: </td><td>X</td><td>Cantidad Maxima:</td><td>X</td><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-				"<tr class='active' style='color: #D6A80C;' align='center'>".
-					"<td >"."Fecha"."</td>".
-					"<td '>"."Concepto"."</td>".
-					"<td colspan='3'> "."Entrada"."</td>".
-					"<td colspan='3'> "."Salidas"."</td>".
-					"<td  colspan='3'> "."Existencias"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." Unidades"."</td>".
-					"<td> "." Costo Unitario"."</td>".
-					"<td> "." Total"."</td>".
-					"<td> "." Unidades"."</td>".
-					"<td> "." Costo Unitario"."</td>".
-					"<td> "." Total"."</td>".
-					"<td> "." Unidades"."</td>".
-					"<td> "." Costo Unitario"."</td>".
-					"<td> "." Total"."</td>".
-
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."TOTAL:"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
+	
 		break;
 		case '5':
-		echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='13'> PLANILLA DE EMPLEADOS</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='13'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-				"<tr class='active' style='color: #D6A80C;' align='center'>".
-					"<td >"."No."."</td>".
-					"<td >"."Cargo"."</td>".
-					"<td > "."Nombre"."</td>".
-					"<td colspan='2'> "."Sueldos"."</td>".
-					"<td colspan='6' > "."Deducciones"."</td>".
-					"<td > "."Total Deducciones"."</td>".
-					"<td > "."Sueldo Neto"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." Ventas"."</td>".
-					"<td> "."Administrador"."</td>".
-					"<td colspan='2'> "."IHSS"."</td>".
-					"<td colspan='2'> "."RAP"."</td>".
-					"<td colspan='2'> "."INFOP"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
+
+		?>
+		<table class='table table-bordered contenedor' align='center'>
+		<tr align='center' style='color:#000000'><strong><td colspan='13'> PLANILLA DE EMPLEADOS</td></strong></tr><br>
+		<tr align='center' style='color:#000000'><strong><td colspan='13'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>
+				<tr class='active' style='color: #D6A80C;' align='center'>
+					<td >No.</td>
+					<td >Cargo</td>
+					<td > Nombre</td>
+					<td colspan='2'> Sueldos</td>
+					<td colspan='6' > Deducciones</td>
+					<td > Total Deducciones</td>
+					<td > Sueldo Neto</td>
+				</tr>
+				<tr align='center'>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td>  Ventas</td>
+					<td> Administrador</td>
+					<td colspan='2'> IHSS</td>
+					<td colspan='2'> RAP</td>
+					<td colspan='2'> INFOP</td>
+					<td> </td>
+					<td> </td>
+				</tr>
+
+				<?php
+
+				$listaEmpleados = $conexion->ejecutarInstruccion(sprintf(
+					'SELECT 
+					codigo_empleado, 
+					codigo_privilegio, 
+					codigo_usuario, 
+					codigo_area_trabajo, 
+					nombre, 
+					apellido, 
+					sueldo 
+					FROM tbl_empleados'
+					));
+				while ($lis=$conexion->obtenerFila($listaEmpleados)) {
+
+				echo "<tr align='center'>
+					<td> ".$lis['codigo_empleado']."</td>";
+
+				$privi = $conexion->ejecutarInstruccion(sprintf(
+						'SELECT 
+						codigo_privilegio, 
+						nombre_cargo 
+						FROM tbl_privilegio 
+						WHERE codigo_privilegio="%s"',
+					stripslashes($lis['codigo_privilegio'])));
+
+					$privilegio=$conexion->obtenerFila($privi);
+
+					echo "<td>".$privilegio['nombre_cargo']." </td>
+						<td> ".$lis['nombre']." ".$lis['apellido']."</td>";
+
+						if($lis["codigo_area_trabajo"]=="1"){
+							echo "<td>".$lis['sueldo']." </td>
+									<td> </td>";
+					$sueldo=(int)$lis['sueldo'];
+
+					$IHSS=0;
+					$IHSS=$sueldo*0.075;
+					echo "<td>".$IHSS." </td>
+							<td> </td>";
+					$RAP=0;
+					$RAP=$sueldo*0.035;
+					echo "<td>".$RAP." </td>
+							<td> </td>";
+					$INFOP=0;
+					$INFOP=$sueldo*0.01;
+					echo "<td> ".$INFOP."</td>
+						<td> </td>";
+					$Deducciones=$IHSS+$RAP+$INFOP;
+					$TotalSueldo=$sueldo-$Deducciones;
+					
+					
+					echo "<td> ".$Deducciones."</td>
+							<td>".$TotalSueldo." </td>
+							</tr>";
 				
 					
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> ".""."</td>".
-					"<td> "." "."</td>".
-					"<td> "."TOTAL: "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-		break;
-
-	case '6':
-
-		echo 
-
-		"<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO DIARIO</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='left' style='color:#000000'>
-		<strong>
-		<td>Fecha <input type='text' name='re-fecha' id='re-fecha' placeholder='12/12/16'></td>
-		<td>Descripción: <input type='text' name='txt-descripcion' id='txt-descripcion'></td>
-		<td></td>
-		<td>SubCuenta: <br><input type='checkbox' name='ch-subcuenta' id='ch-subcuenta'>FICOHSA S.A.</input><br>"."<input type='checkbox' name='ch-subcuenta' id='ch-subcuenta'>FERRETERIA EL TITO S.A</input><br>"."<input type='checkbox' name='ch-subcuenta' id='ch-subcuenta'>UTILES DE HONDURAS S.A</input><br>"."<input type='checkbox' name='ch-subcuenta' id='ch-subcuenta'>DISTRIBUIDORA DINAN S. de R. L.</input></td>".
-
-		"<td>Cuenta Cargada: <select  name='cta-cargada' id='cta-cargada'><option>Bancos</option><option>Proveedores</option></select></td>
-		<td colspan='2'>Cuenta Acreditada: <select  name='cta-acreditada' id='cta-acreditada'><option>Bancos</option><option>Proveedores</option></select></td>
-		</strong>
-		</tr>".
-				"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."No."."</td>".
-					"<td  align='center'> "."Parcial"."</td>".
-					"<td align='center'> "."Debe"."</td>".
-					"<td  align='center'> "."Haber"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
 				
+
+						}else{
+							echo "<td> </td>
+									<td> ".$lis['sueldo']."</td>";
+									$IHSS=0;
+					$sueldo = (int)$lis['sueldo'];
+					$IHSS=$sueldo*0.075;
+					echo "<td> </td>
+							<td>".$IHSS." </td>";
+					$RAP=0;
+					$RAP=$sueldo*0.035;
+					echo "<td> </td>
+							<td>".$RAP." </td>";
+					$INFOP=0;
+					$INFOP=$sueldo*0.01;
+					echo "<td> </td>
+							<td> ".$INFOP."</td>";
+					
+					$Deducciones=$IHSS+$RAP+$INFOP;
+					$TotalSueldo=$sueldo-$Deducciones;
+					
+					
+					echo "<td> ".$Deducciones."</td>
+							<td>".$TotalSueldo." </td>
+							</tr>";
+					
+				
+						}
+					
+					
+				}
+				
+				?>
+
+
+
+</table>
+
+
+			<?php
 		break;
+
+	
 	case '7':
 	
 	?>
@@ -1132,6 +546,8 @@ switch ($_GET['accion']) {
 												<td><?php echo $valor1-$valor2;?></td>
 											</tr>
 					</table>
+
+
 			
 				
 
@@ -1168,1022 +584,127 @@ switch ($_GET['accion']) {
 </div>
 	<?php
 	break;
-	case '10':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Acreedores Varios</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
+	
 	case '11':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+		/*$cuentas = $conexion->ejecutarInstruccion(sprintf("
+											SELECT
+											codigo_cuenta, nombre
+											FROM tbl_cuenta" 
+											));
+							
+	$libros=$conexion->ejecutarInstruccion(sprintf(
+		'SELECT last_insert_id as id')
+		);
+	$ultima = $conexion->obtenerFila($libros);
+	$libros1 = $conexion->ejecutarInstruccion(sprintf(
+		'SELECT fecha_partida
+		FROM tbl_libro_diario
+		WHERE codigo_partida="%s"',
+		stripslashes($ultima['id'])
+		)
+		);
+	$fecha= $conexion->obtenerFila($libros1);
+	
+							
+						while($fila= $conexion->obtenerFila($cuentas)){
+							
 
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+							/*$cargadas = $conexion->ejecutarInstruccion(sprintf(
+												'SELECT 
+												codigo_partida , 
+												codigo_cuenta , 
+												monto , 
+												FacturaX
+												FROM tbl_libro_diario_x_tbl_cuenta_cargada
+												WHERE codigo_cuenta ="%s"',
+												stripslashes($fila['codigo_cuenta'])
+												));
+							
+								while($filacargada = $conexion->obtenerFila($cargadas)){
+									//if($fila['codigo_partida']==$filacargada['codigo_partida']){*/
+											/*	$valor1=0;
+												$suma = $conexion->ejecutarInstruccion(sprintf(
+													'SELECT SUM(monto) as Total
+													FROM tbl_libro_diario_x_tbl_cuenta_cargada
+													WHERE codigo_cuenta="%s"',
+													stripslashes($fila['codigo_cuenta']))
+													
+													);
+												$total = $conexion->obtenerFila($suma);
 
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+									
+									
+												$valor1=(int)$total['Total'];
+										
+									//}
 
 
+									
+
+								//}
+								$valor2=0;
+								/*$acreditadas = $conexion->ejecutarInstruccion(sprintf(
+								'SELECT 
+											codigo_partida,
+											codigo_cuenta, 
+											monto, 
+											facturaX 
+											FROM tbl_libro_diario_x_tbl_cuenta_acreditada 
+											WHERE codigo_cuenta="%s"',
+											stripslashes($fila['codigo_cuenta']))
+											);*/
+
+								
+								// while($filaacreditada = $conexion->obtenerFila($acreditadas)){
+									// if($fila1['codigo_partida']==$filaacreditada['codigo_partida']){
+												/*$suma1 = $conexion->ejecutarInstruccion(sprintf(
+													'SELECT SUM(monto) as Total
+													FROM tbl_libro_diario_x_tbl_cuenta_acreditada
+													WHERE codigo_cuenta="%s"',
+													stripslashes($fila['codigo_cuenta']))
+													
+													);
+												$total1 = $conexion->obtenerFila($suma1);
+									
+												$valor2=(int)$total1['Total'];
+
+							$registrarMayor = $conexion->ejecutarInstruccion(sprintf(
+									'INSERT INTO tbl_libro_mayor
+									(codigo_mayor, concepto, fecha_concepto, monto_cargado, monto_acreditado, saldo_mayor) VALUES 
+									(NULL,"%s","%s","%s","%s","%s")',
+									stripslashes($fila['nombre']),
+									stripslashes($fecha['fecha_partida']),
+									stripslashes($valor1),
+									stripslashes($valor2),
+									stripslashes($valor1-$valor2))
+									
+									);
+
+										
+									// }
 
 
+									
+
+								// }
+								/*$cuentas = $conexion->ejecutarInstruccion(sprintf("
+											SELECT
+											codigo_cuenta, nombre
+											FROM tbl_cuenta 
+											WHERE codigo_cuenta='%s'",
+											stripslashes($fila['codigo_cuenta'])));
+
+								$cuentaNombre = $conexion->obtenerFila($cuentas);*/
+							
+						//	}
+							
+
+			
 
 
-			"</table>";
-	break;
-	case '12':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Utilidaad del Ejercicio</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
-	case '13':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Docuementos por cobrar</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
-	case '14':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Documentos por pagar</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
-	case '15':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Banco-FICOHSA S.A.</td></strong></tr>".
-
-"<tr  style='color: #E46B25;'> <td colspan='3'>  Direccion: Col. Miramontes</td></tr>"."<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
 
 	break;
-	case '16':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores-FERRETERIA EL TITO S. de R. L. .</td></strong></tr>".
-
-"<tr  style='color:#E46B25;'> <td colspan='3'>  Direccion: Col. Centro America Oeste</td></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
-	case '17':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores-UTILES DE HONDURAS S. A.</td></strong></tr>".
-
-"<tr style='color: #E46B25;'> <td colspan='3'>  Direccion: Col. Arturo Quezada</td></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
-	case '18':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR AUXILIAR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Proveedores-DISTRIBUIDORA DINAN S. de R. L.</td></strong></tr>".
-
-"<tr  style='color: #E46B25;'> <td colspan='3'>  Direccion: Col. Los Higos</td></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-
-
-
-
-
-			"</table>";
-	break;
+	
 	case '19':
 
      	$libro= $conexion->ejecutarInstruccion(
@@ -2254,8 +775,9 @@ switch ($_GET['accion']) {
                       </tr>
 
                        <tr>
-                      	<td>
-                      		Cuenta Cargadas:
+                      	<td style="color: #637231">
+                      	<strong>Cuenta Cargadas:</strong>
+                      		
                       	</td>
                       	<td></td>
 
@@ -2346,8 +868,9 @@ switch ($_GET['accion']) {
        
                       
                     <tr>
-                      	<td>
-                      		Cuentas Acreditadas:
+                      	<td style="color: #637231">
+                      	<strong>Cuentas Acreditadas:</strong>
+                      		
                       	</td>
                       	<td></td>
                       	
@@ -2456,38 +979,7 @@ switch ($_GET['accion']) {
 	case '20':
 	
 	?>
-	   				 <div style="padding: 50px 50px 50px 50px;">
-                         <table class="table table-hover" align="center"> 
-                            <tr>
-                              <td >
-                                 Nº cuentas cargadas:
-                          
-                        </td>
-                        <td>
-                        <input type="text" name="txt-numero-deudor" id="txt-numero-deudor" placeholder="" class="form-control">
-                          
-                        </td>
-
-
-                      </tr>
-                          <tr>
-                        <td>
-                        Nº cuentas acreditada:
-                          
-                        </td>
-                        <td>
-                      <input type="text" name="txt-numero-acreditada" id="txt-numero-acreditada" placeholder="" class="form-control">
-                          
-                        </td>
-
-
-                      </tr>
-                      <tr style="" > 
-                      <td ></td> <td></td></tr>
-                      <tr style="width: 150px" > <td ></td> <td></td></tr>
-
-                      </table>
-                          </div>
+	   				 
 
 	<?php
 	break;
@@ -2614,13 +1106,7 @@ switch ($_GET['accion']) {
 	break;
 
 
-	case '22';
-
-	break;
-
-	case '23':
-
-	break;
+	
 
 	default:
 		# code...

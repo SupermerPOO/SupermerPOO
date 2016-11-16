@@ -45,15 +45,7 @@
           <a href="" id="Ba-Comprobacion">Balanza de Comprobación</a>
     
         </li> 
-        <li id="pes2"> 
-          <a href="" id="Ba-General">Balance General</a> 
-        </li> 
-        <li id="pes3"> 
-          <a href="" id="Es-Resultado">Estado de Resultado</a> 
-        </li> 
-        <li id="pes4"> 
-          <a href="" id="Ta-Almacen">Tarjeta de Almacen</a> 
-        </li> 
+       
         <li id="pes5"> 
           <a href="" id="Pl-Empleados">Planilla de Empleados</a> 
         </li>  
@@ -118,69 +110,7 @@ $(document).ready(function(){
           }
         });
         });
-      $("#Ba-General").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=2",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-           $("#menus").css('background','#FFFFFF');
-            $("#menus").css('color','#177EE5');
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-       $("#Es-Resultado").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=3",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-                      $("#menus").css('background','#FFFFFF');
-            $("#menus").css('color','#177EE5');
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
-       $("#Ta-Almacen").click(function(e){
-        e.preventDefault();
-        //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=4",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-                      $("#menus").css('background','#FFFFFF');
-            $("#menus").css('color','#177EE5');
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
+     
         $("#Pl-Empleados").click(function(e){
         e.preventDefault();
         //$("#tablas").html("ESTOY AQUI");

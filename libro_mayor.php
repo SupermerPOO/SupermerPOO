@@ -74,6 +74,25 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+  
+
+   $.ajax({
+          url:"ajax/procesar.php?accion=11",
+          method:"POST",
+  
+          success:function(respuesta){
+         
+          
+          
+          },
+          error:function(xhr, ajaxOptions, thrownError){
+            alert("Ocurrio un error.");
+       
+            alert(thrownError);
+            
+          }
+        }); 
+
 
          $.ajax({
           url:"ajax/procesar.php?accion=9",

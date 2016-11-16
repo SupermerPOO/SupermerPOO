@@ -47,7 +47,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title"> <div  id="cabecera" style="color: ##2C0C19"> Cuantas clases acreditara y cargara?</div></h4>
+                      <h4 class="modal-title"> <div  id="cabecera" style="color: ##2C0C19;padding: 0px 0px 0px 240px""><strong></strong> </div></h4>
                       </div>
                       <div id='SUCCESS' style="color:#637231; display: none;padding: 0px 0px 0px 200px;"><strong>Partida Guardada</strong></div>
                      
@@ -152,6 +152,7 @@ $(document).ready(function(){
                                       $("#div-camposVacios").css('display','none');
                                       $("#btn-guardar").css('display','inline')
                                       $("#SUCESS").css('display','none');
+                                      $("#cabecera").html('Crear Partida');
 
                                     },
                                       error:function(xhr, ajaxOptions, thrownError){
@@ -333,7 +334,8 @@ $(document).ready(function(){
                                                               $("#btn-guardar").css('display','none');
                                                               $("#div-camposVacios").css('display','none'); 
                                                               $('#Cantidades').css('display','none'); 
-                                                              $("#SUCESS").css('display','inline');  
+                                                              $("#SUCESS").css('display','inline'); 
+                                                              $('#cabecera').html(" "); 
                               
 
                                                                 },
@@ -432,9 +434,11 @@ $(document).ready(function(){
       });
 
 
+//Buenas Tobal
+//buenas, xD muestreme lo que me dijo
 
-
-   
+//Que de todo? Le dije un monton xD....primero lo del mayor que no se que
+//dele   
       
 
       }); 
