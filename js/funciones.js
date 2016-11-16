@@ -79,34 +79,7 @@ $(document).ready(function(){
 								});
 
 
-/*$("#btn-eliminar").click(function(evento){
 
-		evento.preventDefault();
-						
-				$.ajax({
-					url:"ajax/validacion_contador.php?accion=2",
-					method: "POST",
-
-					success:function(resultado){
-
-						$("#my-Modal").html(resultado);
-
-				
-
-						
-					},
-					error:function(xhr, ajaxOptions, thrownError){
-						
-
-					}
-				});
-
-
-
-
-		
-	});*/
-	
 
  $("#btn-agregar").click(function(){
    $("#btn-agregar").button("loading");
