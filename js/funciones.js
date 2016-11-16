@@ -1,6 +1,17 @@
 $(document).ready(function(){
 
-
+	$.ajax({
+			url:"ajax/procesar.php?accion=22",
+			method: "POST",
+			success: function validarFormatoFecha(campo) {
+			      		var RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+			      		if ((campo.match(RegExPattern)) && (campo!='')) {
+			           		 return true;
+			      		} else {
+			     	      	return false;
+			     		}
+					}	
+		})
 
 				$.ajax({
 					url:"ajax/validacion_contador.php?accion=2",
