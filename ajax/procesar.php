@@ -979,229 +979,227 @@ switch ($_GET['accion']) {
 
 		break;
 	case '8':
+	$libros=$conexion->ejecutarInstruccion(sprintf(
+		'SELECT 
+		codigo_partida, 
+		monto_cargado, 
+		monto_acreditado, 
+		fecha_partida, 
+		descripcion 
+		FROM tbl_libro_diario')
+		
+		);
+	$cuentas = $conexion->ejecutarInstruccion(sprintf("
+		SELECT
+		codigo_cuenta, nombre
+		FROM tbl_cuenta 
+		WHERE codigo_cuenta='%s'",
+		stripslashes($_POST['codigo_cuenta'])));
+	$cuentaOb= $conexion->obtenerFila($cuentas);
 
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Bancos</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	
+	
 
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	?>
 
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	<table class='table table-bordered contenedor' align='center'>
+		<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>
+		<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>
+		<tr align='center' style='color:#000000'><strong><td colspan='7'><?php echo $cuentaOb['nombre']; ?></td></strong></tr>
+<tr class='active' style='color: #D6A80C;' align='center'>
+					<td >Fecha</td>
+					<td > Concepto</td>
+					<td > Pda.</td>
+					<td  > Debe</td>
+					<td > Haber</td>
+					<td  > Saldo</td>
+				</tr>
 
 
+<?php
+function sumar($valor1,$valor2){
+	$total=0; 
+	$a=$valor1;
+	$b=(int)$valor2;
+	$total= $a+$b;
+	return $total;
+}								$valor1=0;
+						while($fila= $conexion->obtenerFila($libros)){
+							$cargadas = $conexion->ejecutarInstruccion(sprintf(
+												'SELECT 
+												codigo_partida , 
+												codigo_cuenta , 
+												monto , 
+												FacturaX
+												FROM tbl_libro_diario_x_tbl_cuenta_cargada
+												WHERE codigo_cuenta ="%s"',
+												stripslashes($_POST['codigo_cuenta']))
+												);
+							
+								while($filacargada = $conexion->obtenerFila($cargadas)){
+									if($fila['codigo_partida']==$filacargada['codigo_partida']){
+												$suma = $conexion->ejecutarInstruccion(sprintf(
+													'SELECT SUM(monto) as Total
+													FROM tbl_libro_diario_x_tbl_cuenta_cargada
+													WHERE codigo_cuenta="%s"',
+													stripslashes($_POST['codigo_cuenta']))
+													
+													);
+												$total = $conexion->obtenerFila($suma);
+
+										echo'<tr align="center">
+												<td>'.$fila['fecha_partida'].'</td>
+												<td> '.$fila['descripcion']." con factura #: ".$filacargada['FacturaX'].'</td>
+												<td> '.$filacargada['codigo_partida'].'</td>
+												<td> '.$filacargada['monto'].'</td>
+												<td> </td>
+
+												<td>'.$total['Total'].'</td>
+											</tr>';
+									
+									$valor1=(int)$total['Total'];
+										
+									}
 
 
+									
+
+								}
+
+							}
+							
+
+			$libros1=$conexion->ejecutarInstruccion(sprintf(
+						'SELECT 
+						codigo_partida, 
+						monto_cargado, 
+						monto_acreditado, 
+						fecha_partida, 
+						descripcion 
+						FROM tbl_libro_diario')
+						
+						);
+			$valor2=0;
+							while($fila1= $conexion->obtenerFila($libros1)){
+							$acreditadas = $conexion->ejecutarInstruccion(sprintf(
+								'SELECT 
+											codigo_partida,
+											codigo_cuenta, 
+											monto, 
+											facturaX 
+											FROM tbl_libro_diario_x_tbl_cuenta_acreditada 
+											WHERE codigo_cuenta="%s"',
+											stripslashes($_POST['codigo_cuenta']))
+											);
+
+								
+								while($filaacreditada = $conexion->obtenerFila($acreditadas)){
+									if($fila1['codigo_partida']==$filaacreditada['codigo_partida']){
+												$suma1 = $conexion->ejecutarInstruccion(sprintf(
+													'SELECT SUM(monto) as Total
+													FROM tbl_libro_diario_x_tbl_cuenta_acreditada
+													WHERE codigo_cuenta="%s"',
+													stripslashes($_POST['codigo_cuenta']))
+													
+													);
+												$total1 = $conexion->obtenerFila($suma1);
+
+										echo'<tr align="center">
+												<td>'.$fila1['fecha_partida'].'</td>
+												<td> '.$fila1['descripcion']." con factura #: ".$filaacreditada['facturaX'].'</td>
+												<td> '.$filaacreditada['codigo_partida'].'</td>
+												<td> </td>
+												<td> '.$filaacreditada['monto'].'</td>
+
+												<td>'.$total1['Total'].'</td>
+											</tr>';
+									
+									$valor2=(int)$total1['Total'];
+										
+									}
 
 
-			"</table>";
+									
+
+								}
+
+							}
+							
+
+		
+?>
+						<tr align="center">
+												<td></td>
+												<td>Total: </td>
+												<td> </td>
+												<td> </td>
+												<td> </td>
+
+												<td><?php echo $valor1-$valor2;?></td>
+											</tr>;
+					</table>
+			
+				
+
+<?php
+			
 	break;
 	case '9':
-	echo "<table class='table table-bordered contenedor' align='center'>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> LIBRO MAYOR</td></strong></tr><br>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Del 23 de Enero del 2016 al 30 de Septiembre del 2016</td></strong></tr>".
-		"<tr align='center' style='color:#000000'><strong><td colspan='7'> Caja</td></strong></tr>".
-"<tr class='active' style='color: #D6A80C;'>".
-					"<td align='center'>"."Fecha."."</td>".
-					"<td align='center'> "."Concepto"."</td>".
-					"<td align='center'> "."Pda."."</td>".
-					"<td  align='center'> "."Debe"."</td>".
-					"<td align='center'> "."Haber"."</td>".
-					"<td  align='center'> "."Saldo"."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-					"<td> ".""."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."1"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-					"<tr align='center'>".
-					"<td> "."2"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	/*$libros=$conexion->ejecutarInstruccion(
+		'SELECT 
+		codigo_partida, 
+		monto_cargado, 
+		monto_acreditado, 
+		fecha_partida, 
+		descripcion 
+		FROM tbl_libro_diario'
+		);
 
-				"<tr align='center'>".
-					"<td> "."3"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	$acreditadas = $conexion->ejecutarInstruccion(
+		'SELECT 
+		codigo_partida,
+		codigo_cuenta, 
+		monto, 
+		facturaX 
+		FROM tbl_libro_diario_x_tbl_cuenta_acreditada 
+		WHERE codigo_cuenta="%s"',
+		stripslashes($_POST['codigo_cuenta']));
 
-				"<tr align='center'>".
-					"<td> "."4"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-
-				"<tr align='center'>".
-					"<td> "."5"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>"."</tr>".
-
-				"<tr align='center'>".
-					"<td> "."6"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."7"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."8"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."9"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
-				"<tr align='center'>".
-					"<td> "."10"."</td>".
-					"<td> "."SUMAS"."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-					"<td> "." "."</td>".
-				"</tr>".
+	$cargadas = $conexion->ejecutarInstruccion(
+		'SELECT 
+		codigo_partida, 
+		codigo_cuenta, 
+		monto, 
+		FacturaX 
+		FROM tbl_libro_diario_x_tbl_cuenta_cargada 
+		WHERE codigo_cuenta="%s"',
+		stripslashes($_POST['codigo_cuenta']));*/
 
 
 
+	?>
 
+<div>
+<div style="color: #637231; padding: 10px 10px 10px 10px;"><strong><h4>LISTA DE CUENTAS</h4></strong>
+<select name="slc-cuentas" id="slc-cuentas" class="form-control">
 
+	<?php
+                      		      
+                      						$nombreCuentas= $conexion->ejecutarInstruccion(
+                      										'SELECT codigo_cuenta , nombre
+																FROM tbl_cuenta'
+                      										);
 
-			"</table>";
+				                      			while($filaCuenta = $conexion->obtenerFila($nombreCuentas)){
+							                      		echo 	'
+														        	<option value="'.$filaCuenta['codigo_cuenta'].'">'.$filaCuenta['nombre'].'</option>
+														                      		
+														                 	';
+				                      			}
+				                      			?>
+				                      			</select>
+</div>
+	<?php
 	break;
 	case '10':
 	echo "<table class='table table-bordered contenedor' align='center'>".

@@ -68,34 +68,82 @@
 <body>
 
 
- <div  clclass="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="margin: 50px 50px 50px 50px; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
-    <span style="color: #177EE5;"><strong>LISTA DE CUENTAS</strong></span><br>
+ <div  class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style=" margin: 50px 10px 50px 30px;padding: 10px 10px 10px 10px ; background: #FFFFFF;  box-shadow: 5px 5px 5px black;">
+    <!-- <span style="color: #177EE5;"><strong>LISTA DE CUENTAS</strong></span><br> -->
+    <div id='div-mayor'>
+      
+    </div>
 
-      <input type='checkbox' name='op1' id="op1"> Banco</input><br>
-       <input type='checkbox' name='op2' id="op2"> Caja</input><br>
-       <input type='checkbox' name='op3' id="op3"> Acreedores Varios</input><br>
-       <input type='checkbox' name='op4' id="op4"> Proveedores</input><br>
-       <input type='checkbox' name='op5' id="op5"> Utilidad del Ejercicio</input><br>
-       <input type='checkbox' name='op6' id="op6"> Documentos por cobrar</input><br>
-       <input type='checkbox' name='op7' id="op7"> Documentos por pagar</input><br>
+      <!-- <input type='checkbox' name='op1' id="op1"> Banco</input><br> -->
+       <!-- <input type='checkbox' name='op2' id="op2"> Caja</input><br> -->
+       <!-- <input type='checkbox' name='op3' id="op3"> Acreedores Varios</input><br> -->
+       <!-- <input type='checkbox' name='op4' id="op4"> Proveedores</input><br> -->
+       <!-- <input type='checkbox' name='op5' id="op5"> Utilidad del Ejercicio</input><br> -->
+       <!-- <input type='checkbox' name='op6' id="op6"> Documentos por cobrar</input><br> -->
+       <!-- <input type='checkbox' name='op7' id="op7"> Documentos por pagar</input><br> -->
 </div>
 
-<div id='tablas' class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+<div id='tablas' class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 </div>
 
 
 
 <script type="text/javascript">
 $(document).ready(function(){
-  //INICIO DEL FORMULARIO
-  $.ajax({
-          url:"ajax/procesar.php?accion=8",
+
+         $.ajax({
+          url:"ajax/procesar.php?accion=9",
           method:"POST",
   
           success:function(respuesta){
           //  alert(respuesta);
+          
+            $("#div-mayor").html(respuesta);
+          },
+          error:function(xhr, ajaxOptions, thrownError){
+            alert("Ocurrio un error.");
+            //alert(xhr.status);
+            alert(thrownError);
+            
+          }
+        }); 
+      
+  //INICIO DEL FORMULARIO
+
+
+     $.ajax({
+          url:"ajax/procesar.php?accion=8",
+          method:"POST",
+          data:"codigo_cuenta="+1,
+          success:function(respuesta){
+          //  alert(respuesta);
             
             $("#tablas").html(respuesta);
+
+
+            $("select[name='slc-cuentas']").change(function(){
+            
+        var parametros = "codigo_cuenta="+$('select[name="slc-cuentas"]').val();
+        alert(parametros);
+                 $.ajax({
+                      url:"ajax/procesar.php?accion=8",
+                      method:"POST",
+                      data:parametros,
+                      success:function(respuesta){
+                      //  alert(respuesta);
+                        
+                        $("#tablas").html(respuesta);
+                      },
+                      error:function(xhr, ajaxOptions, thrownError){
+                        alert("Ocurrio un error.");
+                        //alert(xhr.status);
+                        alert(thrownError);
+                        
+                      }
+                    });
+     });
+
+
           },
           error:function(xhr, ajaxOptions, thrownError){
             alert("Ocurrio un error.");
@@ -104,8 +152,9 @@ $(document).ready(function(){
             
           }
         });
+     
 //ACCIONES AL DAR CLICK
-      $("#op1").click(function(e){
+     /* $("#op1").click(function(e){
         e.preventDefault();
 
         $.ajax({
@@ -225,26 +274,9 @@ $(document).ready(function(){
           }
         }); 
       });
-      $("#op7").click(function(e){
-        e.preventDefault();
+    
         //$("#tablas").html("ESTOY AQUI");
-        $.ajax({
-          url:"ajax/procesar.php?accion=14",
-          method:"POST",
-  
-          success:function(respuesta){
-          //  alert(respuesta);
-          
-            $("#tablas").html(respuesta);
-          },
-          error:function(xhr, ajaxOptions, thrownError){
-            alert("Ocurrio un error.");
-            //alert(xhr.status);
-            alert(thrownError);
-            
-          }
-        }); 
-      });
+ 
 
      /* $("#slc-cuenta").click(function(){
          if ($('#slc-cuenta').val()=='Bancos') {
