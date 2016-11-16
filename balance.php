@@ -1,4 +1,7 @@
-
+<?php session_start(); 
+  if(!isset($_SESSION['codigo_usuario']))
+    header("Location: index.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -54,9 +57,6 @@
         <li id="pes5"> 
           <a href="" id="Pl-Empleados">Planilla de Empleados</a> 
         </li>  
-        <li> 
-          <a href="index.php">Cerrar Sesión</a> 
-        </li>
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 

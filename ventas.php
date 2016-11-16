@@ -1,3 +1,13 @@
+<?php  
+	include_once("class/class_conexion.php");
+	include_once("class/class_sucursal.php");
+	include_once("class/class_producto.php");
+	$conexion = new Conexion();
+
+	session_start(); 
+  	if(!isset($_SESSION['codigo_usuario']))
+    	header("Location: index.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +18,6 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
@@ -45,90 +54,47 @@
 			<td width="80px"># Factura</td>
 			<td width="150px"><input type="text" id="txt-codigo" class="form-control" style="width: 50px"></td>
 			<td width="250px" align="center"><input type="date" id="txt-fecha" class="form-control" placeholder="Fecha" style="width: 200px"></td>
-			<td width="250px" align="center"><select class="form-control" style="width: 200px"><option>Sucursal</option></select></td>
-			<td width="250px" align="center"><select class="form-control" style="width: 100px"><option># Caja</option></select></td>
+			<td width="250px" align="center"> <?php Sucursal::mostrarSucursal($conexion); ?> </td>
+			<td width="250px" align="center">
+				<select class="form-control" style="width: 100px">
+					<option value="1">Caja 1</option>
+					<option value="2">Caja 2</option>
+					<option value="3">Caja 3</option>
+					<option value="4">Caja 4</option>
+					<option value="5">Caja 5</option>
+				</select>
+			</td>
 			<td align="center"><label>Nombre cajero</label></td>
 		</tr>
 	</table>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive" id="tabla">
 	<table class="table table-striped table-bordered">
-		<tr>
-			<td width="150px" align="center">Codigo Producto</td>
-			<td align="center">Nombre Producto</td>
-			<td align="center">Unidades</td>
-			<td align="center">Precio</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+		<thead>
+			<tr>
+				<td width="150px" align="center">Codigo Producto</td>
+				<td align="center">Nombre Producto</td>
+				<td align="center">Unidades</td>
+				<td align="center">Precio</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
 	</table>
 </div>
 
 <div class="table-responsive">
-	<table class="table table-hover table-hover">
+	<table class="table table-hover table-hover" style="margin-top: 50px">
 		<tr>
-			<td width="50px"><input type="text" id="txt-codigo-producto" class="form-control" style="width: 200px" placeholder="Codigo Producto"></td>
+			<td width="50px"> 
+				<select id="cbo-producto" class="form-control" style="width: 250px">
+					<?php Producto::mostrarProducto($conexion); ?>
+				</select>
+			</td>
 			<td width="50px"><input type="text" id="txt-unidades" class="form-control" style="width: 50px" placeholder="#"></td>
-			<td><button class="btn btn-primary">></button></td>
+			<td><button class="btn btn-primary" id="btn-agregar" style="width: 40px; height: 35px" onclick="seleccionarProducto()">></button></td>
 			<td width="119px">Nombre Cliente:</td>
 			<td width="250px"><input type="text" id="txt-cliente" class="form-control" style="width: 200px"></td>
 			<td width="80px">Identidad:</td>
@@ -148,7 +114,7 @@
 		</tr>
 		<tr>
 			<td style="padding-left: 1000px;">Total:</td>
-			<td><input type="text" id="txt-total" style="width: 250px" class="form-control"></td>
+			<td><input type="text" id="txt-total" disabled="disabled" style="width: 250px" class="form-control"></td>
 		</tr>
 		<tr>
 			<td style="padding-left: 1000px;">
@@ -182,12 +148,13 @@
 
 
 <script>
+	
 	$(document).ready(function(){
 			$("#btn-pago").click(function(){
-				var parametros = "txt-codigo=" + $("#txt-codigo").val() + "&" + "txt-fecha=" + $("#txt-fecha").val() + "&" + "txt-codigo-producto=" + $("#txt-codigo-producto").val() + "&" + "txt-unidades=" + $("#txt-unidades").val() + "&" + "txt-cliente=" + $("#txt-cliente").val() + "&" + "txt-identidad=" + $("#txt-identidad").val() + "&" + "txt-descuento=" + $("#txt-descuento").val() + "&" + "txt-isv=" + $("#txt-isv").val();
+				var parametros = "txt-codigo=" + $("#txt-codigo").val() + "&" + "txt-fecha=" + $("#txt-fecha").val() + "&" + "txt-unidades=" + $("#txt-unidades").val() + "&" + "txt-cliente=" + $("#txt-cliente").val() + "&" + "txt-identidad=" + $("#txt-identidad").val() + "&" + "txt-descuento=" + $("#txt-descuento").val() + "&" + "txt-isv=" + $("#txt-isv").val();
 
 				$.ajax({
-					url:"ajax/validaciones_ventas.php",
+					url:"ajax/validaciones_ventas.php?accion=1",
 					method:"POST",
 					data: parametros,
 					success:function(respuesta){
@@ -200,6 +167,78 @@
 				});	
 			});	
 		});
+
+	function seleccionarProducto(){
+		//alert("Codigo: " + codigoUsuario + ", Nombre: " + nombreUsuario);
+		$("#cbo-producto").val();
+
+		var parametros = "codigoProducto="+$("#cbo-producto").val();
+		
+		$.ajax({
+			url:"ajax/validaciones_ventas.php?accion=2",
+			method: "POST",
+			data:parametros,
+			success:function(resultado){
+				$("#tabla tbody").html(resultado);
+			},
+			error:function(){
+				alert(parametros);
+			}
+		});
+	}
+
+	/*$(document).ready(function(){
+	$("#btn-agregar").click(function(){
+			var parametros = "cbo-producto=" +$("#cbo-producto").val() + "&txt-unidades="+$("#txt-unidades").val();
+			//alert(parametros);
+			$.ajax({
+				url:"ajax/validaciones_ventas.php?accion=2",
+				method: "POST",
+				data: parametros,
+				dataType: 'json	',
+				success:function(productos){
+					$("#tabla tbody").html(productos);
+				},
+				error:function(){
+
+				}
+		});
+	});	
+});*/
+
+	/*$(document).ready(function(){
+		$("#btn-agregar").click(function(){
+			var parametros = "cbo-producto=" + $("#cbo-producto").val() + "&" + "txt-unidades=" + $("#txt-unidades").val();
+			
+			$.ajax({
+					url:"ajax/validaciones_ventas.php?accion=2",
+					method:"POST",
+					data: parametros,
+					success:function(resultado){
+						$("#tabla").html(resultado)
+					},
+					error:function(){
+						alert("Ocurrio un error.");
+					}
+				});	
+
+			var url = "class/class_producto.php";
+			$("#tabla tbody").html("");
+			$.getJSON(url, function(productos){
+				$.each(productos, function(i, producto){
+					var fila = 
+					"<tr>"
+						+"<td>"+producto.codigo+"</td>"
+						+"<td>"+producto.nombre+"</td>"
+						+"<td>"+ $("#txt-unidades").val() +"</td>"
+						+"<td>"+producto.precio+"</td>"
+				+"</tr>";
+				$(fila).appendTo("#tabla tbody");
+				});
+			});
+		});
+	});*/
+
 </script>
 
 </body>

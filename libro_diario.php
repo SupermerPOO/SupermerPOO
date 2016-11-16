@@ -1,4 +1,7 @@
-<?php  ?>
+<?php session_start(); 
+  if(!isset($_SESSION['codigo_usuario']))
+    header("Location: index.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -80,9 +83,6 @@
         <li id="pes2"> 
           <a href="" id="vista1">Vista de Registro</a> 
         </li> 
-        <li>
-          <a href="index.php">Cerrar Sesión</a> 
-        </li>
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
       </ul> 

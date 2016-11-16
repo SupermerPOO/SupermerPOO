@@ -1,3 +1,7 @@
+<?php session_start(); 
+  if(!isset($_SESSION['codigo_usuario']))
+    header("Location: index.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -36,13 +40,12 @@
         <li> 
           <a href="libro_mayor.php">Libro Mayor</a> 
         </li> 
-      
         <li> 
-          <a href="#" data-toggle='modal' data-target='#myModal'>Crear cuenta</a> 
+          <a href="#" data-toggle='modal' id='e-modal' data-target='#myModal'>Crear cuenta</a> 
 
         </li>  
         <li> 
-          <a href="index.php">Cerrar Sesión</a> 
+          <a href="cerrar_sesion.php">Cerrar Sesión</a> 
         </li>
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 
@@ -55,16 +58,45 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title text-center"><div id="Encabezado">Crear Cuenta</div></h4>
+                        <h4 class="modal-title text-center">Crear Cuenta</h4>
                       </div>
-                      <div class="modal-body" style="padding: 50px 300px 50px 180px;" id="cuerpo-modal">
-                      
-                    
+                      <div class="modal-body" style="padding: 50px 300px 50px 180px;">
+                      <table class="table table-hover" align="center"> 
+                      <tr>
+                        <td >
+                        Naturaleza:
+                          
+                        </td>
+                        <td>
+                        <select name="slc-naturaleza" id="slc-naturaleza" style="width: 150px" class="form-control" required="" autofocus="" >
+                          <option>Deudora</option>
+                          <option>Acreedora</option>
+                        </select>
+                          
+                        </td>
+
+
+                      </tr>
+                          <tr>
+                        <td>
+                        Nombre:
+                          
+                        </td>
+                        <td>
+                       <input type="text" name="txt-nombre" class='form-control' id="txt-nombre" required="" autofocus="">
+                          
+                        </td>
+
+
+                      </tr>
+                      <tr style="width: 150px" > <td id="td-natu" colspan="2"></td> <td></td></tr>
+
+                      </table>
                        
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" id='btn-cemodal' data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" style="display: inline;" name="guardarModal" id="guardarModal">Guardar</button>
+                        <button type="button" class="btn btn-primary" name="guardarModal" id="guardarModal">Guardar</button>
                       </div>
                     </div><!-- /.modal-content -->
                   </div><!-- /.modal-dialog -->
@@ -126,12 +158,10 @@
           </footer>
         </div>
     </section>
-       
         <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
      <script type="text/javascript" src="js/funciones.js"></script>
-     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
 </body>

@@ -1,3 +1,14 @@
+<?php 
+	 session_start(); 
+  		if(!isset($_SESSION['codigo_usuario']))
+    	header("Location: index.php");
+
+	include_once("class/class_conexion.php");
+	include_once("class/class_usuario.php");
+
+	$conexion = new Conexion();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +16,6 @@
 	<title>Usuarios</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
@@ -37,7 +47,7 @@
 		<table class="table table-hover" style="auto;">
 			<tr>
 				<td style="padding-left: auto;" width="250px">Tipo Usuario:</td>
-				<td><select class="form-control" style="width: 250px">Tipo usuario</select></td>
+				<td><select class="form-control" style="width: 250px" id="cbo-privilegio"><?php Usuario::mostrarPrivilegio($conexion); ?></select></td>
 			</tr>
 			<tr>
 				<td style="padding-left: auto;" width="250px">Nombre Usuario:</td>
@@ -53,7 +63,8 @@
 			</tr>
 			<tr>
 				<td>
-					<button class="btn btn-warning" id="btn-registrar" ><a href="#" data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">Registrar</a></button>
+					<button class="btn btn-warning" id="btn-registrar"><a href="#" data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">Registrar</a></button>
+
 				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
@@ -80,26 +91,45 @@
 			</tr>
 		</table>
 
+		<div id="div-respuesta2" style="visibility: hidden"></div>
+
 </body>
 
 <script>
 	$(document).ready(function(){
 		$("#btn-registrar").click(function(){
-			var parametros = "txt-usuario=" + $("#txt-usuario").val() + "&" + "txt-password=" + $("#txt-password").val() + "&" + "txt-password-confirm=" + $("#txt-password-confirm").val();
+
+			/*var parametros = "txt-usuario=" + $("#txt-usuario").val() + "&" + "txt-password=" + $("#txt-password").val() + "&" + "txt-password-confirm=" + $("#txt-password-confirm").val();
 
 			$.ajax({
-				url:"ajax/validacion_registro_usuario.php",
+				url:"ajax/validacion_registro_usuario.php?accion=1",
 				method:"POST",
 				data: parametros,
 				success:function(respuesta){
-					$("#btn-registrar").button("reset");
 					$("#div-respuesta").html(respuesta)
 				},
 				error:function(){
 					alert("Error");
 				}
+			});*/
+
+			var parametros1 = "cbo-privilegio=" + $("#cbo-privilegio") + "&" + "txt-usuario=" + $("#txt-usuario").val() + "&" + "txt-password=" + $("#txt-password").val() + "&" + "txt-password-confirm=" + $("#txt-password-confirm").val();
+
+			$.ajax({
+				url:"ajax/validacion_registro_usuario.php?accion=1",
+				method:"POST",
+				data: parametros1,
+				success:function(respuesta){
+					$("#btn-registrar").button("reset");
+					$("#div-respuesta2").html(respuesta)
+				},
+				error:function(){
+					alert("Error");
+				}
 			});
+
 		});
+	
 	});
 </script>
 

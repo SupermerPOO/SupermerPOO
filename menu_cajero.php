@@ -1,3 +1,8 @@
+<?php session_start(); 
+  if(!isset($_SESSION['codigo_usuario']))
+    header("Location: index.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +36,7 @@
           <a href="ventas.php">Nueva Venta</a> 
         </li> 
         <li> 
-          <a href="index.php">Cerrar Sesión</a> 
+          <a href="cerrar_sesion.php">Cerrar Sesión</a> 
         </li>
       </ul> 
       <ul class="nav navbar-nav navbar-right"> 

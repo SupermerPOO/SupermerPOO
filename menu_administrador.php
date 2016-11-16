@@ -1,5 +1,6 @@
-<?php  
-  
+<?php session_start(); 
+  if(!isset($_SESSION['codigo_usuario']))
+    header("Location: index.php");
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
           <a href="usuarios.php">Usuarios</a> 
         </li> 
         <li> 
-          <a href="index.php">Cerrar Sesión</a> 
+          <a href="cerrar_sesion.php">Cerrar Sesión</a> 
         </li>
       </ul> 
     </nav> 
@@ -101,7 +102,6 @@
     </a>
   </div>
 
-
     <section>
         <div id="pie" class="piePagina">  
           <footer class="wrapper">
@@ -112,6 +112,7 @@
           </footer>
         </div>
     </section>
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/funciones.js"></script>

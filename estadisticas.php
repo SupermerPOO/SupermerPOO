@@ -1,3 +1,11 @@
+<?php session_start(); 
+  if(!isset($_SESSION['codigo_usuario']))
+    header("Location: index.php");
+
+  include_once("class/class_conexion.php");
+  $conexion = new Conexion();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +21,38 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Ventas',     11],
-          ['Perdidas',      2],
-          ['Productos Nuevos',  2],
-          ['Clientes Nuevos',    7]
+          ['Poblacion', 'Datos'],
+
+          <?php  
+
+            $resultado = $conexion->ejecutarInstruccion("SELECT count(nombre_cliente) AS count FROM tbl_clientes");
+              while($fila = $conexion->obtenerFila($resultado)){
+                echo "['"."Clientes"."',".$fila['count']."],";
+              }
+
+            $resultado1 = $conexion->ejecutarInstruccion("SELECT count(nombre) AS count FROM tbl_empleados");
+              while($fila1 = $conexion->obtenerFila($resultado1)){
+                echo "['"."Empleados"."',".$fila1['count']."],";
+              }
+
+            $resultado2 = $conexion->ejecutarInstruccion("SELECT count(nombre_producto) AS count FROM tbl_productos");
+              while($fila2 = $conexion->obtenerFila($resultado2)){
+                echo "['"."Productos"."',".$fila2['count']."],";
+              }
+
+            $resultado3 = $conexion->ejecutarInstruccion("SELECT count(nombre_sucursal) AS count FROM tbl_sucursales");
+              while($fila3 = $conexion->obtenerFila($resultado3)){
+                echo "['"."Sucursales"."',".$fila3['count']."],";
+              }
+
+            $resultado4 = $conexion->ejecutarInstruccion("SELECT count(nombre) AS count FROM tbl_proveedor");
+              while($fila4 = $conexion->obtenerFila($resultado4)){
+                echo "['"."Proveedores"."',".$fila4['count']."]";
+              }
+
+          ?>
         ]);
+
 
         var options = {
           title: 'Estadisticas Generales',
