@@ -23,17 +23,20 @@ $(document).ready(function(){
 
 	$("#btn-actualizar-sucursal").click(function(){
 				
-				var parametros = "&input-nombre="+$("#input-nombre").val()+
-								 "&input-direccion="+$("#input-direccion").val()+
-								 "&input-telefono="+$("#input-telefono").val()+
-								 "&input-codigo="+$("#input-codigo").val();
+				var parametros = "input-codigo-sucursal$="+$("#input-codigo-sucursal").val()+
+								 "&input-nombre-sucursal="+$("#input-nombre-sucursal").val()+
+								 "&input-direccion-sucursal="+$("#input-direccion-sucursal").val()+
+								 "&input-telefono-sucursal="+$("#input-telefono-sucursal").val();
+				
+
 				$("#btn-actualizar-sucursal").button("loading");
 
 				$.ajax({
 					url:"ajax/acciones_formularios_carlos.php?accion=5",
 					method:"POST",
 					data: parametros,
-					success:function(respuesta){
+					success:function(respuesta2){
+						alert(parametros);
 						$("#btn-actualizar-sucursal").button("reset");
 						cargarTabla();
 					},
