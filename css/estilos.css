@@ -389,39 +389,6 @@ button#btn-salir:hover:before {
 }
 
 
-button#btn-registrar{
- width: 150px;
- height: 45px;
- padding: 10px 40px;
- overflow:hidden;
-}
-
-button#btn-registrar{
-    border: none;
-    background: #3a7999;
-    color: #f2f2f2;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    position: relative;
-    box-sizing: border-box;
-    transition: all 500ms ease;
-}
-
-button#btn-registrar:before {
- font-family: FontAwesome;
- content:"\f07a";
- position: absolute;
- top: 11px;
- left: -30px;
- transition: all 200ms ease;
-}
-
-
-button#btn-registrar:hover:before {
- left: 7px;
-}
-
 button#btn-anadir{
     border: none;
     background: #22B14C;
@@ -434,38 +401,6 @@ button#btn-anadir{
     transition: all 500ms ease;
 }
 
-.select{
-    -webkit-appearance: button;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    padding: 9px 8px;
-    border: 5;
-    border:1px solid  #7D7E7E; 
-    margin-left: 5%;
-   }
-
-
-  .select2{
-    -webkit-appearance: button;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    padding: 9px 8px;
-    border: 5;
-    border:1px solid  #7D7E7E; 
-   }
-
-.select3{
-    -webkit-appearance: button;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    padding: 9px 8px;
-    border: 5;
-    border:1px solid  #7D7E7E; 
-    margin-left: 6.3%;
-   }
 
 
 

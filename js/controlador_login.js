@@ -10,6 +10,7 @@ $(document).ready(function(){
 				dataType: 'json	',
 				success:function(respuesta){
 					$("#resultado").html(respuesta.resultado + "Tipo Usuario: " + respuesta.codigo_privilegio);
+
 					if(respuesta.codigo_privilegio =='1')
 						window.location="menu_administrador.php";
 					else{ 
@@ -26,5 +27,6 @@ $(document).ready(function(){
 
 				}
 		});
+					
 	});	
 });
