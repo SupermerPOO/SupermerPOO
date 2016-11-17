@@ -45,7 +45,7 @@
                 echo "['"."Sucursales"."',".$fila3['count']."],";
               }
 
-            $resultado4 = $conexion->ejecutarInstruccion("SELECT count(nombre) AS count FROM tbl_proveedor");
+            $resultado4 = $conexion->ejecutarInstruccion("SELECT count(codigo_proveedor) AS count FROM tbl_proveedor");
               while($fila4 = $conexion->obtenerFila($resultado4)){
                 echo "['"."Proveedores"."',".$fila4['count']."]";
               }

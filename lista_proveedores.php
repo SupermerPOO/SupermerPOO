@@ -66,7 +66,7 @@
 
 		  <div id="div-botones-lista-empleados" class="btn btn-group">
 		  		<a href="registro_proveedor.php" class="btn btn-default">Agregar Proveedor</a>
-		  		<a href="registro_proveedor.php" id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</a>
+		  		<a href="#" id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</a>
 		  </div>
 
 

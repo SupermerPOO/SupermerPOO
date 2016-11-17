@@ -29,94 +29,111 @@
     <div class="row">
         <div class="col-xs  col-sm  col-md  col-lg">
             <div class="well">
+
+              <div style="padding: 50px 450px 10px 350px">
      
                <table class = "table table-striped table-hover">
 
                      <tr>
                          <td style="width: 160px">Producto:</td>
-                             <td>
-                                 <input type="text" name="txt-producto1" id="txt-producto1" placeholder="Ingrese el Producto" class="select2" style="width: 250px">
-                     	     </td>
+                             <td colspan="2">
+                                 <input type="text" name="txt-producto1" id="txt-producto1" placeholder="Ingrese el Producto" class="form-control" style="width: 250px">
+                     	       </td>
 
                  	 </tr>
 
-                </table>
+                   <tr>
 
+                           <td>Marca</td>
+                           <td colspan="2">
+                                 <select name="slc-marca" id="slc-marca" class="form-control" style="width: 250px">
+                                 <optio>Marca1</option>
+                                 <option>marca2</option>
+                                 <option>Marca3</option>
+                                 </select>
+                           </td>
 
-        <div class="well"> 
+                           <td colspan="2">
+                                <button class="btn btn-warning" id="" name=""><a href="#" data-toggle="modal" data-target="#myModal">Añadir</a></button>
+                             
+                           </td>
+
+                   </tr>
 
      
-             Marca: 
-             <select name="slc-marca" id="slc-marca" class="select" style="width: 250px">
-              <optio>Marca1</option>
-              <option>marca2</option>
-              <option>Marca3</option>
-              </select>
-
-            <button class="btn btn-warning" id="" name=""><a href="#" data-toggle="modal" data-target="#myModal">Añadir</a></button>
-                
-              
-
-          </div>
-
-                   
-                 	 <div class="well">
-                         Categoria:
-                             <select name="slc-categoria" id="slc-categoria" class="select3" style="width: 250px">
+                 	 <tr>
+                         
+                          <td>Categoria:</td>  
+                          <td colspan="2"> 
+                            <select name="slc-categoria" id="slc-categoria" class="form-control" style="width: 250px">
                              <option>categoria1</option>
                              <option>categoria2</option>
                              <option>categoria3</option>
                              </select>
 
-                           <button class="btn btn-warning" id="" name=""><a href="#" data-toggle="modal" data-target="#myModal2">Añadir</a></button><br>
+                            
+                          </td>
 
-                   </div>
+                          <td> 
+                                <button class="btn btn-warning" id="" name=""><a href="#" data-toggle="modal" data-target="#myModal2">Añadir</a></button><br>
+                            
+                          </td>
+                   </tr>
+
+                          
+
                                                	 
 
-                 	  <div class="well">
-                         Proveedor:
+                 	  <tr>
+                        <td>Proveedor:</td> 
+
+                                    <td colspan="2">
                              
-                                      <select name="slc-distribucion" id="slc-distribucion" class="select3" style="width: 250px">
+                                      <select name="slc-distribucion" id="slc-distribucion" class="form-control" style="width: 250px">
                                       <option>Proveedor1</option>
                                       <option>Proveedor2</option>
                                       <option>Proveedor3</option>
                                       </select>
 
-                                      <button class="btn btn-warning" id="" name=""><a href="registro_proveedor.php">Añadir</a></button>
-                             
+                                    </td>
 
-                 	 </div>
+                                    <td>
 
-                   <table class = "table table-striped table-hover">
+                                    <button class="btn btn-warning" id="" name=""><a href="registro_proveedor.php">Añadir</a></button>
 
+                                    </td>
+                     </tr>
 
-                 	 <tr>
+                	 <tr>
                          <td style="width: 160px">Cantidad:</td>
-                             <td>
-                                 <input type="text" name="txt-cantidad" id="txt-cantidad" placeholder="Ingrese la Cantidad" class="select2" style="width: 250px" >
+                             <td colspan="2">
+                                 <input type="text" name="txt-cantidad" id="txt-cantidad" placeholder="Ingrese la Cantidad" class="form-control" style="width: 250px" >
                      	     </td>
 
                  	 </tr>
 
                  	 <tr>
                          <td style="width: 160px">Codigo:</td>
-                             <td>
-                                 <input type="text" name="txt-codigo" id="txt-codigo" placeholder="Ingrese el Codigo del Producto" class="select2" style="width: 250px">
+                             <td colspan="2">
+                                 <input type="text" name="txt-codigo" id="txt-codigo" placeholder="Ingrese el Codigo del Producto" class="form-control" style="width: 250px">
                      	     </td>
 
                  	 </tr>
 
                    </table>
+                   </div>
+          </table>
+
+           <div style="padding: 10px 450px 10px 350px">
+
+              <button id="btn-registrar" name="btn-registrar" data-loading-text="Registrando..." autocomplete="off">Registrar</button>
+              <a href='menu_administrador.php'><button  id="btn-salir" class="btn-salir">Salir</button></a> 
+              <img id="img-carga" src="img/carga.gif" style="display:none;">
 
 
+           </div>
 
-               
-
-             
-               </table>
-          	        <button id="btn-registrar" name="btn-registrar" data-loading-text="Registrando..." autocomplete="off">Registrar</button>
-          	       <a href='menu_administrador.php'><button  id="btn-salir" class="btn-salir">Salir</button></a> 
-                    <img id="img-carga" src="img/carga.gif" style="display:none;">
+          	     
             </div>
         </div>
     </div>

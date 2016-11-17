@@ -6,11 +6,15 @@
 
 	switch ($_GET["accion"]) {
 		case '1':
-			$resultado = $conexion->ejecutarInstruccion("
-				SELECT codigo_proveedor , codigo_producto, nombre, RTN, direccion, correo_electronico, telefono, registro_sanitario, fecha_entrega
-				FROM tbl_proveedor
-				WHERE codigo_producto
-				");
+			$resultado = $conexion->ejecutarInstruccion(sprintf(
+				'SELECT 
+				codigo_proveedor, 
+				codigo_empresa, 
+				RTN, direccion, 
+				correo_electronico,
+				 telefono,
+				  registro_sanitario 
+				  FROM tbl_proveedor'));
 
 			?>
 		
@@ -40,23 +44,31 @@
  					<td width="70px">
  						Registro Sanitario
  					</td>
- 					<td width="70px">
- 						Fecha de Entrega
- 					</td>
+ 					
  				</tr>
 	<?php
 			while ($fila = $conexion->obtenerFila($resultado)) {
+				$empresa = $conexion->ejecutarInstruccion(sprintf(
+					'SELECT 
+		 					codigo_empresa,
+		 					nombre,
+		 					codigo_producto
+		 					FROM tbl_empresas
+		 					WHERE codigo_empresa="%s" ',
+		 					stripslashes($fila['codigo_empresa'])
+					));
+				$filaEmpresa = $conexion->obtenerFila($empresa);
 				echo'
  				<tr>
- 					<td>'.$fila["codigo_producto"].'</td>
- 					<td>'.$fila["nombre"].'</td>
+ 					<td>'.$fila["codigo_proveedor"].'</td>
+ 					<td>'.$filaEmpresa["nombre"].'</td>
  					<td>'.$fila["RTN"].'</td>
  					<td>'.$fila["direccion"].'</td>
  					<td>'.$fila["correo_electronico"].'</td>
  					<td>'.$fila["telefono"].'</td>
- 					<td>'.$fila["codigo_producto"].'</td>
+ 					<td>'.$filaEmpresa["codigo_producto"].'</td>
  					<td>'.$fila["registro_sanitario"].'</td>
- 					<td>'.$fila["fecha_entrega"].'</td>
+ 					
  				</tr>
 				';
 			}
