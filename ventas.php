@@ -169,7 +169,7 @@
 		});
 
 	function seleccionarProducto(){
-		//alert("Codigo: " + codigoUsuario + ", Nombre: " + nombreUsuario);
+		alert("Codigo: " + codigoUsuario + ", Nombre: " + nombreUsuario);
 		$("#cbo-producto").val();
 
 		var parametros = "codigoProducto="+$("#cbo-producto").val();
@@ -186,6 +186,27 @@
 			}
 		});
 	}
+
+	$("#btn-agregar").click(function(e){
+        e.preventDefault();
+
+            if($('#cbo-producto').val()!=''&& $("#txt-unidades").val()!=""){
+            	var sumaProductos = "codigoProducto="+$("#cbo-producto").val()+"$Unidades="+$("#txt-unidades").val();
+
+            	$.ajax({
+            		url:"ajax/validaciones_ventas.php?accion=3",
+            		method: "POST",
+            		data:sumaProductos,
+            		success:function(resultado){
+            			$('#tabla tbody').html(respuesta);
+                        $("#btn-guardar").css('display','none');
+            		},
+            		 error:function(xhr, ajaxOptions, thrownError){
+                            alert("Ocurrio un error.");
+                         	alert(thrownError);
+                                                                  
+                                                                }
+            	})
 
 	/*$(document).ready(function(){
 	$("#btn-agregar").click(function(){

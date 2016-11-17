@@ -47,7 +47,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title"> <div  id="cabecera" style="color: ##2C0C19;padding: 0px 0px 0px 240px""><strong></strong> </div></h4>
+                      <h4 class="modal-title"> <div  id="cabecera" style="color: ##2C0C19;padding: 0px 0px 0px 240px"><strong></strong> </div></h4>
                       </div>
                       <div id='SUCCESS' style="color:#637231; display: none;padding: 0px 0px 0px 200px;"><strong>Partida Guardada</strong></div>
                      

@@ -49,6 +49,20 @@
 <?php 
 	}
 		break;
+
+		case '3':
+			$nombreProductos = $conexion->ejecutarInstruccion(sprintf(
+				'INSERT INTO tbl_productos(codigo_producto, nombre_producto) 
+				VALUES (%s, $s)', 
+				stripcslashes($fila["codigo_producto"]),
+				stripcslashes($fila["nombre_producto"])
+			));
+			
+
+			while($fila = $conexion->obtenerFila($nombreProductos)){
+			echo '<option value="'.$filaUltima['codigo_producto'].'">'.$filaUltima['nombre_producto'].'</option>';
+		}
+		break;
 	/*
 
 		$respuesta = $conexion->ejecutarInstruccion("SELECT codigo_producto, nombre_producto, precio_venta FROM tbl_productos WHERE codigo_producto ='%s'");
@@ -64,10 +78,7 @@
 		echo "</table>";
 		break;*/
 		default:
+
 			break;
 	}
 ?>
-
-
-		
-	
