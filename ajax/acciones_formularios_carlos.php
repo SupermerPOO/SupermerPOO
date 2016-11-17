@@ -234,6 +234,262 @@
 			$conexion->cerrarConexion();
 		break;
 
+		case '7':
+			$resultado = $conexion->ejecutarInstruccion("
+					SELECT codigo_empleado, codigo_privilegio, codigo_usuario, codigo_area_trabajo, nombre, apellido, no_identidad, foto, fecha_nacimiento, domicilio, telefono, email, fecha_de_ingreso, sueldo 
+					FROM tbl_empleados 
+					WHERE codigo_empleado
+				");
+		
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
+		break;
+
+		case '8':
+
+			$resultado = $conexion->ejecutarInstruccion(sprintf("
+					UPDATE tbl_empleados 
+					SET nombre= '%s', no_identidad= '%s', codigo_area_trabajo= '%s', codigo_privilegio= '%s', domicilio= '%s' ,telefono= '%s',email= '%s',fecha_de_ingreso= '%s',sueldo= '%s'
+					WHERE codigo_empleado = '%s'
+				", stripslashes($_POST["txt-nombre-empleado"]),
+				   stripslashes($_POST["txt-no_identidad"]),
+				   stripslashes($_POST["txt-codigo_area_trabajo"]),
+				   stripslashes($_POST["txt-codigo_privilegio"]),
+				   stripslashes($_POST["txt-domicilio"]),
+				   stripslashes($_POST["txt-telefono"]),
+				   stripslashes($_POST["txt-email"]),
+				   stripslashes($_POST["txt-telefono"]),
+				   stripslashes($_POST["txt-fecha_de_ingreso"]),
+				   stripslashes($_POST["txt-sueldo"])
+				));	
+
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
+		break;
+
+		case '9':
+			$resultado = $conexion->ejecutarInstruccion(sprintf("
+					SELECT codigo_empleado, codigo_privilegio, codigo_usuario, codigo_area_trabajo, nombre, apellido, no_identidad, foto, fecha_nacimiento, domicilio, telefono, email, fecha_de_ingreso, sueldo 
+					FROM tbl_empleados 
+					WHERE codigo_empleado = '%s'
+				",
+				stripslashes($_POST["txt-codigo-empleado"])	
+				));
+
+			$resul = $conexion->obtenerFila($resultado);
+			
+			?>
+			 <table class="elemento_izquierda">
+        						<tr>
+        							<td>
+        								 <input type="hidden" value=<?php echo "'".$resul['codigo_empleado']."'";?> id="txt-codigo-empleado" > 
+        							</td>
+        						</tr>
+        						<tr>
+        							<td class="elemento_izquierda">
+        								<label>Nombre:</label>
+        							</td>
+        							<td>
+        								 <input type="text" value=<?php echo "'".$resul['nombre']."'";?> id="txt-nombre-empleado"> 
+        							</td>
+        						</tr>
+        						<tr>
+        							<td class="elemento_izquierda">
+        								<label>Apellido:</label>
+        							</td>
+        							<td>
+        								 <input type="text" value=<?php echo "'".$resul['apellido']."'";?> id="txt-apellido-empleado"> 
+        							</td>
+        						</tr>
+        						<tr>
+        							<td>
+        								<label>Numero Identidad: </label>
+        							</td>
+        							<td>
+        								 <input type="text" id="txt-no-dentidad" value=<?php echo "'".$resul['no_identidad']."'";?>>
+        							</td>
+        						</tr>
+        						<tr>
+        							<td>
+        								<label>Area:</label>
+        							</td>
+        							<td>
+        								 <input type="text" id="txt-area" value=<?php echo "'".$resul['codigo_area_trabajo']."'";?>>
+        							</td>
+        						</tr>
+        						<tr>
+        							<td>
+        								<label>Cargo: </label>
+        							</td>
+        							<td>
+        								<input type="text" txt="txt-cargo" value=<?php echo "'".$resul['codigo_privilegio']."'";?>>
+        							</td>
+        						</tr>	
+        						<tr>
+        							<td>
+        								<label>Domicilio</label>
+        							</td>
+        							<td>
+        								<input type="text" id="txt-domicilio" value=<?php echo "'".$resul['domicilio']."'";?>>
+        							</td>
+        						</tr>	
+        						<tr>
+        							<td>
+        								<label>
+        									Telefono
+        								</label>
+        							</td>
+        							<td>
+        								<input type="text" id="txt-telefono" value=<?php echo "'".$resul['telefono']."'";?>>
+        							</td>
+        						</tr>
+        						<tr>
+        							<td>
+        								Correo Electronico: 
+        							</td>
+        							<td>
+        								<input type="text" id="txt-email" value=<?php echo "'".$resul['email']."'";?>>
+        							</td>
+        						</tr>
+        						<tr>
+        							<td>
+        								<label>Fecha de Ingreso: </label>
+        							</td>
+        							<td>
+        								<input type="text" id="txt-fecha-ingreso" value=<?php echo "'".$resul['fecha_de_ingreso']."'";?>>
+        							</td>
+        						</tr>
+        						<tr>
+        							<td>
+        								<label>Sueldo: </label>
+        							</td>
+        							<td>
+        								<input type="text" id="txt-sueldo" value=<?php echo "'".$resul['sueldo']."'";?>>
+        							</td>
+        						</tr>
+        					</table>
+			<?php
+
+		break;
+
+		case '10':
+			$nombre=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  nombre =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-nombre-empleado']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$apellido=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  apellido =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-apellido-empleado']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$identidad=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  no_identidad =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-no-identidad']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$area=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  codigo_area_trabajo =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-area']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$cargo=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  codigo_privilegio =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-cargo']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$domicilio=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  domicilio =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-domicilio']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$telefono=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  telefono =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-telefono']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$email=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  email =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-email']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$fecha=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  fecha_de_ingreso =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-fecha-ingreso']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+			$sueldo=$conexion->ejecutarInstruccion(sprintf(
+				'UPDATE  tbl_empleados 
+				SET  sueldo =  "%s" 
+				WHERE  codigo_empleado ="%s"',
+				stripslashes($_POST['txt-sueldo']),
+				stripslashes($_POST['txt-codigo-empleado'])
+				));
+
+
+		$conexion->liberarResultado($nombre);
+		$conexion->liberarResultado($apellido);
+		$conexion->liberarResultado($identidad);
+		$conexion->liberarResultado($area);
+		$conexion->liberarResultado($cargo);
+		$conexion->liberarResultado($domicilio);
+		$conexion->liberarResultado($telefono);
+		$conexion->liberarResultado($email);
+		$conexion->liberarResultado($fecha);
+		$conexion->liberarResultado($sueldo);
+		$conexion->liberarResultado($resultado);
+		$conexion->liberarResultado($resul);
+		$conexion->cerrarConexion();
+		break;
+
+		case '11':
+			$resultado = $conexion->ejecutarInstruccion(sprintf("
+				INSERT INTO tbl_empleados(codigo_empleado, codigo_privilegio, codigo_area_trabajo, nombre, apellido, no_identidad,  domicilio, telefono, email, fecha_de_ingreso, sueldo)
+				VALUES (null , '%s' , '%s', '%s','%s','%s', '%s', '%s', '%s', '%s', '%s')
+				",
+					stripslashes($_POST["txt-cargo"]),
+					stripslashes($_POST["txt-area"]),
+					stripslashes($_POST["txt-nombre"]),
+					stripslashes($_POST["txt-apellido"]),
+					stripslashes($_POST["txt-identidad"]),
+					stripslashes($_POST["txt-domicilio"]),
+					stripslashes($_POST["txt-telefono"]),
+					stripslashes($_POST["txt-correo"]),
+					stripslashes($_POST["txt-fecha-ingreso"]),
+					stripslashes($_POST["txt-sueldo"])
+				));
+		$conexion->liberarResultado($resultado);
+		$conexion->cerrarConexion();
+		break;
+
+
 		default:
 			# code...
 		break;
