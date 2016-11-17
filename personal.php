@@ -24,7 +24,7 @@
       		<button aria-controls="bs-navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-navbar" data-toggle="collapse" type="button"> 
         		<img src="img/icono-menu.png" style="width: 25px; height: 25px">
       		</button> 
-      		<a href="lista_proveedores.php" class="navbar-brand"><label style="color: white; font-family: 'Trebuchet MS'">Inicio</label></a> 
+      		<a href="#" class="navbar-brand"><label style="color: white; font-family: 'Trebuchet MS'">Inicio</label></a> 
     	</div> 
     	<nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
       		<ul class="nav navbar-nav"> 
@@ -51,6 +51,9 @@
       		</ul> 
     	</nav> 
   	  </div> 
+  	  <div id="div-error" style="display: none; color: red"> 
+  	  	
+  	  </div>
     </header> 
 
 
@@ -60,233 +63,38 @@
 <div>
 	<input type="search" id="buscar_personal" placeholder="Buscar" class="form-control input-lg input-search">
 </div><br>
-	<div class="container table-responsive">
-	<table class="table table-responsive table-hover table-bordered table-striped" style="width: 150%">
-				<tr>
- 					<td>
- 						Codigo Empleado
- 					</td>
- 					<td>
- 						Nombre Empleado
- 					</td>
- 					<td>
- 						Numero Identidad
- 					</td>
- 					<td>
- 						Area
- 					</td>
- 					<td>
- 						Cargo
- 					</td>
- 					<td>
- 						Sucursal
- 					</td>
- 					<td>
- 						Domicilio
- 					</td>
- 					<td>
- 						Telefono
- 					</td>
- 					<td>
- 						Correo Electronico
- 					</td>
- 					<td>
- 						Fecha de Ingreso
- 					</td>
- 					<td>
- 						Sueldo
- 					</td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
- 				<tr>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
- 				</tr>
-		</table>
+	<div class="container table-responsive" id="div-tabla-personal">
+		
 	</div>
 	<div class="container table-responsive">
 	<table class="table tabl-responsive table-condensed">
 		<tr>
 			<td colspan="4" align="right" style="padding-right: 50px">
-				<a href="" data-toggle="modal" data-target="#myModal"><button class="btn btn-warning">Nuevo Registro</button></a>
-				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+				<button id="btn-editar-empleado" class="btn btn-danger" href="#" data-toggle="modal" data-target="#myModal0">Modificar Empleado</button>
+				 <div id="myModal0" class="modal fade" tabindex="-1" role="dialog">
+  					<div class="modal-dialog" role="document">
+    					<div class="modal-content">
+      					<div class="modal-header">
+        					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        					<h4 class="modal-title">Modificar Empleado</h4>
+      					</div>
+      					<div class="modal-body" id="cuerpo-empleado">
+        					<table>
+        						<tr>
+        							<td colspan="2" class="elemento_izquierda"><label>Codigo Empleado: </label><input type="text" id="txt-codigo-empleado"> </td>
+        						</tr>
+        					</table>
+     					 </div>
+     					 <div class="modal-footer">
+     					  <button type="button" class="btn btn-primary" id="btn-cargar-empleado">Cargar</button>
+     					  <button type="button" class="btn btn-danger" id="btn-actualizar-empleado" data-dismiss="modal">Actualizar</button>
+      					  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     					 </div>
+ 					  	</div>
+ 					 </div>
+					</div>
+				<a href="" data-toggle="modal" data-target="#myModal2"><button class="btn btn-warning">Nuevo Registro</button></a>
+				<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
@@ -315,15 +123,11 @@
 				        		</tr>
 				        		<tr>
 				        			<td>Area:</td>
-				        			<td><select id="slc-area" class="form-control" style="width: 180px" required></select></td>
+				        			<td><input type="text" id="txt-area" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Cargo:</td>
-				        			<td><select id="slc-cargo" class="form-control" style="width: 180px" required></select></td>
-				        		</tr>
-				        		<tr>
-				        			<td>Sucursal:</td>
-				        			<td><select id="slc-sucursal" class="form-control" style="width: 180px" required></select></td>
+				        			<td><input type="text" id="txt-cargo" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
 				        			<td>Domicilio:</td>
@@ -355,65 +159,16 @@
 				    </div>
 				  </div>
 				</div>
-				<button id="btn-actualizar-empleado" class="btn btn-success" style="width: 100px">Actualizar</button>
-				<button id="btn-eliminar-empleado" class="btn btn-danger" style="width: 100px">Eliminar</button>
 			</td>
 		</tr>
 	</table>
+
+
 	</div>
 
-	<script type="text/javascript">
-	$(document).ready(function(){
-			$("#btn-agregar-empleado").click(function(){
-				$("#btn-agregar-empleado").button("loading");
-				var parametros = "txt-nombre="+$("#txt-nombre").val()+"&"+"txt-apellido="+$("#txt-apellido").val()+"&"+"txt-identidad="+$("#txt-identidad").val()+"&"+"slc-area="+$("#slc-area").val()+"&"+"slc-cargo="+$("#slc-cargo").val()+"&"+"slc-sucursal="+$("#slc-sucursal").val()+"&"+"txt-domicilio="+$("#txt-domicilio").val()+"&"+"txt-telefono="+$("#txt-telefono").val()+"&"+"txt-correo="+$("#txt-correo").val()+"&"+"txt-fecha-ingreso="+$("#txt-fecha-ingreso").val()+"&"+"txt-sueldo="+$("#txt-sueldo").val();
-				
-				$.ajax({
-					url:"ajax/procesar_empleados.php?accion=1",
-					method:"POST",
-					data: parametros,
-					success:function(respuesta){
-						$("#btn-agregar-empleado").button("reset");
-
-					},
-					error:function(){
-						alert("Ocurrio un error.");
-					}
-				});	
-			});	
-
-			$("#btn-actualizar-empleado").click(function(){
-				$("#btn-actualizar-empleado").button("loading");
-				
-				$.ajax({
-					url:"ajax/procesar_empleados.php?accion=2",
-					method:"POST",
-					data: //datos de la base de datos,
-					success:function(respuesta){
-						$("#btn-actualizar-empleado").button("reset");
-						
-				
-				});	
-			});
-
-			$("#btn-eliminar-empleado").click(function(){
-				$("#btn-eliminar-empleado").button("loading");
-
-				$.ajax({
-					url:"ajax/procesar_empleados.php?accion=3",
-					method:"POST",
-					data: //data a eliminar
-					success:function(respuesta){
-						$("#btn-eliminar-empleado").button("reset");
-						
-					},
-					error:function(){
-						alert("Ocurrio un error.");
-					}
-				});	
-			});
-		});
-</script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/controlador_personal.js"></script>
 </body>
 </html>
 
