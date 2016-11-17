@@ -58,7 +58,7 @@ $(document).ready(function(){
 		 	$('#validarCampo').css('display', 'none');
 
 		 	var parametros = "codigo="+$('#txt-codigoProveedor').val();
-		 	alert(parametros);
+		 
 		 	
 						$.ajax({
 							url:"ajax/control_proveedores.php?accion=5",
