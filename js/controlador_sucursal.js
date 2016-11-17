@@ -21,38 +21,19 @@ $(document).ready(function(){
 				});	
 	});
 
-	
-	$("#btn-eliminarsucursal").click(function(){
-				$("#btn-eliminarsucursal").button("loading");
-				var parametros = "input-eliminar="+$("#input-eliminar").val();
-			
-				$.ajax({
-					url:"ajax/acciones_formularios_carlos.php?accion=6",
-					method:"POST",
-					data: parametros,
-					success:function(respuesta1){
-						$("#btn-eliminarsucursal").button("reset");
-						cargarTabla();
-						$("#input-eliminar").val(' ');
-					},
-					error:function(){
-						alert("Ocurrio un error.");
-					}
-				});	
-	});
-
-		$("#btn-actualizar-sucursal").click(function(){
-				$("#btn-actualizar-sucursal").button("loading");
-				var parametros = "input-nombre="+$("#input-nombre").val()+
+	$("#btn-actualizar-sucursal").click(function(){
+				
+				var parametros = "&input-nombre="+$("#input-nombre").val()+
 								 "&input-direccion="+$("#input-direccion").val()+
 								 "&input-telefono="+$("#input-telefono").val()+
 								 "&input-codigo="+$("#input-codigo").val();
-			
+				$("#btn-actualizar-sucursal").button("loading");
+
 				$.ajax({
 					url:"ajax/acciones_formularios_carlos.php?accion=5",
 					method:"POST",
 					data: parametros,
-					success:function(respuesta2){
+					success:function(respuesta){
 						$("#btn-actualizar-sucursal").button("reset");
 						cargarTabla();
 					},
@@ -62,8 +43,26 @@ $(document).ready(function(){
 				});	
 	});
 
+	$("#btn-eliminar").click(function(){
+				
+				var parametros = "input-eliminar="+$("#input-eliminar").val();
+				$("#btn-eliminar").button("loading");
 
-	/*$("#buscar").keypress(function(e) {
+				$.ajax({
+					url:"ajax/acciones_formularios_carlos.php?accion=6",
+					method:"POST",
+					data: parametros,
+					success:function(respuesta){
+						$("#btn-eliminar").button("reset");
+						cargarTabla();
+					},
+					error:function(){
+						alert("Ocurrio un error.");
+					}
+				});	
+	});
+
+	$("#buscar").keypress(function(e) {
        if(e.which == 13) {
           $.ajax({
 					url:"ajax/acciones_formularios_carlos.php?accion=4",
@@ -76,7 +75,7 @@ $(document).ready(function(){
 					}
 				});	
        }
-    });*/
+    });
 });
 
 

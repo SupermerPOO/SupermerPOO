@@ -6,6 +6,7 @@
 
 	switch ($_GET["accion"]) {
 		case '1':
+
 			$resultado = $conexion->ejecutarInstruccion(sprintf(
 				'SELECT 
 				codigo_proveedor, 
@@ -16,9 +17,16 @@
 				  registro_sanitario 
 				  FROM tbl_proveedor'));
 
+			$resultado = $conexion->ejecutarInstruccion("
+				SELECT codigo_proveedor, codigo_producto, nombre, RTN, direccion, correo_electronico, telefono, registro_sanitario, fecha_entrega
+				FROM tbl_proveedor
+				WHERE codigo_producto
+				");
+
+
 			?>
 		
-			<table id="tabla-sucursal" class="table-striped table-bordered table-responsive" style="font color: black">
+			<table id="tabla-sucursal" class="table-striped table-bordered table-responsive">
  				<tr>
  					<td width="90px">
  						Codigo Proveedor
@@ -61,7 +69,11 @@
 				echo'
  				<tr>
  					<td>'.$fila["codigo_proveedor"].'</td>
+
  					<td>'.$filaEmpresa["nombre"].'</td>
+
+ 					<td>'.$fila["nombre"].'</td>
+
  					<td>'.$fila["RTN"].'</td>
  					<td>'.$fila["direccion"].'</td>
  					<td>'.$fila["correo_electronico"].'</td>
@@ -134,28 +146,84 @@
 		break;
 
 		case '4':
-		
+		?>
+
+		<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
+				  		<div class="modal-dialog" role="document">
+				    		<div class="modal-content">
+				      			<div class="modal-header">
+				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        			<h4 class="modal-title">Nueva Sucursal</h4>
+				      			</div>
+					      			<div class="modal-body">
+								        <div id="div-registro-sucursal" class="container table-responsive">
+	      								<table>
+	      									<tr>
+	      										<td>
+	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
+	      		       							 </td>
+												 <td>
+												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
+												</td>	
+											</tr>
+											<tr>
+												<td>
+													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
+													<td>
+														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
+													</div>
+													</td>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
+													<td>
+													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
+													</td>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
+													<td>
+													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
+													</td>
+												</td>
+	      									</tr>
+	      								</table>			
+	      							</div>
+				    	  		</div>
+				      				<div class="modal-footer">
+				        			<input id="btn-guardar"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Guardar">
+				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				      				</div>
+				    		</div>
+				  		</div>
+					</div>
+		<?php
 		break;
 
 		case '5':
 			$resultado = $conexion->ejecutarInstruccion(sprintf("
-					UPDATE tbl_sucursales SET  nombre_sucursal=['%s'],direccion=['%s'],telefono=['%s'] WHERE codigo_sucursal = '%s'
-				",
+					UPDATE tbl_sucursales SET nombre_sucursal= '%s' ,direccion= '%s' ,telefono= '%s' WHERE codigo_sucursal = '%s'
+				", 
 				stripslashes($_POST['input-nombre']),
 				stripslashes($_POST['input-direccion']),
 				stripslashes($_POST['input-telefono']),
 				stripslashes($_POST['input-codigo'])
 				));
-			$conexion->liberarResultado($resultado);  
+
+			$conexion->liberarResultado($resultado);
 			$conexion->cerrarConexion();
 		break;
 
-		case '6':
+		case '6':			
 			$resultado = $conexion->ejecutarInstruccion(sprintf("
 					DELETE FROM tbl_sucursales WHERE codigo_sucursal = '%s'
-				",
-				stripcslashes($_POST['input-eliminar'])
-				));	
+				", 
+					stripslashes($_POST["input-eliminar"])
+				));
 			$conexion->liberarResultado($resultado);
 			$conexion->cerrarConexion();
 		break;
