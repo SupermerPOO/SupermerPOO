@@ -511,6 +511,8 @@
  
   				</div>'	;
 			}
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
 		break;
 
 		default:
