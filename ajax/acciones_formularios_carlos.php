@@ -493,6 +493,25 @@
 		$conexion->cerrarConexion();
 		break;
 
+		case '12':
+			$resultado = $conexion->ejecutarInstruccion("
+					SELECT codigo_sucursal, nombre_sucursal, direccion, telefono FROM tbl_sucursales WHERE codigo_sucursal
+				");	
+			while ($fila = $conexion->obtenerFila($resultado)) {
+				echo '<div class="row">
+ 						 <div class="col-sm-6">
+ 
+ 				<div class="ih-item square effect3 bottom_to_top"><a href="#">
+       			 <div class="img"><img src="img/supermercado.png" alt="img"></div>
+       			 <div class="info">
+         		 <h3>'.$fila["nombre_sucursal"].'</h3>
+         		 <p>'.$fila["direccion"]." ".$fila["telefono"].'</p>
+       			 </div></a></div>
+    	
+ 
+  				</div>'	;
+			}
+		break;
 
 		default:
 			# code...
