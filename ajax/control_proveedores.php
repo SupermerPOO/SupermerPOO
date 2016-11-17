@@ -134,7 +134,7 @@ switch ($_GET['accion']) {
 	</td>
 	<td>
 		
-		<input type="text" name="txt-rtn" id="txt-rtn" value=<?php echo '"'.$proveedores['RTN'].'"';?>>
+		<input type="text" name="txt-rtn" class="form-control" style="width: 250px" id="txt-rtn" value=<?php echo '"'.$proveedores['RTN'].'"';?>>
 	</td>
 		
 		 
@@ -144,7 +144,7 @@ switch ($_GET['accion']) {
 		<td> Direccion:
 		</td>
 		<td>
-			<input type="text" name="txt-direccion" id="txt-direccion" value=<?php echo '"'.$proveedores['direccion'].'"';?>>
+			<input type="text" name="txt-direccion" class="form-control" style="width: 250px" id="txt-direccion" value=<?php echo '"'.$proveedores['direccion'].'"';?>>
 		</td>
 	</tr>
 	<tr>
@@ -152,7 +152,7 @@ switch ($_GET['accion']) {
 			Correo Electronico:
 		</td>
 		<td>
-			<input type="text" name="txt-correo" id='txt-correo' value=<?php echo '"'.$proveedores['correo_electronico'].'"';?>>
+			<input type="text" name="txt-correo" class="form-control" style="width: 250px" id='txt-correo' value=<?php echo '"'.$proveedores['correo_electronico'].'"';?>>
 		</td>
 	</tr>
 	<tr>
@@ -160,7 +160,7 @@ switch ($_GET['accion']) {
 			Telefono:
 		</td>
 		<td>
-			<input type="text" name="txt-telefono" id='txt-telefono' value=<?php echo '"'.$proveedores['telefono'].'"';?>>
+			<input type="text" name="txt-telefono" class="form-control" style="width: 250px" id='txt-telefono' value=<?php echo '"'.$proveedores['telefono'].'"';?>>
 		</td>
 	</tr>
 	<tr>
@@ -168,7 +168,7 @@ switch ($_GET['accion']) {
 			Registro Sanitario:
 		</td>
 		<td>
-			<input type="text" name="txt-registro" id='txt-registro' value=<?php echo '"'.$proveedores['registro_sanitario'].'"';?>>
+			<input type="text" name="txt-registro" class="form-control" style="width: 250px" id='txt-registro' value=<?php echo '"'.$proveedores['registro_sanitario'].'"';?>>
 		</td>
 	</tr>
 	
@@ -178,7 +178,7 @@ switch ($_GET['accion']) {
 			Codigo del Proveedor:
 		</td>
 		<td>
-			<input type="text" disabled="disabled" name="txt-codigo" id='txt-codigo' value=<?php echo '"'.$proveedores['codigo_proveedor'].'"';?>>
+			<input type="text" disabled="disabled" class="form-control" style="width: 250px" name="txt-codigo" id='txt-codigo' value=<?php echo '"'.$proveedores['codigo_proveedor'].'"';?>>
 		</td>
 	</tr>
 

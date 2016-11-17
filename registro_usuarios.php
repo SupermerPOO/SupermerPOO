@@ -62,8 +62,11 @@
 				<td>Confirmar Contraseña:</td>
 				<td><input type="password" name="txt-password-confirm" id="txt-password-confirm" class="form-control" style="width: 250px"></td>
 			</tr>
+
+			<div id="errorCampo2" style="display: none; color: #BC2F27">El campo esta vacio </div>
 			<tr>
 				<td>
+
 					<button class="btn btn-warning" id="btn-registrar">Registrar</button>
 
 				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
@@ -83,7 +86,7 @@
 				        </div>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				        <button type="button" class="btn btn-danger" id='btn-cancelar' data-dismiss="modal">Cancelar</button>
 				      </div>
 				    </div>
 				  </div>

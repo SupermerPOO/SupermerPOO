@@ -22,7 +22,7 @@
 
 			?>
 		
-			<table id="tabla-sucursal" class="table-striped table-bordered table-responsive">
+			<table id="tabla-sucursal" >
  				<tr>
  					<td width="90px">
  						Codigo Proveedor
@@ -30,7 +30,7 @@
  					<td width="140px">
  						Nombre Proveedor
  					</td>
- 					<td width="140px">
+ 					<td style="width:160px">
  						RTN
  					</td>
  					<td width="70px">
