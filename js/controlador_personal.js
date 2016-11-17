@@ -77,9 +77,11 @@ $(document).ready(function(){
 							'&txt-identidad='+$("#txt-identidad").val()+
 							'&txt-area='+$("#txt-area").val()+
 							'&txt-cargo='+$("#txt-cargo").val()+
+							'&txt-usuario='+$("#txt-usuario").val()+
 							'&txt-domicilio='+$("#txt-domicilio").val()+
 							'&txt-telefono='+$("#txt-telefono").val()+
 							'&txt-correo='+$("#txt-correo").val()+
+							'&txt-fecha-nacimiento='+$("#txt-fecha-nacimiento").val()+
 							'&txt-fecha-ingreso='+$("#txt-fecha-ingreso").val()+
 							'&txt-sueldo='+$("#txt-sueldo").val();
 			$.ajax({
