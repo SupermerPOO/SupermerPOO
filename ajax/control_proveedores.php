@@ -84,6 +84,7 @@ switch ($_GET['accion']) {
 
 	break;
 	case '5':
+	
 
 
 	break;

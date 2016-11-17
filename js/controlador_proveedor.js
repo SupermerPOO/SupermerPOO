@@ -15,7 +15,7 @@ $(document).ready(function(){
 			url:"ajax/control_proveedores.php?accion=5",
 			method: "POST",
 			success:function(resultado1){
-				$("#div-tabla-proveedores").html(resultado1);
+				//$("#div-tabla-proveedores").html(resultado1);
 			},
 			error:function(){
 
@@ -24,6 +24,35 @@ $(document).ready(function(){
 
 
 	});
+
+
+
+
+
+	$('#btn-guardaredicion').click(function(e){
+		e.preventDefault();
+		$('#validarCampo').css('display', 'none');
+		 
+
+		 if($('#txt-codigoProveedor').val()!='' ){
+		 	
+		$.ajax({
+			url:"ajax/control_proveedores.php?accion=5",
+			method: "POST",
+			success:function(resultado1){
+				$("#cuerpoModal").html(resultado1);
+			},
+			error:function(){
+
+			}
+	});
+	   }else
+	   $('#validarCampo').css('display', 'none');
+
+
+	});
+
+
 
 });
 

@@ -65,8 +65,12 @@
 		  </div>
 
 		  <div id="div-botones-lista-empleados" class="btn btn-group">
-		  		<a href="registro_proveedor.php" class="btn btn-default">Agregar Proveedor</a>
-		  		<a href="#" id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</a>
+		  		<a href="registro_proveedor.php"  class="btn btn-default">Agregar Proveedor</a>
+
+		  	<a a href="#" data-toggle="modal" data-target="#myModaleditar" id="btn-editar-empleado" class="btn btn-primary" style="margin-left: 5px">Editar Proveedor</a>
+
+		  		
+
 		  </div>
 
 
@@ -74,11 +78,58 @@
 		    
          </div><!-- /.modal -->
 
+         <!-- /.inicio de ventana modal -->
+
+
+         <table class="table table-condensed">
+    <tr>
+      <td colspan="4" align="right" style="padding-right: 50px">
+        <div id="myModaleditar" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" align="center">Actualizar Proveedores</h4>
+              </div>
+              <div class="modal-body" id="cuerpoModal">
+                <div>
+                  <table class="table table-hover" cellpadding="1px" cellspacing="1px">
+                    <tr>
+                      <td style="width: 30px">Codigo Proveedor:</td>
+                      <td><input type="text" id="txt-codigoProveedor" class="form-control" style="width: 250px" placeholder="Ingrese el Codigo del Proveedor"></td>
+                    </tr>
+                     <div id='validarCampo' style="display: none; color: #BC2F27">Hay campos vacios</div>
+                   </div>
+
+
+                   
+                  </table>
+                </div>
+              </div>
+              <div id="errorCampo" style="display: none; color: color: #BC2F27">El campo esta vacio </div>
+              <div class="modal-footer">
+                <button type="button" id="btn-guardaredicion" class="btn btn-success" data-dismiss="modal" id="btn-registroMarca">Guardar</button>
+                <button  type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      
+
+
+
+
+
+
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/funciones.js"></script>
     <script type="text/javascript" src="js/controlador_proveedor.js"></script>
+
 
 </body>
 </html>
