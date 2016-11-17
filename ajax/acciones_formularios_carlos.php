@@ -214,10 +214,10 @@
 			$resultado = $conexion->ejecutarInstruccion(sprintf("
 					UPDATE tbl_sucursales SET nombre_sucursal= '%s' ,direccion= '%s' ,telefono= '%s' WHERE codigo_sucursal = '%s'
 				", 
-				stripslashes($_POST['input-nombre']),
-				stripslashes($_POST['input-direccion']),
-				stripslashes($_POST['input-telefono']),
-				stripslashes($_POST['input-codigo'])
+				stripslashes($_POST['input-nombre-sucursal']),
+				stripslashes($_POST['input-direccion-sucursal']),
+				stripslashes($_POST['input-telefono-sucursal']),
+				stripslashes($_POST['input-codigo-sucursal'])
 				));
 
 			$conexion->liberarResultado($resultado);

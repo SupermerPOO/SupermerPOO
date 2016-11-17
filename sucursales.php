@@ -110,7 +110,7 @@
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<input id="btn-guardar"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Guardar">
+				        			<button id="btn-guardar" class="btn btn-default elemento_izquierda" data-dismiss='modal'>Guardar</button>
 				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
 				    		</div>
@@ -132,14 +132,14 @@
 	      		       							 <label id="label-numero-sucursal"><b>Codigo Sucursal:</b></label>
 	      		       							 </td>
 												 <td>
-												 		<input id="input-codigo" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
+												 		<input id="input-codigo-sucursal" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
 												</td>	
 											</tr>
 											<tr>
 												<td>
 													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
 													<td>
-														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
+														<input id="input-nombre-sucursal" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
 													</div>
 													</td>
 												</td>
@@ -148,7 +148,7 @@
 												<td>
 													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
 													<td>
-													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
+													<input id="input-direccion-sucursal" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
 													</td>
 												</td>
 											</tr>
@@ -156,7 +156,7 @@
 												<td>
 													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
 													<td>
-													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
+													<input id="input-telefono-sucursal" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
 													</td>
 												</td>
 	      									</tr>
@@ -164,7 +164,7 @@
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<button id="btn-actualizar-sucursal" class="btn btn-default elemento_izquierda">Actualizar</button>
+				        			<button id="btn-actualizar-sucursal" class="btn btn-default elemento_izquierda" data-dismiss='modal'>Actualizar</button>
 				        			<button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 				      				</div>
 				    		</div>
@@ -193,7 +193,7 @@
 	      							</div>
 				    	  		</div>
 				      				<div class="modal-footer">
-				        			<button id="btn-eliminar" class="btn btn-default elemento_izquierda">Eliminar</button>
+				        			<button id="btn-eliminar" class="btn btn-default elemento_izquierda" data-dismiss='modal'>Eliminar</button>
 				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 				      				</div>
 				    		</div>
