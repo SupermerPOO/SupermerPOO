@@ -55,9 +55,7 @@
   	  </div> 
     </header> 
 
-	      <div>
-				<input id="buscador" type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
-	      </div>
+	      
 	      <br>
 
 	      <div class="container table-responsive" id="div-tabla-proveedores">

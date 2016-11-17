@@ -58,9 +58,7 @@
     </header>   
 	
 
-	      <div>
-				<input type="search" id="buscar" placeholder="Buscar" class="form-control input-lg input-search ">
-	      </div>
+	    
 	      <br>
 
 

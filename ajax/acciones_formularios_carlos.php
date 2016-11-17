@@ -195,7 +195,7 @@
 				
 						echo '<tr>
  								<td>'.$fila["codigo_empleado"].'</td>
- 								<td>'.$fila["nombre"].$fila["apellido"].'</td>
+ 								<td>'.$fila["nombre"]." ".$fila["apellido"].'</td>
  								<td>'.$fila["no_identidad"].'</td>
  								<td>'.$fila["codigo_area_trabajo"].'</td>
  								<td>'.$fila["codigo_privilegio"].'</td>

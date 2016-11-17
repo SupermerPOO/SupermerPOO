@@ -34,9 +34,7 @@
     </header>   
 	
 
-	      <div>
-				<input type="search" id="buscar" placeholder="Buscar" class="form-control input-lg input-search ">
-	      </div>
+	      
 	      <br>
 
 	  <div style="margin-left: 25%" class="table-responsive container">

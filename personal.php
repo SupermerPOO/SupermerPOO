@@ -60,9 +60,7 @@
 <h2 style="color: green" align="center">Lista de empleados</h2>
 
 <!--Barra de busqueda-->
-<div>
-	<input type="search" id="buscar_personal" placeholder="Buscar" class="form-control input-lg input-search">
-</div><br>
+<br>
 	<div class="container table-responsive" id="div-tabla-personal">
 		
 	</div>
