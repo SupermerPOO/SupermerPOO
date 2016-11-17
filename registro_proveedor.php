@@ -167,7 +167,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" id='guarda-empresa' class="btn btn-success" data-dismiss='modal'>Guardar</button>
+                <button type="button" id='guarda-empresa' class="btn btn-success" >Guardar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
               </div>
             </div>
@@ -263,9 +263,12 @@ $(document).ready(function(){
 
               $("#guarda-empresa").click(function(e){
                 e.preventDefault();
-                 $('#errorCampo').css('display', 'none');
-
+                 
                 if($('#txt-nombre-empresa').val()!='' && $('#txt-producto-dis').val()!=''){
+                  $('#errorCampo').css('display', 'none');
+                   //$("#guarda-empresa").html();
+
+             
 
                     var parametros= 'nombre-empresa='+$('#txt-nombre-empresa').val()+'&nombre-producto='+$('#slc-producto').val();
 
