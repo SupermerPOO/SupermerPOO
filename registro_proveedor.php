@@ -101,7 +101,7 @@
               
 
             </div>
-            <div id='div-error' style="display: none; color: #BC2F27;padding: 10px 450px 10px 350px">Los campos estan vacios</div>
+            <div id='div-error' style="display: none; color: #BC2F27;padding: 10px 450px 10px 350px">Hay campos estan vacios</div>
               
                 <div style="padding: 10px 450px 10px 350px">
                   

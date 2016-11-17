@@ -160,6 +160,7 @@
 				        	</table>
 				        </div>
 				      </div>
+				      <div id="validacionPersonal" style="color: #D40A18; display: none;padding: 0px 0px 0px 10px"> Hay campos vacios</div>
 				      <div class="modal-footer">
 				        <button id="btn-agregar-empleado" type="button" class="btn btn-success" data-dismiss='modal'>Guardar</button>
 				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
