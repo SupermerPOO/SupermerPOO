@@ -2,7 +2,11 @@ $(document).ready(function(){
 	cargarTabla();
 
 	$("#btn-guardar").click(function(){
-				$("#btn-guardar").button("loading");
+		if($("#input-casilla").val()!='' && $("#input-nombre").val()!='' && $("#input-direccion").val()!='' && 
+			$("#input-telefono").val()!= ''){
+			$('#validacionSucursal').css('display', 'none');
+
+			$("#btn-guardar").button("loading");
 				var parametros = "input-casilla="+$("#input-casilla").val()+
 								 "&input-nombre="+$("#input-nombre").val()+
 								 "&input-direccion="+$("#input-direccion").val()+
@@ -19,6 +23,10 @@ $(document).ready(function(){
 						alert("Ocurrio un error.");
 					}
 				});	
+		}else{
+			$('#validacionSucursal').css('display', 'inline');
+		}
+				
 	});
 
 	$("#btn-actualizar-sucursal").click(function(){

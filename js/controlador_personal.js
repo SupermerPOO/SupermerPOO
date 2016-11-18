@@ -71,15 +71,27 @@ $(document).ready(function(){
 	});
 
 	$("#btn-agregar-empleado").click(function(){
-		
-			var parametro = 'txt-nombre='+$("#txt-nombre").val()+
+
+
+
+
+
+		if ($("#txt-nombre").val()!='' && $("#txt-apellido").val()!='' && $("#txt-identidad").val()!='' &&
+			$("#txt-area").val()!='' && $("#txt-cargo").val()!='' && $("#txt-usuario").val()!='' && 
+			$("#txt-domicilio").val()!='' && $("#txt-telefono").val()!='' && $("#txt-correo").val()!='' &&
+			$("#txt-fecha-nacimiento").val()!='' && $("#txt-fecha-ingreso").val()!='' && $("#txt-sueldo").val()!='')
+			 {
+			 		$("#validacionPersonal").css('display','none');
+			 		var parametro = 'txt-nombre='+$("#txt-nombre").val()+
 							'&txt-apellido='+$("#txt-apellido").val()+
 							'&txt-identidad='+$("#txt-identidad").val()+
 							'&txt-area='+$("#txt-area").val()+
 							'&txt-cargo='+$("#txt-cargo").val()+
+							'&txt-usuario='+$("#txt-usuario").val()+
 							'&txt-domicilio='+$("#txt-domicilio").val()+
 							'&txt-telefono='+$("#txt-telefono").val()+
 							'&txt-correo='+$("#txt-correo").val()+
+							'&txt-fecha-nacimiento='+$("#txt-fecha-nacimiento").val()+
 							'&txt-fecha-ingreso='+$("#txt-fecha-ingreso").val()+
 							'&txt-sueldo='+$("#txt-sueldo").val();
 			$.ajax({
@@ -87,6 +99,7 @@ $(document).ready(function(){
 			method:"POST",
 			data: parametro,
 			success: function(resultado4){
+				
 				$.ajax({
 				url:"ajax/acciones_formularios_carlos.php?accion=4",
 				method: "POST",
@@ -98,6 +111,11 @@ $(document).ready(function(){
 				}
 			});
 			}
-		})
+		});
+			 }else{
+			 	$("#validacionPersonal").css('display','inline');
+			 }
+		
+		
 	});
 });

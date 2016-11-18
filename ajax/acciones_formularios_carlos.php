@@ -22,7 +22,7 @@
 
 			?>
 		
-			<table id="tabla-sucursal" class="table-striped table-bordered table-responsive">
+			<table id="tabla-sucursal" >
  				<tr>
  					<td width="90px">
  						Codigo Proveedor
@@ -30,7 +30,7 @@
  					<td width="140px">
  						Nombre Proveedor
  					</td>
- 					<td width="140px">
+ 					<td style="width:160px">
  						RTN
  					</td>
  					<td width="70px">
@@ -152,62 +152,65 @@
 		break;
 
 		case '4':
+		$resultado = $conexion->ejecutarInstruccion("
+					SELECT codigo_empleado, codigo_privilegio, codigo_usuario, codigo_area_trabajo, nombre, apellido, no_identidad, fecha_nacimiento, domicilio, telefono, email, fecha_de_ingreso, sueldo FROM tbl_empleados
+					WHERE codigo_empleado
+				");
 		?>
-
-		<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
-				  		<div class="modal-dialog" role="document">
-				    		<div class="modal-content">
-				      			<div class="modal-header">
-				        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        			<h4 class="modal-title">Nueva Sucursal</h4>
-				      			</div>
-					      			<div class="modal-body">
-								        <div id="div-registro-sucursal" class="container table-responsive">
-	      								<table>
-	      									<tr>
-	      										<td>
-	      		       							 <label id="label-numero-sucursal"><b>Numero de Tienda:</b></label>
-	      		       							 </td>
-												 <td>
-												 		<input id="input-casilla" type="text" name="casilla" placeholder="# de Sucursal" class="form-control" style="width:200px" required/> 
-												</td>	
-											</tr>
-											<tr>
-												<td>
-													<label id="label-nombre-sucursal"><b>Nombre:</b></label>
-													<td>
-														<input id="input-nombre" type="text" placeholder="Nombre de Sucursal" class="form-control" style="width:200px" required/>
-													</div>
-													</td>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<label id="label-direccion-sucursal"><b>Direccion:</b></label>
-													<td>
-													<input id="input-direccion" type="text" placeholder="Direccion" style="width:200px" style="margin-left: 5px" class="form-control" required/> 
-													</td>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<label id="label-telefono-sucursal"><b>Telefono:</b></label>
-													<td>
-													<input id="input-telefono" type="text" placeholder="Telefono" style="width: 200px" class="form-control" required/> 
-													</td>
-												</td>
-	      									</tr>
-	      								</table>			
-	      							</div>
-				    	  		</div>
-				      				<div class="modal-footer">
-				        			<input id="btn-guardar"  type="submit" name="btn-guardar" class="btn btn-default elemento_izquierda" value="Guardar">
-				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-				      				</div>
-				    		</div>
-				  		</div>
-					</div>
+			<table class="table table-responsive table-hover table-bordered table-striped" style="width: 150%">
+				<tr>
+ 					<td>
+ 						Codigo Empleado
+ 					</td>
+ 					<td>
+ 						Nombre Empleado
+ 					</td>
+ 					<td>
+ 						Numero Identidad
+ 					</td>
+ 					<td>
+ 						Area
+ 					</td>
+ 					<td>
+ 						Cargo
+ 					</td>
+ 					<td>
+ 						Domicilio
+ 					</td>
+ 					<td>
+ 						Telefono
+ 					</td>
+ 					<td>
+ 						Correo Electronico
+ 					</td>
+ 					<td>
+ 						Fecha de Ingreso
+ 					</td>
+ 					<td>
+ 						Sueldo
+ 					</td>
+ 				</tr>
 		<?php
+			while ($fila = $conexion->obtenerFila($resultado)) {
+				
+						echo '<tr>
+ 								<td>'.$fila["codigo_empleado"].'</td>
+ 								<td>'.$fila["nombre"]." ".$fila["apellido"].'</td>
+ 								<td>'.$fila["no_identidad"].'</td>
+ 								<td>'.$fila["codigo_area_trabajo"].'</td>
+ 								<td>'.$fila["codigo_privilegio"].'</td>
+ 								<td>'.$fila["domicilio"].'</td>
+ 								<td>'.$fila["telefono"].'</td>
+ 								<td>'.$fila["email"].'</td>
+ 								<td>'.$fila["fecha_de_ingreso"].'</td>
+ 								<td>'.$fila["sueldo"].'</td>
+ 							</tr>';
+					}
+		?>
+		</table>
+		<?php
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
 		break;
 
 		case '5':
@@ -269,8 +272,7 @@
 
 		case '9':
 			$resultado = $conexion->ejecutarInstruccion(sprintf("
-					SELECT codigo_empleado, codigo_privilegio, codigo_usuario, codigo_area_trabajo, nombre, apellido, no_identidad, foto, fecha_nacimiento, domicilio, telefono, email, fecha_de_ingreso, sueldo 
-					FROM tbl_empleados 
+					SELECT codigo_empleado, codigo_privilegio, codigo_usuario, codigo_area_trabajo, nombre, apellido, no_identidad, fecha_nacimiento, domicilio, telefono, email, fecha_de_ingreso, sueldo FROM tbl_empleados
 					WHERE codigo_empleado = '%s'
 				",
 				stripslashes($_POST["txt-codigo-empleado"])	
@@ -306,7 +308,7 @@
         								<label>Numero Identidad: </label>
         							</td>
         							<td>
-        								 <input type="text" id="txt-no-dentidad" value=<?php echo "'".$resul['no_identidad']."'";?>>
+        								 <input type="text" id="txt-no-identidad" value=<?php echo "'".$resul['no_identidad']."'";?>>
         							</td>
         						</tr>
         						<tr>
@@ -471,10 +473,11 @@
 
 		case '11':
 			$resultado = $conexion->ejecutarInstruccion(sprintf("
-				INSERT INTO tbl_empleados(codigo_empleado, codigo_privilegio, codigo_area_trabajo, nombre, apellido, no_identidad,  domicilio, telefono, email, fecha_de_ingreso, sueldo)
-				VALUES (null , '%s' , '%s', '%s','%s','%s', '%s', '%s', '%s', '%s', '%s')
+				INSERT INTO tbl_empleados(codigo_empleado, codigo_privilegio, codigo_usuario, codigo_area_trabajo, nombre, apellido, no_identidad,  domicilio, telefono, email, fecha_nacimiento, fecha_de_ingreso, sueldo)
+				VALUES (null , '%s', '%s', '%s', '%s','%s','%s', '%s', '%s', '%s', '%s','%s', '%s')
 				",
 					stripslashes($_POST["txt-cargo"]),
+					stripslashes($_POST["txt-usuario"]),
 					stripslashes($_POST["txt-area"]),
 					stripslashes($_POST["txt-nombre"]),
 					stripslashes($_POST["txt-apellido"]),
@@ -482,6 +485,7 @@
 					stripslashes($_POST["txt-domicilio"]),
 					stripslashes($_POST["txt-telefono"]),
 					stripslashes($_POST["txt-correo"]),
+					stripslashes($_POST["txt-fecha-nacimiento"]),
 					stripslashes($_POST["txt-fecha-ingreso"]),
 					stripslashes($_POST["txt-sueldo"])
 				));
@@ -489,6 +493,27 @@
 		$conexion->cerrarConexion();
 		break;
 
+		case '12':
+			$resultado = $conexion->ejecutarInstruccion("
+					SELECT codigo_sucursal, nombre_sucursal, direccion, telefono FROM tbl_sucursales WHERE codigo_sucursal
+				");	
+			while ($fila = $conexion->obtenerFila($resultado)) {
+				echo '<div class="row">
+ 						 <div class="col-sm-6">
+ 
+ 				<div class="ih-item square effect3 bottom_to_top"><a href="#">
+       			 <div class="img"><img src="img/supermercado.png" alt="img"></div>
+       			 <div class="info">
+         		 <h3>'.$fila["nombre_sucursal"].'</h3>
+         		 <p>'.$fila["direccion"]." ".$fila["telefono"].'</p>
+       			 </div></a></div>
+    	
+ 
+  				</div>'	;
+			}
+			$conexion->liberarResultado($resultado);
+			$conexion->cerrarConexion();
+		break;
 
 		default:
 			# code...

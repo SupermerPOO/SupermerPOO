@@ -55,9 +55,7 @@
   	  </div> 
     </header> 
 
-	      <div>
-				<input id="buscador" type="search" name="nombre" placeholder="Buscar" class="form-control input-lg input-search">
-	      </div>
+	      
 	      <br>
 
 	      <div class="container table-responsive" id="div-tabla-proveedores">
@@ -108,7 +106,11 @@
               </div>
               <div id="errorCampo" style="display: none; color: color: #BC2F27">El campo esta vacio </div>
               <div class="modal-footer">
-                <button type="button" id="btn-guardaredicion" class="btn btn-success" data-dismiss="modal" id="btn-registroMarca">Guardar</button>
+            
+
+				 <button class='btn btn-success' id="actualizar"  style="display: none">Actualizar</button>
+	
+                <button type="button"  class="btn btn-success"  id="btn-enviarCodigo">Enviar</button>
                 <button  type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
               </div>
             </div>

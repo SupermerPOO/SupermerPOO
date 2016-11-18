@@ -44,7 +44,7 @@
           <a href="estadisticas.php">Estadisticas</a> 
         </li> 
         <li> 
-          <a href="registro_productos.php">Inventario</a> 
+          <a href="registro_productos.php">Registro de Productos</a> 
         </li>
         <li> 
           <a href="usuarios.php">Usuarios</a> 

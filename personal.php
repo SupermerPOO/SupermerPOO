@@ -60,9 +60,7 @@
 <h2 style="color: green" align="center">Lista de empleados</h2>
 
 <!--Barra de busqueda-->
-<div>
-	<input type="search" id="buscar_personal" placeholder="Buscar" class="form-control input-lg input-search">
-</div><br>
+<br>
 	<div class="container table-responsive" id="div-tabla-personal">
 		
 	</div>
@@ -103,8 +101,6 @@
 				      </div>
 				      <div class="modal-body">
 				      <div align="center">
-				      	<img src="img/perfil.png" style="width: 150px; height: 150px"><br><br>
-				      	<button class="btn btn-warning btn-sm">Capturar Foto</button>
 				      </div><br><br>
 				        
 				        <div class="table-responsive">
@@ -130,6 +126,10 @@
 				        			<td><input type="text" id="txt-cargo" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
+				        			<td>Usuario:</td>
+				        			<td><input type="text" id="txt-usuario" class="form-control" style="width: 180px" required></td>
+				        		</tr>
+				        		<tr>
 				        			<td>Domicilio:</td>
 				        			<td><input type="text" id="txt-domicilio" class="form-control" style="width: 180px" required></td>
 				        		</tr>
@@ -142,6 +142,14 @@
 				        			<td><input type="text" id="txt-correo" class="form-control" style="width: 180px" required></td>
 				        		</tr>
 				        		<tr>
+				        			<td>
+				        				Fecha de Nacimiento:
+				        			</td>
+				        			<td>
+				        				<input type="text" id="txt-fecha-nacimiento" class="form-control" style="width: 180px" required>
+				        			</td>
+				        		</tr>
+				        		<tr>
 				        			<td>Fecha Ingreso:</td>
 				        			<td><input type="text" id="txt-fecha-ingreso" class="form-control" style="width: 180px" required></td>
 				        		</tr>
@@ -152,8 +160,9 @@
 				        	</table>
 				        </div>
 				      </div>
+				      <div id="validacionPersonal" style="color: #D40A18; display: none;padding: 0px 0px 0px 10px"> Hay campos vacios</div>
 				      <div class="modal-footer">
-				        <button id="btn-agregar-empleado" type="button" class="btn btn-success">Guardar</button>
+				        <button id="btn-agregar-empleado" type="button" class="btn btn-success" data-dismiss='modal'>Guardar</button>
 				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				      </div>
 				    </div>

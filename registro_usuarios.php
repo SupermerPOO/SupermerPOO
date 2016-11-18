@@ -44,14 +44,15 @@
 
 	<h2 align="center" style="color: green">Registre un nuevo usuario</h2>
 
-		<table class="table table-hover" style="auto;">
+		<div class="container row">
+		<table class="table table-responsive" style="margin-top: 5%;">
 			<tr>
 				<td style="padding-left: auto;" width="250px">Tipo Usuario:</td>
 				<td><select class="form-control" style="width: 250px" id="cbo-privilegio"><?php Usuario::mostrarPrivilegio($conexion); ?></select></td>
 			</tr>
 			<tr>
 				<td style="padding-left: auto;" width="250px">Nombre Usuario:</td>
-				<td><input type="text" name="txt-usuario" id="txt-usuario" class="form-control" style="width: 250px"></td>
+				<td><input type="text" name="txt-usuario" id="txt-usuario" class="form-control" style="width: 250px" required></td>
 			</tr>
 			<tr>
 				<td>Contraseña:</td>
@@ -61,9 +62,12 @@
 				<td>Confirmar Contraseña:</td>
 				<td><input type="password" name="txt-password-confirm" id="txt-password-confirm" class="form-control" style="width: 250px"></td>
 			</tr>
+
+			<div id="errorCampo2" style="display: none; color: #BC2F27">El campo esta vacio </div>
 			<tr>
 				<td>
-					<button class="btn btn-warning" id="btn-registrar"><a href="#" data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">Registrar</a></button>
+
+					<button class="btn btn-warning" id="btn-registrar">Registrar</button>
 
 				<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
 				  <div class="modal-dialog" role="document">
@@ -82,7 +86,7 @@
 				        </div>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				        <button type="button" class="btn btn-danger" id='btn-cancelar' data-dismiss="modal">Cancelar</button>
 				      </div>
 				    </div>
 				  </div>
@@ -90,47 +94,13 @@
 				</td>
 			</tr>
 		</table>
+		</div>
 
 		<div id="div-respuesta2" style="visibility: hidden"></div>
 
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/controlador_usuarios.js"></script>
 </body>
-
-<script>
-	$(document).ready(function(){
-		$("#btn-registrar").click(function(){
-
-			/*var parametros = "txt-usuario=" + $("#txt-usuario").val() + "&" + "txt-password=" + $("#txt-password").val() + "&" + "txt-password-confirm=" + $("#txt-password-confirm").val();
-
-			$.ajax({
-				url:"ajax/validacion_registro_usuario.php?accion=1",
-				method:"POST",
-				data: parametros,
-				success:function(respuesta){
-					$("#div-respuesta").html(respuesta)
-				},
-				error:function(){
-					alert("Error");
-				}
-			});*/
-
-			var parametros1 = "cbo-privilegio=" + $("#cbo-privilegio") + "&" + "txt-usuario=" + $("#txt-usuario").val() + "&" + "txt-password=" + $("#txt-password").val() + "&" + "txt-password-confirm=" + $("#txt-password-confirm").val();
-
-			$.ajax({
-				url:"ajax/validacion_registro_usuario.php?accion=1",
-				method:"POST",
-				data: parametros1,
-				success:function(respuesta){
-					$("#btn-registrar").button("reset");
-					$("#div-respuesta2").html(respuesta)
-				},
-				error:function(){
-					alert("Error");
-				}
-			});
-
-		});
-	
-	});
-</script>
-
 </html>

@@ -58,9 +58,7 @@
     </header>   
 	
 
-	      <div>
-				<input type="search" id="buscar" placeholder="Buscar" class="form-control input-lg input-search ">
-	      </div>
+	    
 	      <br>
 
 
@@ -109,6 +107,7 @@
 	      								</table>			
 	      							</div>
 				    	  		</div>
+				    	  		<div id="validacionSucursal" style="display: none; color: #BC2F27;padding: 10px 450px 10px 350px"> Hay campos vacios </div>
 				      				<div class="modal-footer">
 				        			<button id="btn-guardar" class="btn btn-default elemento_izquierda" data-dismiss='modal'>Guardar</button>
 				        			<button class="btn btn-primary" data-dismiss="modal">Cancelar</button>

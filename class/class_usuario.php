@@ -83,6 +83,15 @@
 
 		}
 
+		public static function mostrarUsuario($conexion){
+			$resultado = $conexion->ejecutarInstruccion("SELECT codigo_usuario, nombre_usuario FROM tbl_usuarios");
+			while($fila = $conexion->obtenerFila($resultado)){
+				echo "<option value=".$fila["codigo_usuario"]." >";
+				echo $fila["nombre_usuario"];
+				echo "</option>";
+			} 
+		}
+
 		public function registrarUsuario($conexion){
 			$sql = sprintf(
 				"INSERT INTO tbl_usuarios(codigo_usuario, codigo_privilegio, nombre_usuario, password) VALUES (NULL,'%s','%s', sha1('%s'))",
